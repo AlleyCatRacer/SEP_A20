@@ -6,7 +6,6 @@ public class TeamMember {
     private String name;
     private String teamMemberId;
     private ArrayList<Task> tasks;
-    private ArrayList<Team> teams;
     private Role role;
 
     public TeamMember(String name, String teamMemberId)
@@ -15,7 +14,6 @@ public class TeamMember {
         this.teamMemberId = teamMemberId;
         role = Role.TeamMember;
         tasks = new ArrayList<Task>();
-        teams = new ArrayList<Team>();
     }
     public void logHours(double hours, String taskId)
     {
@@ -30,7 +28,14 @@ public class TeamMember {
     }
     public Task getTaskById(String taskId)
     {
-        //TODO
+         for(int i = 0; i<tasks.size(); i++)
+        {
+            if(tasks.get(i).getTaskId().equals(taskId))
+            {
+                return tasks.get(i);
+
+            }
+        }
         throw new IllegalArgumentException();
     }
     public TimeSpent getTimeSpent()
