@@ -30,11 +30,13 @@ public class UserStory extends Requirement {
     return timeSpent;
   }
   public Estimate calculateEstimate() {
-    Estimate estimate = 0;
-    for (int i = 0; i < tasks.size(); i++) {
-      estimate += tasks.get(i).getEstimate();
-    }
-    return estimate;
+        double hours=0;
+        String id=getREQUIREMENTID();
+        for (int i = 0; i < tasks.size(); i++) {
+            hours += tasks.get(i).getEstimate().getHours();
+        }
+        Estimate estimate = new Estimate(hours,id);
+        return estimate;
   }
   public String getPriority() {
     return priority;
