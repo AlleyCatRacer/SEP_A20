@@ -1,53 +1,65 @@
-package ModelClasses;
+package model;
 
 import java.util.ArrayList;
 
-public class Team
-{
-    private ArrayList<TeamMember> team;
-    private ArrayList<TeamMember> allTeamMembers;
-    private ArrayList<Team> allTeams;
-
-    public Team(String teamId)
-    {
-        this.team = new ArrayList<>();
-        addNewTeam(team);
-    }
+public class Team {
+    private ArrayList<TeamMember> teamMembers;
 
     public Team()
     {
-        this.allTeamMembers=new ArrayList<>();
-        this.allTeams=new ArrayList<>();
+        teamMembers = new ArrayList<>();
+    }
+    public TeamMember getTeamMemberById(String teamMemberId )
+    {
+        for(int i = 0; i<teamMembers.size(); i++)
+        {
+            if(teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            {
+                return teamMembers.get(i);
+            }
+        }
+        throw new IllegalArgumentException();
     }
 
-    public void editRole(String teamMemberId, String role) throws //exception
+    //getTeamMemberByProject should be in project
+
+    public void editRole(String teamMemberId, Role role)
     {
-        for (int i = 0; i < team.size(); i++)
+        for(int i = 0; i<teamMembers.size(); i++)
         {
-            if (!(role.equalsIgnoreCase(team.get(i).getRole())))
+            if(teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
             {
-                team.get(i).editRole(role);
-            }
-            else
-            {
-                throw //exception
+                teamMembers.get(i).setRole(role);
             }
         }
     }
-
-    public void addNewTeamMember(String name, String teamMemberId)
+    public void addTeamMember(TeamMember teamMember)
     {
-        TeamMember tm = new TeamMember(name,teamMemberId);
-        allTeamMembers.add(tm);
+        teamMembers.add(teamMember);
+    }
+    public void removeTeamMember(String teamMemberId)
+    {
+        boolean doesExist = false;
+        for(int i = 0; i<teamMembers.size(); i++)
+        {
+            if(teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            {
+                doesExist = true;
+                TeamMember member = teamMembers.get(i);
+                teamMembers.remove(member);
+            }
+        }
+        if(!doesExist) throw new IllegalArgumentException();
     }
 
-    public void addNewTeam(Team team)
+    public boolean isIdTaken(String teamMemberId)
     {
-        allTeams.add(team);
-    }
-
-    public ArrayList<TeamMember> getAllTeamMembers()
-    {
-        return TeamMember.getAllTeamMembers();
+        for(int i = 0; i< teamMembers.size(); i++)
+        {
+            if(teamMembers.get(i).isExisting(teamMemberId)){
+                return true;
+            }
+        }
+        return false;
     }
 }
