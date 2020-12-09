@@ -11,7 +11,7 @@ public class ProjectList
   public Project getEndedProjectByTitle(String title){
     return null;
   }
-  public void addProject(String title,Date deadline,String comment){
+  public void addProject(String title, MyDate deadline,String comment){
 
   }
   public void removeProject(String title){
