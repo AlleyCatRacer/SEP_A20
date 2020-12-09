@@ -11,7 +11,7 @@ public abstract class Requirement {
   //Added an additional instance variable to actually know who is responsible for the requirement
   private TeamMember responsibleTeamMember;
 
-  Requirement(String REQUIREMENTID, String description) {
+  public Requirement(String REQUIREMENTID, String description) {
     this.REQUIREMENTID = REQUIREMENTID;
     this.description = description;
     this.status = Status.WAITING;
@@ -40,10 +40,10 @@ public abstract class Requirement {
   public void assignResponsibleTeamMember(TeamMember responsibleTeamMember) {
     this.responsibleTeamMember = responsibleTeamMember;
   }
-  //It should be checked in the project class. And in the UserStory class the validity of TaskID should be checked
-  public boolean isvalidRequirementID(String REQUIREMENTID) {
-
-  }
+//  //It should be checked in the project class. And in the UserStory class the validity of TaskID should be checked
+//  public boolean isvalidRequirementID(String REQUIREMENTID) {
+//
+//  }
 
 
 }
