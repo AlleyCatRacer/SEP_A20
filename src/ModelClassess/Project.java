@@ -9,7 +9,7 @@ public class Project
   String projectId;
   MyDate deadline;
   String comment;
-  TimeSpent timeSpent;
+  double timeSpent;
   String currentStatus;
 
   public Project(String title,String projectId,String customerId,MyDate deadline, String comment){
@@ -18,6 +18,7 @@ public class Project
     this.customerId=customerId;
     this.deadline=deadline;
     this.comment=comment;
+    this.timeSpent=0;
   }
 //constructor for Project class sets title, projectId, customerId, deadline and comment
 //i need to add a way to add project to project list on creation
