@@ -1,16 +1,17 @@
 package ModelClasses;
 
+import java.util.ArrayList;
 import java.util.IllegalFormatWidthException;
 
 public class Project
 {
-  String title;
-  String customerId;
-  String projectId;
-  MyDate deadline;
-  String comment;
-  double timeSpent;
-  String currentStatus;
+  private String title;
+  private String customerId;
+  private String projectId;
+  private MyDate deadline;
+  private String comment;
+  private double timeSpent;
+  private String currentStatus;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     this.title=title;
@@ -41,12 +42,6 @@ public class Project
     this.title = title;
   }
 //Basically a setter for Title
-  public void addTeamMember(String teamMemberId){
-//404
-  }
-  public void removeTeamMember(String teamMemberId){
-//404
-  }
   public void removeRequirement(String requirementId){
 //404
   }
@@ -56,57 +51,73 @@ public class Project
   public void addNonFunctional(String requirementId, String description,String status){
 //404
   }
+  
   public void addUserStory(String requirementId, String description,String status,MyDate deadline){
 //404
   }
-  public void addProjectRelatedRequirement(String requirementId, String description,String status,MyDate deadline){
-//404
+  private ArrayList<ProjectRelated> requirements;
+  public void addProjectRelatedRequirement(ProjectRelated requirement){
+    String id = requirement.getREQUIREMENTID();
+      if (!id.matches("[a-zA-Z0-9]*")){
+        throw new IllegalArgumentException();
+      }else{
+        requirements.forEach((e) -> {
+           if(e.getREQUIREMENTID().equals(id))
+           {
+             throw new IllegalArgumentException();
+           }
+         });
+        requirements.add(requirement);
+      }
   }
   public boolean isValidProjectId(){
-    if (this.projectId.matches("[a-zA-Z0-9]*")){
-     return false;
+    if (!this.projectId.matches("[a-zA-Z0-9]*")){
+      throw new IllegalArgumentException();
     }else if (this.projectId.length()>8){
-      return false;
+      throw new IllegalFormatWidthException(this.projectId.length());
     }else{
       return true;
     }
   }
   //project id must not contain anything else then numbers and letters/capital letters and should be 8 digits/chars for now
   public boolean isValidTitle(){
-    if (this.title.matches("[a-zA-Z]*")){
+    if (!this.title.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
     }else if (this.title.length()>25){
-     throw new IllegalFormatWidthException(this.projectId.length());
+     throw new IllegalFormatWidthException(this.title.length());
     }else{
       return true;
     }
   }
   //can only contain letters and max 25 chars for now
   public boolean isValidCustomerId(){
-    if (this.customerId.matches("[a-zA-Z0-9]*")){
+    if (!this.customerId.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
     }else if (this.customerId.length()>8){
-      throw new IllegalFormatWidthException(this.projectId.length());
+      throw new IllegalFormatWidthException(this.customerId.length());
     }else{
       return true;
     }
   }
   //same as projectID for now
   public boolean isValidComment(){
-    if (this.comment.matches("[a-zA-Z]*")){
+    if (!this.comment.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
     }else if (this.comment.length()>250){
-      throw new IllegalFormatWidthException(this.projectId.length());
+      throw new IllegalFormatWidthException(this.comment.length());
     }else{
       return true;
     }
   }
   //can only contain letters and max 250 chars for now
-
-
-
-
-
-
-
+  public boolean isValidRequirementID(String REQUIREMENTID) {
+    if (REQUIREMENTID.matches("[a-zA-Z0-9]*")){
+      throw new IllegalArgumentException();
+    }else if (REQUIREMENTID.length()>2){
+      throw new IllegalFormatWidthException(REQUIREMENTID.length());
+    }else{
+      return true;
+    }
+  }
 }
+

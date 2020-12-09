@@ -41,9 +41,7 @@ public abstract class Requirement {
     this.responsibleTeamMember = responsibleTeamMember;
   }
   //It should be checked in the project class. And in the UserStory class the validity of TaskID should be checked
-  public boolean isvalidRequirementID(String REQUIREMENTID) {
 
-  }
 
 
 }
