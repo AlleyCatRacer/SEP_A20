@@ -42,14 +42,14 @@ public abstract class Requirement
         return status;
     }
 
-    public void assignResponsibleTeamMember(TeamMember responsibleTeamMember)
-    {
-        this.responsibleTeamMember = responsibleTeamMember;
-    }
-
     public TeamMember getResponsibleTeamMember()
     {
         return responsibleTeamMember;
+    }
+
+    public void assignResponsibleTeamMember(TeamMember responsibleTeamMember)
+    {
+        this.responsibleTeamMember = responsibleTeamMember;
     }
 
     public void changeDescription(String description)
@@ -61,11 +61,4 @@ public abstract class Requirement
     {
         this.status = status;
     }
-
-//  //It should be checked in the project class. And in the UserStory class the validity of TaskID should be checked
-//  public boolean isValidRequirementId(String requirementId) {
-//
-//  }
-
-
 }

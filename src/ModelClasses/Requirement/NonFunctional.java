@@ -5,10 +5,9 @@ public class NonFunctional extends Requirement
     //Should type be final?
     private final String type;
 
-    public NonFunctional(String REQUIREMENTID, String description)
+    public NonFunctional(String requirementId, String description)
     {
-
-        super(REQUIREMENTID, description);
+        super(requirementId, description);
         this.type = "Non Functional";
     }
 

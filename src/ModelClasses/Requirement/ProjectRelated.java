@@ -8,15 +8,15 @@ public class ProjectRelated extends Requirement
     //Should type be final?
     private final String type;
     private double timeSpent;
-    private String priority;
+    private Priority priority;
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
-    public ProjectRelated(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline)
+    public ProjectRelated(String requirementId, String description, MyDate deadline)
     {
-        super(REQUIREMENTID, description);
+        super(requirementId, description);
         this.type = "Project Related";
-        this.priority = priority;
+        this.priority = Priority.UNDEFINED;
         this.deadline = deadline;
         this.timeSpent = getTimeSpent();
     }
@@ -33,7 +33,7 @@ public class ProjectRelated extends Requirement
 
     public String getPriority()
     {
-        return priority;
+        return priority.getPriorityString();
     }
 
     public MyDate getDeadline()
@@ -41,14 +41,12 @@ public class ProjectRelated extends Requirement
         return deadline;
     }
 
-    //Depending on implementation the parameter's data type might change to double
     public void updateTimeSpent(double timeSpent)
     {
         this.timeSpent = timeSpent;
     }
 
-    //Do we want to have an enum for priority?
-    public void changePriority(String priority)
+    public void changePriority(Priority priority)
     {
         this.priority = priority;
     }
@@ -58,12 +56,7 @@ public class ProjectRelated extends Requirement
         this.deadline = deadline;
     }
 
-    public boolean isLegalDeadline(MyDate deadline)
-    {
-
-    }
-
-    public boolean equals(Object banana)
+ /*   public boolean equals(Object banana)
     {
 
     }
@@ -71,6 +64,6 @@ public class ProjectRelated extends Requirement
     public String toString()
     {
 
-    }
+    }*/
 
 }

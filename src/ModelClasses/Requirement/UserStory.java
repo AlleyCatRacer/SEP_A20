@@ -1,8 +1,8 @@
 package ModelClasses.Requirement;
 
 import ModelClasses.MyDate;
+import ModelClasses.Status;
 import ModelClasses.Task;
-import ModelClasses.TeamMember;
 
 import java.util.ArrayList;
 
@@ -20,9 +20,9 @@ public class UserStory extends Requirement
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
-    public UserStory(String REQUIREMENTID, String description, MyDate deadline)
+    public UserStory(String requirementId, String description, MyDate deadline)
     {
-        super(REQUIREMENTID, description);
+        super(requirementId, description);
         this.type = "User Story";
         this.timeSpent = 0;
         this.estimate = 0;
@@ -78,7 +78,7 @@ public class UserStory extends Requirement
 
     public void createNewTask(String taskId, String description, double estimate,UserStory requirement)
     {
-        int i=2;
+        int i=1;
         do
         {
             Task task = new Task(taskId, description, estimate, this);
@@ -88,10 +88,6 @@ public class UserStory extends Requirement
                 {
                     requirementTasks.add(task);
                     i=0;
-                }
-                else
-                {
-                    i=1;
                 }
             }
             catch (IllegalArgumentException e)
@@ -117,17 +113,28 @@ public class UserStory extends Requirement
 
     public void changeDeadline(MyDate deadline)
     {
-        this.deadline = deadline;
+        this.deadline=deadline;
     }
 
-    //if all the tasks have status "Ended", the requirement automatically becomes "Testing"
-    public boolean completionCheck()
+    //if all the tasks have status "Ended", the requirement automatically becomes "Ended"
+    public void completionCheck()
     {
-
+        int counter=0;
+        for (int i=0;i<requirementTasks.size()-1;i++)
+        {
+            if (requirementTasks.get(i).getStatus().equals(Status.ENDED))
+            {
+                counter++;
+            }
+        }
+        if (counter==requirementTasks.size()-1)
+        {
+            changeStatus(Status.ENDED);
+        }
     }
 
 
-    public boolean equals(Object banana)
+ /*   public boolean equals(Object banana)
     {
 
     }
@@ -135,6 +142,6 @@ public class UserStory extends Requirement
     public String toString()
     {
 
-    }
+    }*/
 
 }

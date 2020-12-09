@@ -57,18 +57,14 @@ public class Project
 
    });
   }
-  public void editRequirement(String requirementId){
-    requirements.forEach((e) -> {
 
-    });
-  }
   public void addNonFunctional(String requirementId, String description){
     NonFunctional n=new NonFunctional(requirementId,description);
-    String id = n.getREQUIREMENTID();
+    String id = n.getRequirementId();
     isValidRequirementID(id);
     isValidComment(description);
     requirements.forEach((e) -> {
-      if(e.getREQUIREMENTID().equals(id))
+      if(e.getRequirementId().equals(id))
       {
         throw new IllegalArgumentException();
       }
@@ -78,12 +74,12 @@ public class Project
   
   public void addUserStory(String REQUIREMENTID, String description, MyDate deadline){
     UserStory u=new UserStory(REQUIREMENTID,description,deadline);
-    String id = u.getREQUIREMENTID();
+    String id = u.getRequirementId();
     isValidRequirementID(id);
     setDeadline(deadline);
     isValidComment(description);
     requirements.forEach((e) -> {
-      if(e.getREQUIREMENTID().equals(id))
+      if(e.getRequirementId().equals(id))
       {
         throw new IllegalArgumentException();
       }
@@ -91,24 +87,25 @@ public class Project
     requirements.add(u);
   }
 
-  public void addProjectRelatedRequirement(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline){
-    ProjectRelated r = new ProjectRelated(REQUIREMENTID,description,timeSpent,priority,deadline);
-    String id = r.getREQUIREMENTID();
+  public void addProjectRelatedRequirement(String requirementId, String description, double timeSpent, String priority, MyDate deadline){
+    ProjectRelated r = new ProjectRelated(requirementId,description,timeSpent,priority,deadline);
+    String id = r.getRequirementId();
     isValidRequirementID(id);
     setDeadline(deadline);
     isValidTime(timeSpent);
     isValidComment(description);
         requirements.forEach((e) -> {
-           if(e.getREQUIREMENTID().equals(id))
+           if(e.getRequirementId().equals(id))
            {
-             throw new IllegalArgumentException();
+             throw new IllegalArgumentException("Please enter a requirement ID containing 2 or more letters and/or numbers that is unique withing the project");
            }
          });
         requirements.add(r);
   }
   public boolean isValidProjectId(String projectId){
     if (!projectId.matches("[a-zA-Z0-9]*")){
-      throw new IllegalArgumentException();
+      IllegalArgumentException e=new IllegalArgumentException("Please enter a unique project ID containing 2 or more letters and/or numbers");
+      throw e;
     }else if (projectId.length()>8){
       throw new IllegalFormatWidthException(this.projectId.length());
     }else{
@@ -146,11 +143,12 @@ public class Project
     }
   }
   //can only contain letters and max 250 chars for now
-  public boolean isValidRequirementID(String REQUIREMENTID) {
-    if (!REQUIREMENTID.matches("[a-zA-Z0-9]*")){
-      throw new IllegalArgumentException();
-    }else if (REQUIREMENTID.length()>2){
-      throw new IllegalFormatWidthException(REQUIREMENTID.length());
+  public boolean isValidRequirementID(String requirementId) {
+    if (!requirementId.matches("[a-zA-Z0-9]*")){
+      IllegalArgumentException e=new IllegalArgumentException("Please enter a requirement ID containing 2 or more letters and/or numbers that is unique withing the project");
+      throw e;
+    }else if (requirementId.length()>=2){
+      throw new IllegalFormatWidthException(requirementId.length());
     }else{
       return true;
     }
@@ -163,7 +161,8 @@ public class Project
     }
     else
     {
-      throw new IllegalArgumentException();
+      IllegalArgumentException e=new IllegalArgumentException("Please enter only whole and/or half hours");
+      throw e;
     }
   }
 
