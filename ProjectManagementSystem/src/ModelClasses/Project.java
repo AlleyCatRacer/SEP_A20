@@ -30,6 +30,12 @@ public class Project
    this.currentStatus =status.getStatusString();
   }
 //sets the currentStatus to the String value of Status status
+
+  public String getTitle()
+  {
+    return title;
+  }
+
   public void editComment(String comment)
   {
     this.comment = comment;
@@ -51,7 +57,7 @@ public class Project
   public void editRequirement(String requirementId){
 //404
   }
-  public void addNonFunctional(String requirementId, String description,String status){
+  public void addNonFunctional(){
 //404
   }
   
@@ -59,7 +65,8 @@ public class Project
 //404
   }
 
-  public void addProjectRelatedRequirement(ProjectRelated requirement){
+  public void addProjectRelatedRequirement(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline){
+    ProjectRelated requirement= new ProjectRelated(REQUIREMENTID,description,timeSpent,priority,deadline);
     String id = requirement.getREQUIREMENTID();
     isValidRequirementID(id);
         requirements.forEach((e) -> {
