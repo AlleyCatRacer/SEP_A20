@@ -16,7 +16,7 @@ public class UserStory extends Requirement
     private double estimate;
     private Priority priority;
     //ArrayList of tasks seems to make more sense
-    private ArrayList<Task> tasks;
+    private ArrayList<Task> requirementTasks;
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
@@ -25,9 +25,9 @@ public class UserStory extends Requirement
         super(REQUIREMENTID, description);
         this.type = "User Story";
         this.timeSpent = 0;
-        this.estimate = calculateEstimate();
+        this.estimate = 0;
         this.priority = Priority.UNDEFINED;
-        this.tasks = new ArrayList<Task>();
+        this.requirementTasks = new ArrayList<Task>();
         this.deadline = deadline;
     }
 
@@ -44,11 +44,10 @@ public class UserStory extends Requirement
     public double calculateEstimate()
     {
         double hours = 0;
-        for (int i = 0; i < tasks.size(); i++)
+        for (int i = 0; i < requirementTasks.size(); i++)
         {
-            hours += tasks.get(i).getEstimate();
+            hours += requirementTasks.get(i).getEstimate();
         }
-
         return hours;
     }
 
@@ -57,9 +56,9 @@ public class UserStory extends Requirement
         return priority.getPriorityString();
     }
 
-    public ArrayList<Task> getTasks()
+    public ArrayList<Task> getRequirementTasks()
     {
-        return tasks;
+        return requirementTasks;
     }
 
     public MyDate getDeadline()
@@ -77,59 +76,43 @@ public class UserStory extends Requirement
         this.priority = priority;
     }
 
-    public void addTask(Task task)
+    public void createNewTask(String taskId, String description, double estimate,UserStory requirement)
     {
-        if (isLegalTaskID(task))
+        int i=2;
+        do
         {
-            tasks.add(task);
-            calculateEstimate();
-        }
-    }
-
-    //for all the taskID's I don't know will they be final
-    //Should we have a second parameter of type TeamMember?
-    public void assignTask(String taskID, TeamMember teamMember)
-    {
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (tasks.get(i).getTaskId().equals(taskID))
+            Task task = new Task(taskId, description, estimate, this);
+            try
             {
-                tasks.get(i).setResponsibleTeamMember(teamMember);
-                break;
+                if(task.isValidTaskId(taskId, this))
+                {
+                    requirementTasks.add(task);
+                    i=0;
+                }
+                else
+                {
+                    i=1;
+                }
             }
-        }
-
-    }
-
-    public void editTask(String taskID)
-    {
-
-    }
-
-    public void removeTask(String taskID)
-    {
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (tasks.get(i).getTaskId().equals(taskID))
+            catch (IllegalArgumentException e)
             {
-                tasks.remove(i);
-                calculateEstimate();
-                break;
+                e=new IllegalArgumentException("This task ID is taken. Please enter an ID that is unique within the project.");
+                throw(e);
             }
-        }
 
+        }
+        while(i!=0);
+        this.estimate=calculateEstimate();
     }
 
-    public boolean isLegalTaskID(Task task)
+    public void assignTask(Task task)
     {
-        int count = 0;
-        for (int i = 0; i < tasks.size(); i++)
-        {
-            if (tasks.get(i).getTaskId().equals(task.getTaskId()))
-                count++;
-        }
-        return (count == 0);
+        requirementTasks.add(task);
+    }
 
+    public void removeTask(Task task)
+    {
+        requirementTasks.remove(task);
     }
 
     public void changeDeadline(MyDate deadline)
@@ -137,14 +120,10 @@ public class UserStory extends Requirement
         this.deadline = deadline;
     }
 
-    public boolean isLegalDeadline(MyDate deadline)
-    {
-
-    }
-
     //if all the tasks have status "Ended", the requirement automatically becomes "Testing"
     public boolean completionCheck()
     {
+
     }
 
 

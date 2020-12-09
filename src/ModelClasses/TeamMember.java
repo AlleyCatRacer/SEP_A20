@@ -67,6 +67,11 @@ public class TeamMember
         this.role = role;
     }
 
+    public void assignTaskToTeamMember(Task task)
+    {
+        tasks.add(task);
+    }
+
     public void addNewTeamMember(String name, String teamMemberId)
     {
         if (!(isExisting(teamMemberId)))

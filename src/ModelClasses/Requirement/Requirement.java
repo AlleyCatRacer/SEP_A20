@@ -16,17 +16,18 @@ public abstract class Requirement
     private Status status;
     //Added an additional instance variable to actually know who is responsible for the requirement
     private TeamMember responsibleTeamMember;
+    ArrayList<Requirement> requirementList;
 
-    public Requirement(String REQUIREMENTID, String description)
+    public Requirement(String requirementId, String description)
     {
-        this.REQUIREMENTID = REQUIREMENTID;
+        this.REQUIREMENTID = requirementId;
         this.description = description;
         this.status = Status.WAITING;
-        this.responsibleTeamMember = null;
-        ArrayList<Requirement> requirementList = new ArrayList<>();
+        this.responsibleTeamMember=null;
+        this.requirementList = new ArrayList<>();
     }
 
-    public String getREQUIREMENTID()
+    public String getRequirementId()
     {
         return REQUIREMENTID;
     }
@@ -41,7 +42,11 @@ public abstract class Requirement
         return status;
     }
 
-    //how do we get the responsible team member?
+    public void assignResponsibleTeamMember(TeamMember responsibleTeamMember)
+    {
+        this.responsibleTeamMember = responsibleTeamMember;
+    }
+
     public TeamMember getResponsibleTeamMember()
     {
         return responsibleTeamMember;
@@ -57,12 +62,8 @@ public abstract class Requirement
         this.status = status;
     }
 
-    public void assignResponsibleTeamMember(TeamMember responsibleTeamMember)
-    {
-        this.responsibleTeamMember = responsibleTeamMember;
-    }
 //  //It should be checked in the project class. And in the UserStory class the validity of TaskID should be checked
-//  public boolean isvalidRequirementID(String REQUIREMENTID) {
+//  public boolean isValidRequirementId(String requirementId) {
 //
 //  }
 

@@ -1,20 +1,27 @@
 package ModelClasses;
 
+import ModelClasses.Requirement.UserStory;
+
+import java.util.ArrayList;
+
 public class Task
 {
-    private String taskId;
+    private final String taskId;
     private String description;
     private double estimate;
     private double timeSpent;
     private Status status;
+    private ArrayList<UserStory> requirements;
 
-    public Task(String taskId, String description, double estimate)
+    public Task(String taskId, String description, double estimate,UserStory requirement)
     {
         this.taskId = taskId;
         this.description = description;
         this.estimate = estimate;
         timeSpent = 0;
         status = Status.WAITING;
+        this.requirements= new ArrayList<>();
+        this.assignToRequirement(requirement);
     }
 
     public void changeDescription(String description)
@@ -32,9 +39,18 @@ public class Task
         this.estimate = estimate;
     }
 
+    public boolean isValidTime(double hours)
+    {
+        return (hours%0.5==0);
+    }
+
     public void logHours(double timeSpent)
     {
-        this.timeSpent += timeSpent;
+        if (isValidTime(timeSpent))
+        {
+            this.timeSpent += timeSpent;
+        }
+        //exception
     }
 
     public double getEstimate()
@@ -42,9 +58,9 @@ public class Task
         return estimate;
     }
 
-    public Status getStatus()
+    public String getStatus()
     {
-        return status;
+        return status.getStatusString();
     }
 
     public String getDescription()
@@ -62,8 +78,27 @@ public class Task
         return timeSpent;
     }
 
-    public boolean isValidTaskId(String taskId)
+    public boolean isValidTaskId(String taskId, UserStory requirement)
     {
-        return this.taskId.equals(taskId);
+        int bin=0;
+        for(int i=0; i<requirement.getRequirementTasks().size();i++)
+        {
+            if (requirement.getRequirementTasks().get(i).getTaskId().equalsIgnoreCase(taskId))
+            {
+                bin+=1;
+                break;
+            }
+        }
+        return (bin==0);
+    }
+
+    public void assignTaskToTeamMember(TeamMember teamMember)
+    {
+        teamMember.assignTaskToTeamMember(this);
+    }
+
+    public void assignToRequirement(UserStory requirement)
+    {
+        requirements.add(requirement);
     }
 }
