@@ -13,7 +13,7 @@ public class Project
   private String comment;
   private double timeSpent;
   private String currentStatus;
-  private ArrayList<ProjectRelated> requirements;
+  private ArrayList<Requirement> requirements;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
@@ -52,8 +52,9 @@ public class Project
   public void editRequirement(String requirementId){
 //404
   }
-  public void addNonFunctional(String requirementId, String description,String status){
-//404
+  public void addNonFunctional(String requirementId, String description){
+    NonFunctional n=new NonFunctional(requirementId,description);
+    requirements.add(n);
   }
   
   public void addUserStory(String requirementId, String description,String status,MyDate deadline){
