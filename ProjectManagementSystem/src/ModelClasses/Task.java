@@ -29,7 +29,7 @@ public class Task {
     }
 
     public void logHours(double timeSpent) {
-        this.timeSpent = timeSpent;
+        this.timeSpent += timeSpent;
     }
 
     public double getEstimate() {
