@@ -24,13 +24,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjectManagementSystem/src/ModelClasses/Team&amp;Member" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Delimited/src" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited\src" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src\ModelClassess" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\ProjectManagementSystem\src\ModelClasses\Team&amp;Member" />
     </key>
   </component>
@@ -78,5 +82,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607508357896" />
+    <state x="396" y="33" key="new project wizard" timestamp="1607521595259">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="396" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1607521595259" />
   </component>
 </project>
