@@ -3,6 +3,8 @@ package ModelClasses.Requirement;
 import ModelClasses.Status;
 import ModelClasses.TeamMember;
 
+import java.util.ArrayList;
+
 //It does not make sense that deadline is in the superclass because NonFunctional requirements do not have deadlines
 //It seems that Requirement should be abstract
 public abstract class Requirement
@@ -21,6 +23,7 @@ public abstract class Requirement
         this.description = description;
         this.status = Status.WAITING;
         this.responsibleTeamMember = null;
+        ArrayList<Requirement> requirementList = new ArrayList<>();
     }
 
     public String getREQUIREMENTID()
