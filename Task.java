@@ -1,19 +1,19 @@
-package model;
+package ModelClasses;
 
 public class Task {
     private String taskId;
     private String description;
-    private Estimate estimate;
-    private TimeSpent timeSpent;
+    private double estimate;
+    private double timeSpent;
     private Status status;
 
-    public Task(String taskId, String description, Estimate  estimate)
+    public Task(String taskId, String description, double  estimate)
     {
         this.taskId  = taskId;
         this.description = description;
         this.estimate = estimate;
-        timeSpent = null;
-        status = Status.Waiting;
+        timeSpent = 0;
+        status = Status.WAITING;
     }
 
     public void changeDescription(String description) {
@@ -24,15 +24,15 @@ public class Task {
         this.status = status;
     }
 
-    public void changeEstimate(Estimate estimate) {
+    public void changeEstimate(double estimate) {
         this.estimate = estimate;
     }
 
-    public void changeTimeSpent(TimeSpent timeSpent) {
+    public void logHours(double timeSpent) {
         this.timeSpent = timeSpent;
     }
 
-    public Estimate getEstimate() {
+    public double getEstimate() {
         return estimate;
     }
 
@@ -48,7 +48,7 @@ public class Task {
         return taskId;
     }
 
-    public TimeSpent getTimeSpent() {
+    public double getTimeSpent() {
         return timeSpent;
     }
     public boolean isValidTaskId(String taskId)

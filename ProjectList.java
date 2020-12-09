@@ -1,3 +1,5 @@
+package ModelClasses;
+
 public class ProjectList
 {    //sorry haven't started this yet
   public ProjectList(){

@@ -1,3 +1,5 @@
+package ModelClasses;
+
 import java.util.IllegalFormatWidthException;
 
 public class Project

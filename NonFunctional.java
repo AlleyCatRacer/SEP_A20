@@ -1,33 +1,19 @@
-public class NonFunctional extends Requirement {
-  //Should type be final?
-  private final String type;
+package ModelClasses;
 
-  public NonFunctional(String REQUIREMENTID, String description) {
+public class NonFunctional extends Requirement
+{
+    //Should type be final?
+    private final String type;
 
-    super(REQUIREMENTID, description);
-    this.type = "Non Functional";
-  }
+    public NonFunctional(String REQUIREMENTID, String description)
+    {
 
-  public String getType() {
-    return type;
-  }
+        super(REQUIREMENTID, description);
+        this.type = "Non Functional";
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  public boolean equals(Object banana) {
-
-  }
-  public String toString() {
-
-  }
+    public String getType()
+    {
+        return type;
+    }
 }

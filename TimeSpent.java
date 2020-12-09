@@ -14,7 +14,7 @@ public class TimeSpent extends Time
         this.loggedHours = new ArrayList<>();
     }
 
-    public double getTimeSpentOnTask(String taskId)
+/*    public double getTimeSpentOnTask(String taskId)
     {
         double loggedTime = 0;
         for (int i=0;i<loggedHours.size();i++)
@@ -27,8 +27,8 @@ public class TimeSpent extends Time
         }
         return loggedTime;
     }
-
-    public double getTimeSpentOnProject(String projectId)
+*/
+/*    public double getTimeSpentOnProject(String projectId)
     {
         double loggedTime = 0;
         for (int i=0;i<loggedHours.size();i++)
@@ -41,8 +41,8 @@ public class TimeSpent extends Time
         }
         return loggedTime;
     }
-
-    public void logHours(double hours, String taskId)
+*/
+    public void logHours(double hours, String taskId) //throw an exception because you can't create a time spent without a task
     {
         for (int i=0;i<loggedHours.size();i++)
         {

@@ -1,7 +1,5 @@
+package ModelClasses;
 
-enum Status {
-  WAITING, STARTED, ENDED, REJECTED, TESTING;
-}
 //It does not make sense that deadline is in the superclass because NonFunctional requirements do not have deadlines
 //It seems that Requirement should be abstract
 public abstract class Requirement {

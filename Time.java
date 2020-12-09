@@ -1,6 +1,6 @@
 package ModelClasses;
 
-public class Time
+public abstract class Time
 {
     private double hours;
 
@@ -9,12 +9,13 @@ public class Time
         setHours(hours);
     }
 
-    public void setHours(double hours)
+    public void setHours(double hours) //throws whichever exception
     {
         if (isValidTime(hours))
         {
             this.hours=hours;
         }
+        //add exception
     }
 
     public double getHours()
@@ -24,7 +25,7 @@ public class Time
 
     public boolean isValidTime(double hours)
     {
-        if (hours >= 0.5)
+        if (hours%0.5==0)
         {
             return true;
         }
@@ -40,4 +41,5 @@ public class Time
         s+= "Hours: "+getHours();
         return s;
     }
+
 }
