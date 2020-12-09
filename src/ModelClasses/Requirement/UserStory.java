@@ -14,19 +14,19 @@ public class UserStory extends Requirement
     private double timeSpent;
     //Sums the estimates of all the tasks
     private double estimate;
-    private String priority;
+    private Priority priority;
     //ArrayList of tasks seems to make more sense
     private ArrayList<Task> tasks;
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
-    public UserStory(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline)
+    public UserStory(String REQUIREMENTID, String description, MyDate deadline)
     {
         super(REQUIREMENTID, description);
         this.type = "User Story";
-        this.timeSpent = timeSpent;
+        this.timeSpent = 0;
         this.estimate = calculateEstimate();
-        this.priority = priority;
+        this.priority = Priority.UNDEFINED;
         this.tasks = new ArrayList<Task>();
         this.deadline = deadline;
     }
@@ -54,7 +54,7 @@ public class UserStory extends Requirement
 
     public String getPriority()
     {
-        return priority;
+        return priority.getPriorityString();
     }
 
     public ArrayList<Task> getTasks()
@@ -72,7 +72,7 @@ public class UserStory extends Requirement
         this.timeSpent = timeSpent;
     }
 
-    public void changePriority(String priority)
+    public void changePriority(Priority priority)
     {
         this.priority = priority;
     }
