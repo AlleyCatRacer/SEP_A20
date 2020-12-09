@@ -58,9 +58,7 @@ public class Project
   private ArrayList<ProjectRelated> requirements;
   public void addProjectRelatedRequirement(ProjectRelated requirement){
     String id = requirement.getREQUIREMENTID();
-      if (!id.matches("[a-zA-Z0-9]*")){
-        throw new IllegalArgumentException();
-      }else{
+    isValidRequirementID(id);
         requirements.forEach((e) -> {
            if(e.getREQUIREMENTID().equals(id))
            {
@@ -68,7 +66,7 @@ public class Project
            }
          });
         requirements.add(requirement);
-      }
+      
   }
   public boolean isValidProjectId(){
     if (!this.projectId.matches("[a-zA-Z0-9]*")){
