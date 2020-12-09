@@ -24,7 +24,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ProjectManagementSystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Delimited/src" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited\src" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src\ModelClassess" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\ProjectManagementSystem\src\ModelClasses\Team&amp;Member" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -46,6 +58,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="520" y="241" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1607510722200" />
+    <state x="249" y="0" key="#Project_Structure" timestamp="1607518974371">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1607518974371" />
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607508341246">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -58,9 +74,17 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1607513540505" />
+    <state x="349" y="155" key="IDE.errors.dialog" timestamp="1607520336588">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="155" key="IDE.errors.dialog/0.0.1536.824@0.0.1536.824" timestamp="1607520336588" />
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607508357896">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607508357896" />
+    <state x="396" y="33" key="new project wizard" timestamp="1607521595259">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="396" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1607521595259" />
   </component>
 </project>
