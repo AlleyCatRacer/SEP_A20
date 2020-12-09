@@ -9,9 +9,4 @@ enum Role
     {
         this.role = role;
     }
-
-    private boolean isRole(String role)
-    {
-        return role.equalsIgnoreCase(TEAM_MEMBER.role) || role.equalsIgnoreCase(SCRUM_MASTER.role) || role.equalsIgnoreCase(PRODUCT_OWNER.role);
-    }
 }
