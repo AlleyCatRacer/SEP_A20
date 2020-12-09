@@ -12,7 +12,7 @@ public class TeamMember {
     {
         this.name = name;
         this.teamMemberId = teamMemberId;
-        role = Role.TeamMember;
+        role = Role.TEAM_MEMBER;
         tasks = new ArrayList<Task>();
     }
     public void logHours(double hours, String taskId)
@@ -21,8 +21,7 @@ public class TeamMember {
         {
             if(tasks.get(i).getTaskId().equals(taskId))
             {
-                TimeSpent timeSpent = tasks.get(i).getTimeSpent().hours + hours;
-
+                tasks.get(i).logHours(hours);
             }
         }
     }
@@ -33,12 +32,12 @@ public class TeamMember {
             if(tasks.get(i).getTaskId().equals(taskId))
             {
                 return tasks.get(i);
-
             }
         }
-        throw new IllegalArgumentException();
+         IllegalArgumentException e= new IllegalArgumentException("No task found with given ID");
+         throw e;
     }
-    public TimeSpent getTimeSpent()
+    public double getTimeSpent()
     {
         //TODO
         throw  new IllegalArgumentException();
@@ -56,6 +55,15 @@ public class TeamMember {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public void addNewTeamMember(String name, String teamMemberId)
+    {
+        if (!(isExisting(teamMemberId)))
+        {
+            TeamMember newTeamMember = new TeamMember(name,teamMemberId);
+        }
+        throw new IllegalArgumentException();
     }
 
     public boolean isExisting(String teamMemberId)

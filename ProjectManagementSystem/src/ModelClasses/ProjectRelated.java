@@ -5,17 +5,18 @@ public class ProjectRelated extends Requirement
 
     //Should type be final?
     private final String type;
-    private TimeSpent timeSpent;
+    private double timeSpent;
     private String priority;
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
-    public ProjectRelated(String REQUIREMENTID, String description, TimeSpent timeSpent, String priority, MyDate deadline)
+    public ProjectRelated(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline)
     {
         super(REQUIREMENTID, description);
         this.type = "Project Related";
         this.priority = priority;
         this.deadline = deadline;
+        this.timeSpent = getTimeSpent();
     }
 
     public String getType()
@@ -23,7 +24,7 @@ public class ProjectRelated extends Requirement
         return type;
     }
 
-    public TimeSpent getTimeSpent()
+    public double getTimeSpent()
     {
         return timeSpent;
     }
@@ -39,7 +40,7 @@ public class ProjectRelated extends Requirement
     }
 
     //Depending on implementation the parameter's data type might change to double
-    public void updateTimeSpent(TimeSpent timeSpent)
+    public void updateTimeSpent(double timeSpent)
     {
         this.timeSpent = timeSpent;
     }
