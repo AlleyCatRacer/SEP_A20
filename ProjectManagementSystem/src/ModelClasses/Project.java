@@ -12,14 +12,17 @@ public class Project
   private String comment;
   private double timeSpent;
   private String currentStatus;
+  private ArrayList<ProjectRelated> requirements;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
+    requirements = new ArrayList<>();
     this.title=title;
     this.projectId=projectId;
     this.customerId=customerId;
     this.deadline=deadline;
     this.comment=comment;
     this.timeSpent=0;
+    this.currentStatus=Status.WAITING.getStatusString();
   }
 //constructor for Project class sets title, projectId, customerId, deadline and comment
 //i need to add a way to add project to project list on creation
@@ -55,7 +58,7 @@ public class Project
   public void addUserStory(String requirementId, String description,String status,MyDate deadline){
 //404
   }
-  private ArrayList<ProjectRelated> requirements;
+
   public void addProjectRelatedRequirement(ProjectRelated requirement){
     String id = requirement.getREQUIREMENTID();
     isValidRequirementID(id);
@@ -66,7 +69,6 @@ public class Project
            }
          });
         requirements.add(requirement);
-      
   }
   public boolean isValidProjectId(){
     if (!this.projectId.matches("[a-zA-Z0-9]*")){
@@ -116,6 +118,18 @@ public class Project
     }else{
       return true;
     }
+  }
+
+
+
+
+
+  @Override public String toString()
+  {
+    return "Project{" + "title='" + title + '\'' + ", customerId='" + customerId
+        + '\'' + ", projectId='" + projectId + '\'' + ", deadline=" + deadline
+        + ", comment='" + comment + '\'' + ", timeSpent=" + timeSpent
+        + ", currentStatus='" + currentStatus + '}';
   }
 }
 
