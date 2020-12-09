@@ -7,8 +7,8 @@ import java.util.IllegalFormatWidthException;
 public class Project
 {
   private String title;
-  private String customerId;
-  private String projectId;
+  private final String customerId;
+  private final String projectId;
   private MyDate deadline;
   private String comment;
   private double timeSpent;
@@ -58,64 +58,88 @@ public class Project
    });
   }
   public void editRequirement(String requirementId){
-//404
+    requirements.forEach((e) -> {
+
+    });
   }
   public void addNonFunctional(String requirementId, String description){
     NonFunctional n=new NonFunctional(requirementId,description);
+    String id = n.getREQUIREMENTID();
+    isValidRequirementID(id);
+    isValidComment(description);
+    requirements.forEach((e) -> {
+      if(e.getREQUIREMENTID().equals(id))
+      {
+        throw new IllegalArgumentException();
+      }
+    });
     requirements.add(n);
   }
   
-  public void addUserStory(//arguments//){
-    UserStory u=new UserStory(requirementId,description,deadline);
+  public void addUserStory(String REQUIREMENTID, String description, MyDate deadline){
+    UserStory u=new UserStory(REQUIREMENTID,description,deadline);
+    String id = u.getREQUIREMENTID();
+    isValidRequirementID(id);
+    setDeadline(deadline);
+    isValidComment(description);
+    requirements.forEach((e) -> {
+      if(e.getREQUIREMENTID().equals(id))
+      {
+        throw new IllegalArgumentException();
+      }
+    });
     requirements.add(u);
   }
 
   public void addProjectRelatedRequirement(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline){
-    ProjectRelated requirement = new ProjectRelated(REQUIREMENTID,description,timeSpent,priority,deadline);
-    String id = requirement.getREQUIREMENTID();
+    ProjectRelated r = new ProjectRelated(REQUIREMENTID,description,timeSpent,priority,deadline);
+    String id = r.getREQUIREMENTID();
     isValidRequirementID(id);
+    setDeadline(deadline);
+    isValidTime(timeSpent);
+    isValidComment(description);
         requirements.forEach((e) -> {
            if(e.getREQUIREMENTID().equals(id))
            {
              throw new IllegalArgumentException();
            }
          });
-        requirements.add(requirement);
+        requirements.add(r);
   }
-  public boolean isValidProjectId(){
-    if (!this.projectId.matches("[a-zA-Z0-9]*")){
+  public boolean isValidProjectId(String projectId){
+    if (!projectId.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
-    }else if (this.projectId.length()>8){
+    }else if (projectId.length()>8){
       throw new IllegalFormatWidthException(this.projectId.length());
     }else{
       return true;
     }
   }
   //project id must not contain anything else then numbers and letters/capital letters and should be 8 digits/chars for now
-  public boolean isValidTitle(){
-    if (!this.title.matches("[a-zA-Z]*")){
+  public boolean isValidTitle(String title){
+    if (!title.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
-    }else if (this.title.length()>25){
+    }else if (title.length()>25){
      throw new IllegalFormatWidthException(this.title.length());
     }else{
       return true;
     }
   }
   //can only contain letters and max 25 chars for now
-  public boolean isValidCustomerId(){
-    if (!this.customerId.matches("[a-zA-Z0-9]*")){
+  public boolean isValidCustomerId(String customerId){
+    if (!customerId.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
-    }else if (this.customerId.length()>8){
+    }else if (customerId.length()>8){
       throw new IllegalFormatWidthException(this.customerId.length());
     }else{
       return true;
     }
   }
   //same as projectID for now
-  public boolean isValidComment(){
-    if (!this.comment.matches("[a-zA-Z]*")){
+  public boolean isValidComment(String comment){
+    if (!comment.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
-    }else if (this.comment.length()>250){
+    }else if (comment.length()>250){
       throw new IllegalFormatWidthException(this.comment.length());
     }else{
       return true;
@@ -123,7 +147,7 @@ public class Project
   }
   //can only contain letters and max 250 chars for now
   public boolean isValidRequirementID(String REQUIREMENTID) {
-    if (REQUIREMENTID.matches("[a-zA-Z0-9]*")){
+    if (!REQUIREMENTID.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
     }else if (REQUIREMENTID.length()>2){
       throw new IllegalFormatWidthException(REQUIREMENTID.length());
@@ -131,7 +155,17 @@ public class Project
       return true;
     }
   }
-
+  public boolean isValidTime(double hours)
+  {
+    if (hours%0.5==0)
+    {
+      return true;
+    }
+    else
+    {
+      throw new IllegalArgumentException();
+    }
+  }
 
 
 
