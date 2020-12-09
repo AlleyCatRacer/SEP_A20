@@ -27,8 +27,11 @@ public class ProjectList
 
   @Override public String toString()
   {
-    String s ="Current Projects:\n";:
-
+    String s = "Current Projects:\n";
+    for (Project project : projects)
+    {
+      s += project.getTitle()+"\n";
+    }
     return s;
   }
 }

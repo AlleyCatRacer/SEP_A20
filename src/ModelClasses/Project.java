@@ -36,6 +36,12 @@ public class Project
     this.comment = comment;
   }
 //Basically a setter for comment
+
+  public String getTitle()
+  {
+    return title;
+  }
+
   public void setDeadline(MyDate deadline)
   {
     this.deadline = deadline;
@@ -47,7 +53,9 @@ public class Project
   }
 //Basically a setter for Title
   public void removeRequirement(String requirementId){
-//404
+   requirements.forEach((e) -> {
+
+   });
   }
   public void editRequirement(String requirementId){
 //404
@@ -57,11 +65,13 @@ public class Project
     requirements.add(n);
   }
   
-  public void addUserStory(String requirementId, String description,String status,MyDate deadline){
-//404
+  public void addUserStory(//arguments//){
+    UserStory u=new UserStory(requirementId,description,deadline);
+    requirements.add(u);
   }
 
-  public void addProjectRelatedRequirement(ProjectRelated requirement){
+  public void addProjectRelatedRequirement(String REQUIREMENTID, String description, double timeSpent, String priority, MyDate deadline){
+    ProjectRelated requirement = new ProjectRelated(REQUIREMENTID,description,timeSpent,priority,deadline);
     String id = requirement.getREQUIREMENTID();
     isValidRequirementID(id);
         requirements.forEach((e) -> {
