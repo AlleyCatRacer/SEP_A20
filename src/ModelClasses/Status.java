@@ -2,11 +2,11 @@ package ModelClasses;
 
 public enum Status
 {
-    WAITING("Waiting"), STARTED("Started"), ENDED("Ended"), REJECTED("Rejected"), TEST("Testing");
+    WAITING("Waiting"), STARTED("Started"), ENDED("Ended"), REJECTED("Rejected"), ACCEPTED("Accepted"), TEST("Testing");
 
-    private String statusString;
+    private final String statusString;
 
-    private Status(final String statusString)
+    Status(final String statusString)
     {
         this.statusString = statusString;
     }

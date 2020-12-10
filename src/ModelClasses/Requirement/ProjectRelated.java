@@ -53,7 +53,14 @@ public class ProjectRelated extends Requirement
 
     public void changeDeadline(MyDate deadline)
     {
-        this.deadline = deadline;
+        if (deadline.isValidDate(deadline))
+        {
+            this.deadline = deadline;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Please enter a valid date");
+        }
     }
 
  /*   public boolean equals(Object banana)
