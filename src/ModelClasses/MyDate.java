@@ -265,6 +265,18 @@ public class MyDate
         return theseDays < otherDays;
     }
 
+    public boolean isBefore(int day, int month, int year)
+    {
+        if (isValidDate(day,month,year))
+        {
+            MyDate other = new MyDate(day, month, year);
+            int theseDays = year * 365 + month * 31 + day;
+            int otherDays = other.year * 365 + other.month * 31 + other.day;
+            return theseDays < otherDays;
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object obj)
     {
