@@ -101,6 +101,12 @@ public class MyDate
         return day;
     }
 
+
+    public boolean isValidDate(MyDate deadline)
+    {
+        MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
+        return (!(deadline.isBefore(today)) || deadline.getDay()>0 || deadline.getMonth()>0 || deadline.getMonth()<12 || deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear()>0);
+    }
     /**
      * Boolean validity check.
      *
@@ -115,6 +121,7 @@ public class MyDate
      *         than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise
      *         it returns 'false'.
      */
+
     public boolean isValidDate(int day, int month, int year)
     {
         return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < today.getYear());
