@@ -57,7 +57,17 @@ public class Project
 
    });
   }
-
+  //Checks whether the inputed taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
+  public boolean isUniqueTaskIdWithinTheProject(String taskID) {
+    for(int i = 0; i < requirements.size(); i++) {
+      if(requirements.get(i) instanceof UserStory)
+        for(int k = 0; k < ((UserStory) requirements.get(i)).getRequirementTasks().size(); k++) {
+          if(((UserStory) requirements.get(i)).getRequirementTasks().get(k).getTaskId().equalsIgnoreCase(taskID))
+            return false;
+        }
+    }
+    return true;
+  }
 
 
   public void addNonFunctional(String requirementId, String description){

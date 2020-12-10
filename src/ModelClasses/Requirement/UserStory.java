@@ -92,7 +92,7 @@ public class UserStory extends Requirement
             }
             catch (IllegalArgumentException e)
             {
-                e=new IllegalArgumentException("This task ID is taken. Please enter an ID that is unique within the project.");
+                e=new IllegalArgumentException("This task ID is taken. Please enter an ID that is unique within the requirement.");
                 throw(e);
             }
 
