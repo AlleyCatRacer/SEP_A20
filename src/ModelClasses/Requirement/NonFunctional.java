@@ -15,4 +15,15 @@ public class NonFunctional extends Requirement
     {
         return type;
     }
+    public boolean equals(Object banana) {
+        if(!(banana instanceof NonFunctional))
+            return false;
+        NonFunctional temp = (NonFunctional) banana;
+        return(temp.type.equals(type));
+    }
+
+    @Override public String toString()
+    {
+        return "NonFunctional{" + "type='" + type + '\'' + '}';
+    }
 }

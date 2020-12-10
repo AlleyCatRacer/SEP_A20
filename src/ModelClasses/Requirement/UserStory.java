@@ -134,14 +134,19 @@ public class UserStory extends Requirement
     }
 
 
- /*   public boolean equals(Object banana)
-    {
+    public boolean equals(Object banana) {
+        if(!(banana instanceof UserStory))
+            return false;
+        UserStory temp = (UserStory) banana;
+        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type) && temp.estimate == estimate && temp.requirementTasks.equals(requirementTasks));
 
     }
 
-    public String toString()
+    @Override public String toString()
     {
-
-    }*/
-
+        return "UserStory{" + "type='" + type + '\'' + ", timeSpent="
+            + timeSpent + ", estimate=" + estimate + ", priority=" + priority
+            + ", requirementTasks=" + requirementTasks + ", deadline="
+            + deadline + '}';
+    }
 }
