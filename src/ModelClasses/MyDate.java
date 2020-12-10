@@ -159,8 +159,20 @@ public class MyDate
         return theseDays < otherDays;
     }
 
+    @Override public boolean equals(Object obj)
+    {
+        if (!(obj instanceof MyDate))
+        {
+            return false;
+        }
+        else
+        {
+            MyDate other= (MyDate) obj;
+            return this.day==other.getDay() || this.month==other.getMonth() || this.year==other.getYear();
+        }
+    }
 
-    public String toString()
+    @Override public String toString()
     {
         String s = "";
         if (day < 10)
