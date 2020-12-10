@@ -60,7 +60,7 @@ public class MyDate
     public boolean isValidDate(MyDate deadline)
     {
         MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
-        return (!(deadline.isBefore(today)) && deadline.getDay()>0 && deadline.getMonth()>0 && deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) && deadline.getYear()>0);
+        return (!(deadline.isBefore(today)) || deadline.getDay()>0 || deadline.getMonth()>0 || deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear()>0);
     }
 
     public boolean isLeapYear()
@@ -159,8 +159,20 @@ public class MyDate
         return theseDays < otherDays;
     }
 
+    @Override public boolean equals(Object obj)
+    {
+        if (!(obj instanceof MyDate))
+        {
+            return false;
+        }
+        else
+        {
+            MyDate other= (MyDate) obj;
+            return this.day==other.getDay() || this.month==other.getMonth() || this.year==other.getYear();
+        }
+    }
 
-    public String toString()
+    @Override public String toString()
     {
         String s = "";
         if (day < 10)
