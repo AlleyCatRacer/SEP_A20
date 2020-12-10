@@ -2,7 +2,7 @@ package ModelClasses;
 
 public enum Status
 {
-    WAITING("Waiting"), STARTED("Started"), ENDED("Ended"), REJECTED("Rejected"), TEST("Testing");
+    WAITING("Waiting"), STARTED("Started"), ENDED("Ended"), REJECTED("Rejected"), ACCEPTED("Accepted"), TEST("Testing");
 
     private String statusString;
 
