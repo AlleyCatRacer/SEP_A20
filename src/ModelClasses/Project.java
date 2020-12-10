@@ -87,11 +87,11 @@ public class Project
     requirements.add(u);
   }
 
-  public void addProjectRelatedRequirement(String requirementId, String description, double timeSpent, String priority, MyDate deadline){
-    ProjectRelated r = new ProjectRelated(requirementId,description,timeSpent,priority,deadline);
+  public void addProjectRelatedRequirement(String requirementId, String description, MyDate deadline){
+    ProjectRelated r = new ProjectRelated(requirementId,description,deadline);
     String id = r.getRequirementId();
     isValidRequirementID(id);
-    setDeadline(deadline);
+    r.getDeadline().isValidDate(r.getDeadline());
     isValidTime(timeSpent);
     isValidComment(description);
         requirements.forEach((e) -> {
