@@ -42,6 +42,11 @@ public class MyDate
         return today;
     }
 
+    public int getYearToday()
+    {
+        return LocalDate.now().getYear();
+    }
+
     /**
      * Setter for the int instance variables that calls to a validity check method and if it does not meet the check's
      * standard the setter throws an exception.
@@ -124,7 +129,7 @@ public class MyDate
 
     public boolean isValidDate(int day, int month, int year)
     {
-        return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < today.getYear());
+        return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < getYearToday());
     }
 
     /**
