@@ -1,14 +1,18 @@
 package ModelClasses;
 
+import java.time.LocalDate;
+
 public class MyDate
 {
     private int day;
     private int month;
     private int year;
+    private LocalDate today;
 
     public MyDate(int day, int month, int year)
     {
         setDeadline(day, month, year);
+        this.today=LocalDate.now();
     }
 
     public MyDate(int day, String monthName, int year)
@@ -16,33 +20,47 @@ public class MyDate
         this.day = day;
         this.month = convertToMonthNumber(monthName);
         this.year = year;
+        this.today= LocalDate.now();
+    }
+
+    public LocalDate getToday()
+    {
+        return today;
     }
 
     public void setDeadline(int day, int month, int year)
     {
-        if (year < 0)
+        MyDate d=new MyDate(day,month,year);
+        if (isValidDate(d))
         {
-            year = -year;
+            this.day=day;
+            this.month=month;
+            this.year=year;
         }
-        if (month < 1)
+        else
         {
-            month = 1;
+            throw new IllegalArgumentException("Please enter a valid date");
         }
-        else if (month > 12)
-        {
-            month = 12;
-        }
-        this.year = year;
-        this.month = month;
-        if (day < 1)
-        {
-            day = 1;
-        }
-        else if (day > numberOfDaysInMonth())
-        {
-            day = numberOfDaysInMonth();
-        }
-        this.day = day;
+    }
+
+    public int getYear()
+    {
+        return year;
+    }
+    public int getMonth()
+    {
+        return month;
+    }
+
+    public int getDay()
+    {
+        return day;
+    }
+
+    public boolean isValidDate(MyDate deadline)
+    {
+        MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
+        return (!(deadline.isBefore(today)) && deadline.getDay()>0 && deadline.getMonth()>0 && deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) && deadline.getYear()>0);
     }
 
     public boolean isLeapYear()
@@ -83,7 +101,7 @@ public class MyDate
         }
     }
 
-    public int numberOfDaysInMonth()
+    public int numberOfDaysInMonth(int month)
     {
         switch (month)
         {
