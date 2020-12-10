@@ -28,7 +28,7 @@ public class MyDate
      */
     public MyDate(int day, int month, int year)
     {
-        setDeadline(day,month,year);
+        setDeadline(day, month, year);
         this.today = LocalDate.now();
     }
 
@@ -58,13 +58,12 @@ public class MyDate
      * @param year
      *         Needs to be greater than zero, cannot be less than the current year.
      * @throws IllegalArgumentException
-     *         If day isn't greater than zero or exceeds the referenced month's number of days.
-     *         If month isn't greater than zero or exceeds 12.
-     *         If year isn't greater than zero or is lesser than the current year.
+     *         If day isn't greater than zero or exceeds the referenced month's number of days. If month isn't greater
+     *         than zero or exceeds 12. If year isn't greater than zero or is lesser than the current year.
      */
     public void setDeadline(int day, int month, int year)
     {
-        if (isValidDate(day,month,year))
+        if (isValidDate(day, month, year))
         {
             this.day = day;
             this.month = month;
@@ -109,30 +108,30 @@ public class MyDate
 
     public boolean isValidDate(MyDate deadline)
     {
-        MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
-        return (!(deadline.isBefore(today)) || deadline.getDay()>0 || deadline.getMonth()>0 || deadline.getMonth()<12 || deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear()>0);
+        MyDate today = new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
+        return (!(deadline.isBefore(today)) || deadline.getDay() > 0 || deadline.getMonth() > 0 || deadline.getMonth() < 12 || deadline.getDay() <= numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear() > 0);
     }
+
     /**
      * Boolean validity check.
      *
      * @param day
-     * int value of day
+     *         int value of day
      * @param month
-     * int value of month
+     *         int value of month
      * @param year
      *         int value of year
-     *
      * @return 'true' if day is greater than zero or exceeds the referenced month's number of days, if month is greater
-     *         than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise
-     *         it returns 'false'.
+     * than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise it returns
+     * 'false'.
      */
 
     public boolean isValidDate(int day, int month, int year)
     {
         if (!(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < getYearToday()))
         {
-            MyDate m=new MyDate(day,month,year);
-            MyDate n=new MyDate(LocalDate.now().getDayOfMonth(), LocalDate.now().getMonthValue(),LocalDate.now().getYear());
+            MyDate m = new MyDate(day, month, year);
+            MyDate n = new MyDate(LocalDate.now().getDayOfMonth(), LocalDate.now().getMonthValue(), LocalDate.now().getYear());
             if (m.isBefore(n))
             {
                 return false;
@@ -193,9 +192,9 @@ public class MyDate
      * Getting how many days are in a given month.
      *
      * @param month
-     *          Integer value.
+     *         Integer value.
      * @return Integer for number of days in the month. Default of '31', for months 4, 6, 9 and 11 it returns '30'. If
-     *          it's a leap year then it returns month 2 as '29', if not then it returns '28'.
+     * it's a leap year then it returns month 2 as '29', if not then it returns '28'.
      */
     public int numberOfDaysInMonth(int month)
     {
@@ -267,14 +266,9 @@ public class MyDate
 
     public boolean isBefore(int day, int month, int year)
     {
-        if (isValidDate(day,month,year))
-        {
-            MyDate other = new MyDate(day, month, year);
-            int theseDays = year * 365 + month * 31 + day;
-            int otherDays = other.year * 365 + other.month * 31 + other.day;
-            return theseDays < otherDays;
-        }
-        return false;
+        int theseDays = LocalDate.now().getYear() * 365 + LocalDate.now().getMonthValue() * 31 + LocalDate.now().getDayOfYear();
+        int otherDays = year * 365 + month * 31 + day;
+        return theseDays < otherDays;
     }
 
     @Override
