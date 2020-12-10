@@ -25,16 +25,20 @@ public class Project
     this.timeSpent=0;
     this.currentStatus=Status.WAITING.getStatusString();
   }
+
 //constructor for Project class sets title, projectId, customerId, deadline and comment
-//i need to add a way to add project to project list on creation
+
   public void editStatus(Status status ){
    this.currentStatus =status.getStatusString();
   }
+
 //sets the currentStatus to the String value of Status status
+
   public void editComment(String comment)
   {
     this.comment = comment;
   }
+
 //Basically a setter for comment
 
   public String getTitle()
@@ -42,22 +46,35 @@ public class Project
     return title;
   }
 
+  public String getCurrentStatus()
+  {
+    return currentStatus;
+  }
+
   public void setDeadline(MyDate deadline)
   {
     this.deadline = deadline;
   }
+
 //Basically a setter for Deadline
+
   public void changeTitle(String title)
   {
     this.title = title;
   }
+
 //Basically a setter for Title
+
   public void removeRequirement(String requirementId){
    requirements.forEach((e) -> {
-
+    if (e.getRequirementId().equals(requirementId)){
+      requirements.remove(e);
+    }
    });
   }
-  //Checks whether the inputed taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
+
+  //removes project by the given Id
+
   public boolean isUniqueTaskIdWithinTheProject(String taskID) {
     for(int i = 0; i < requirements.size(); i++) {
       if(requirements.get(i) instanceof UserStory)
@@ -69,6 +86,7 @@ public class Project
     return true;
   }
 
+  //Checks whether the inputed taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
 
   public void addNonFunctional(String requirementId, String description){
     NonFunctional n=new NonFunctional(requirementId,description);
@@ -114,48 +132,57 @@ public class Project
          });
         requirements.add(r);
   }
+
   public boolean isValidProjectId(String projectId){
     if (!projectId.matches("[a-zA-Z0-9]*")){
       IllegalArgumentException e=new IllegalArgumentException("Please enter a unique project ID containing 2 or more letters and/or numbers");
       throw e;
     }else if (projectId.length()>8){
-      throw new IllegalFormatWidthException(this.projectId.length());
+      throw new IllegalFormatWidthException(projectId.length());
     }else{
       return true;
     }
   }
+
   //project id must not contain anything else then numbers and letters/capital letters and should be 8 digits/chars for now
+
   public boolean isValidTitle(String title){
     if (!title.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
     }else if (title.length()>25){
-     throw new IllegalFormatWidthException(this.title.length());
+     throw new IllegalFormatWidthException(title.length());
     }else{
       return true;
 
     }
   }
+
   //can only contain letters and max 25 chars for now
+
   public boolean isValidCustomerId(String customerId){
     if (!customerId.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
     }else if (customerId.length()>8){
-      throw new IllegalFormatWidthException(this.customerId.length());
+      throw new IllegalFormatWidthException(customerId.length());
     }else{
       return true;
     }
   }
+
   //same as projectID for now
+
   public boolean isValidComment(String comment){
     if (!comment.matches("[a-zA-Z]*")){
       throw new IllegalArgumentException();
     }else if (comment.length()>250){
-      throw new IllegalFormatWidthException(this.comment.length());
+      throw new IllegalFormatWidthException(comment.length());
     }else{
       return true;
     }
   }
+
   //can only contain letters and max 250 chars for now
+
   public boolean isValidRequirementID(String requirementId) {
     if (!requirementId.matches("[a-zA-Z0-9]*")){
       IllegalArgumentException e=new IllegalArgumentException("Please enter a requirement ID containing 2 or more letters and/or numbers that is unique withing the project");
@@ -166,6 +193,7 @@ public class Project
       return true;
     }
   }
+
   public boolean isValidTime(double hours)
   {
     if (hours%0.5==0)
