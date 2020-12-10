@@ -8,6 +8,7 @@ public class ProjectRelated extends Requirement
     //Should type be final?
     private final String type;
     private double timeSpent;
+    private double estimate;
     private Priority priority;
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
@@ -19,6 +20,7 @@ public class ProjectRelated extends Requirement
         this.priority = Priority.UNDEFINED;
         this.deadline = deadline;
         this.timeSpent = 0;
+        this.estimate = 0;
     }
 
     public String getType()
@@ -30,6 +32,13 @@ public class ProjectRelated extends Requirement
     {
         return timeSpent;
     }
+    public double getEstimate() {
+        return estimate;
+    }
+    //May be used later to access super class instance variables for equals method
+//    public String getRequirementID() {
+//        return super.getRequirementId();
+//    }
 
     public String getPriority()
     {
@@ -44,6 +53,11 @@ public class ProjectRelated extends Requirement
     public void updateTimeSpent(double timeSpent)
     {
         this.timeSpent = timeSpent;
+    }
+    public void setEstimate(double estimate) {
+        if(estimate < 0)
+            throw new IllegalArgumentException("Estimate has to be greater than 0 hours");
+        this.estimate = estimate;
     }
 
     public void changePriority(Priority priority)
@@ -63,14 +77,17 @@ public class ProjectRelated extends Requirement
         }
     }
 
- /*   public boolean equals(Object banana)
-    {
-
+    public boolean equals(Object banana) {
+        if(!(banana instanceof ProjectRelated))
+            return false;
+        ProjectRelated temp = (ProjectRelated) banana;
+        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type));
     }
 
-    public String toString()
+    @Override public String toString()
     {
-
-    }*/
-
+        return "ProjectRelated{" + "type='" + type + '\'' + ", timeSpent="
+            + timeSpent + ", priority=" + priority + ", deadline=" + deadline
+            + '}';
+    }
 }

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="3b79009c-805e-4b11-b0a5-b9cf851d33ac" name="Default Changelist" comment="made for intelij" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,18 +24,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ModelClasses" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src\ModelClasses" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited\src" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src\ModelClassess" />
+      <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\ProjectManagementSystem\src\ModelClasses\Team&amp;Member" />
     </key>
   </component>
   <component name="RunManager">
@@ -89,39 +86,36 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1607525296336" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1607522262552">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser" timestamp="1607614969696">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1607522262552" />
+    <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607614969696" />
     <state x="551" y="307" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607510360784">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="551" y="307" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1607510360784" />
-    <state x="526" y="137" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1607615006044">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1607609666408">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="526" y="137" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1607615006044" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1607615002993">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607615002993" />
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607609666408" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1607513540505" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1607615006142">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1607613756663">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607615006142" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1607615006142">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607613756663" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1607613756662">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607615006142" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1607615006141">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607613756662" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1607613756662">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607615006141" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1607615006142">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607613756662" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1607613756662">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607615006142" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607613756662" />
     <state x="349" y="155" key="IDE.errors.dialog" timestamp="1607520336588">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
