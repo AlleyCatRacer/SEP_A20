@@ -2,6 +2,12 @@ package ModelClasses;
 
 import java.time.LocalDate;
 
+/**
+ * A class of MyDate objects, extending Object class.
+ *
+ * @author Allie
+ * @version 4.0 - 10.12.20
+ */
 public class MyDate
 {
     private int day;
@@ -9,33 +15,55 @@ public class MyDate
     private int year;
     private LocalDate today;
 
+    /**
+     * Three-argument constructor. 'today' field is set to today's date by calling to a method in the LocalDate java
+     * class.
+     *
+     * @param day
+     *         Needs to be greater than zero, cannot exceed the referenced month's number of days.
+     * @param month
+     *         Needs to be greater than zero, cannot exceed 12.
+     * @param year
+     *         Needs to be greater than zero, cannot be less than the current year.
+     */
     public MyDate(int day, int month, int year)
     {
-        setDeadline(day, month, year);
-        this.today=LocalDate.now();
+        setDeadline(day,month,year);
+        this.today = LocalDate.now();
     }
 
-    public MyDate(int day, String monthName, int year)
-    {
-        this.day = day;
-        this.month = convertToMonthNumber(monthName);
-        this.year = year;
-        this.today= LocalDate.now();
-    }
-
+    /**
+     * Getting today's date
+     *
+     * @return MyLocalDate today object instance variable.
+     */
     public LocalDate getToday()
     {
         return today;
     }
 
+    /**
+     * Setter for the int instance variables that calls to a validity check method and if it does not meet the check's
+     * standard the setter throws an exception.
+     *
+     * @param day
+     *         Needs to be greater than zero, cannot exceed the referenced month's number of days.
+     * @param month
+     *         Needs to be greater than zero, cannot exceed 12.
+     * @param year
+     *         Needs to be greater than zero, cannot be less than the current year.
+     * @throws IllegalArgumentException
+     *         If day isn't greater than zero or exceeds the referenced month's number of days.
+     *         If month isn't greater than zero or exceeds 12.
+     *         If year isn't greater than zero or is lesser than the current year.
+     */
     public void setDeadline(int day, int month, int year)
     {
-        MyDate d=new MyDate(day,month,year);
-        if (isValidDate(d))
+        if (isValidDate(day,month,year))
         {
-            this.day=day;
-            this.month=month;
-            this.year=year;
+            this.day = day;
+            this.month = month;
+            this.year = year;
         }
         else
         {
@@ -43,31 +71,70 @@ public class MyDate
         }
     }
 
+    /**
+     * Showing the year.
+     *
+     * @return the year instance variable.
+     */
     public int getYear()
     {
         return year;
     }
+
+    /**
+     * Showing the month.
+     *
+     * @return the month instance variable.
+     */
     public int getMonth()
     {
         return month;
     }
 
+    /**
+     * Showing the day.
+     *
+     * @return the day instance variable.
+     */
     public int getDay()
     {
         return day;
     }
 
-    public boolean isValidDate(MyDate deadline)
+    /**
+     * Boolean validity check.
+     *
+     * @param day
+     * int value of day
+     * @param month
+     * int value of month
+     * @param year
+     *         int value of year
+     *
+     * @return 'true' if day is greater than zero or exceeds the referenced month's number of days, if month is greater
+     *         than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise
+     *         it returns 'false'.
+     */
+    public boolean isValidDate(int day, int month, int year)
     {
-        MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
-        return (!(deadline.isBefore(today)) || deadline.getDay()>0 || deadline.getMonth()>0 || deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear()>0);
+        return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < today.getYear());
     }
 
+    /**
+     * Boolean method to see if a year was/is a leap year or not.
+     *
+     * @return 'true' if it is a leap year, 'false' if not.
+     */
     public boolean isLeapYear()
     {
         return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
     }
 
+    /**
+     * Converting a month's int to a String of the month's Gregorian name.
+     *
+     * @return String containing the corresponding month integer's name.
+     */
     public String getMonthName()
     {
         switch (month)
@@ -101,6 +168,14 @@ public class MyDate
         }
     }
 
+    /**
+     * Getting how many days are in a given month.
+     *
+     * @param month
+     *          Integer value.
+     * @return Integer for number of days in the month. Default of '31', for months 4, 6, 9 and 11 it returns '30'. If
+     *          it's a leap year then it returns month 2 as '29', if not then it returns '28'.
+     */
     public int numberOfDaysInMonth(int month)
     {
         switch (month)
@@ -121,6 +196,11 @@ public class MyDate
         }
     }
 
+    /**
+     * Converting a month's Gregorian name into an int value.
+     *
+     * @return Integer ranging from '1' to '12' with a default of '1'.
+     */
     public int convertToMonthNumber(String monthName)
     {
         switch (monthName)
@@ -152,6 +232,11 @@ public class MyDate
         }
     }
 
+    /**
+     * Boolean method to see if one MyDate object is the same as another.
+     *
+     * @return 'true' if it is a leap year, 'false' if not.
+     */
     public boolean isBefore(MyDate other)
     {
         int theseDays = year * 365 + month * 31 + day;
@@ -159,7 +244,8 @@ public class MyDate
         return theseDays < otherDays;
     }
 
-    @Override public boolean equals(Object obj)
+    @Override
+    public boolean equals(Object obj)
     {
         if (!(obj instanceof MyDate))
         {
@@ -167,12 +253,13 @@ public class MyDate
         }
         else
         {
-            MyDate other= (MyDate) obj;
-            return this.day==other.getDay() || this.month==other.getMonth() || this.year==other.getYear();
+            MyDate other = (MyDate) obj;
+            return this.day == other.getDay() || this.month == other.getMonth() || this.year == other.getYear();
         }
     }
 
-    @Override public String toString()
+    @Override
+    public String toString()
     {
         String s = "";
         if (day < 10)
