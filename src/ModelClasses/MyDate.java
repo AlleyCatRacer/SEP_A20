@@ -60,7 +60,7 @@ public class MyDate
     public boolean isValidDate(MyDate deadline)
     {
         MyDate today=new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
-        return (!(deadline.isBefore(today)) && deadline.getDay()>0 && deadline.getMonth()>0 && deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) && deadline.getYear()>0);
+        return (!(deadline.isBefore(today)) || deadline.getDay()>0 || deadline.getMonth()>0 || deadline.getDay()<=numberOfDaysInMonth(deadline.getMonth()) || deadline.getYear()>0);
     }
 
     public boolean isLeapYear()
