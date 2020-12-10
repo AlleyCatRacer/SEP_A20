@@ -129,7 +129,9 @@ public class MyDate
 
     public boolean isValidDate(int day, int month, int year)
     {
-        return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < getYearToday());
+        MyDate m=new MyDate(day,month,year);
+        MyDate n=new MyDate(LocalDate.now().getDayOfMonth(),LocalDate.now().getMonthValue(), LocalDate.now().getYear());
+        return !(day < 0 || month < 0 || month > 12 || day > numberOfDaysInMonth(month) || year < 0 || year < getYearToday() || m.isBefore(n));
     }
 
     /**
