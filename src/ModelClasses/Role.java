@@ -3,10 +3,15 @@ package ModelClasses;
 public enum Role
 {
     TEAM_MEMBER("Team member"), SCRUM_MASTER("Scrum master"), PRODUCT_OWNER("Product owner");
-    private String role;
+    private final String roleString;
 
-    Role(String role)
+    Role(String roleString)
     {
-        this.role = role;
+        this.roleString = roleString;
+    }
+
+    public String getRoleString()
+    {
+        return roleString;
     }
 }
