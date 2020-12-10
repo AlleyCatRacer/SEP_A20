@@ -161,14 +161,14 @@ public class MyDate
 
     @Override public boolean equals(Object obj)
     {
-        if (obj instanceof MyDate)
+        if (!(obj instanceof MyDate))
         {
-            MyDate other= (MyDate) obj;
-            return this.day==other.getDay() || this.month==other.getMonth() || this.year==other.getYear();
+            return false;
         }
         else
         {
-            return false;
+            MyDate other= (MyDate) obj;
+            return this.day==other.getDay() || this.month==other.getMonth() || this.year==other.getYear();
         }
     }
 
