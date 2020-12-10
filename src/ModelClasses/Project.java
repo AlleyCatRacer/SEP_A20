@@ -58,6 +58,8 @@ public class Project
    });
   }
 
+
+
   public void addNonFunctional(String requirementId, String description){
     NonFunctional n=new NonFunctional(requirementId,description);
     String id = n.getRequirementId();
@@ -120,6 +122,7 @@ public class Project
      throw new IllegalFormatWidthException(this.title.length());
     }else{
       return true;
+
     }
   }
   //can only contain letters and max 25 chars for now

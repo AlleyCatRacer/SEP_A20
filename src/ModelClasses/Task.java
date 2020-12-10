@@ -11,7 +11,7 @@ public class Task
     private double estimate;
     private double timeSpent;
     private Status status;
-    private ArrayList<UserStory> requirements;
+    private ArrayList<UserStory> belongsToRequirement;
 
     public Task(String taskId, String description, double estimate,UserStory requirement)
     {
@@ -20,7 +20,7 @@ public class Task
         this.estimate = estimate;
         timeSpent = 0;
         status = Status.WAITING;
-        this.requirements= new ArrayList<>();
+        this.belongsToRequirement = new ArrayList<>();
         this.assignToRequirement(requirement);
     }
 
@@ -33,9 +33,9 @@ public class Task
     {
         if(status.getStatusString().equals(Status.ENDED.getStatusString()) )
         {
-            for (int i=0;i<requirements.size();i++)
+            for (int i = 0; i< belongsToRequirement.size(); i++)
             {
-                requirements.get(i).completionCheck();
+                belongsToRequirement.get(i).completionCheck();
             }
         }
         this.status = status;
@@ -106,6 +106,6 @@ public class Task
 
     public void assignToRequirement(UserStory requirement)
     {
-        requirements.add(requirement);
+        belongsToRequirement.add(requirement);
     }
 }

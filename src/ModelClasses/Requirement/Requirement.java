@@ -16,15 +16,13 @@ public abstract class Requirement
     private Status status;
     //Added an additional instance variable to actually know who is responsible for the requirement
     private TeamMember responsibleTeamMember;
-    ArrayList<Requirement> requirementList;
 
     public Requirement(String requirementId, String description)
     {
         this.REQUIREMENTID = requirementId;
         this.description = description;
         this.status = Status.WAITING;
-        this.responsibleTeamMember=null;
-        this.requirementList = new ArrayList<>();
+        this.responsibleTeamMember = null;
     }
 
     public String getRequirementId()

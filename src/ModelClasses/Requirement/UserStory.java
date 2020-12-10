@@ -27,7 +27,7 @@ public class UserStory extends Requirement
         this.timeSpent = 0;
         this.estimate = 0;
         this.priority = Priority.UNDEFINED;
-        this.requirementTasks = new ArrayList<Task>();
+        this.requirementTasks = new ArrayList<>();
         this.deadline = deadline;
     }
 
@@ -120,9 +120,9 @@ public class UserStory extends Requirement
     public void completionCheck()
     {
         int counter=0;
-        for (int i=0;i<requirementTasks.size()-1;i++)
+        for (int i=0;i<requirementTasks.size();i++)
         {
-            if (requirementTasks.get(i).getStatus().equals(Status.ENDED))
+            if (requirementTasks.get(i).getStatus().equals(Status.ENDED.getStatusString()))
             {
                 counter++;
             }

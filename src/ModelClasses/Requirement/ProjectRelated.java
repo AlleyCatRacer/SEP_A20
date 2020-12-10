@@ -18,7 +18,7 @@ public class ProjectRelated extends Requirement
         this.type = "Project Related";
         this.priority = Priority.UNDEFINED;
         this.deadline = deadline;
-        this.timeSpent = getTimeSpent();
+        this.timeSpent = 0;
     }
 
     public String getType()
