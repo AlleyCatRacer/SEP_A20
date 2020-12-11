@@ -63,16 +63,16 @@ public class Project
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
         if(requirements.get(i) instanceof UserStory)
         {
-          getUserStoryRequirement(i);
-          return null;
+
+          return (UserStory) getUserStoryRequirement(i); ;
         }else if (requirements.get(i) instanceof ProjectRelated)
         {
-          getProjectRelatedRequirement(i);
-          return null;
+
+          return (ProjectRelated) getProjectRelatedRequirement(i);
         }else if (requirements.get(i) instanceof NonFunctional)
         {
-          getNonFunctionalRequirement(i);
-          return null;
+
+          return (NonFunctional) getNonFunctionalRequirement(i);
         }
       }
     }
