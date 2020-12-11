@@ -119,6 +119,6 @@ public class Task
     {
         return "Task{" + "taskId='" + taskId + '\'' + ", description='"
             + description + '\'' + ", estimate=" + estimate + ", timeSpent="
-            + timeSpent + ", status=" + getStatus() + "belongs to these requirements " + getRequirementsIDsToWhichTheTaskBelongs();
+            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements " + getRequirementsIDsToWhichTheTaskBelongs();
     }
 }
