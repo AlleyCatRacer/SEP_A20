@@ -1,5 +1,7 @@
 package ModelClasses;
 
+import java.util.Arrays;
+
 public class TestMain {
 
 
@@ -13,9 +15,13 @@ public class TestMain {
     //MyDate check
     MyDate l=new MyDate(12,12,2020);
     Project p=new Project("Title","id","cid",l,"comment");
-    MyDate i2=new MyDate(1,1,2021);
-    MyDate i3=new MyDate(1,4,2021);
-    MyDate i5=new MyDate(10,12,2021);
+
+    //Wouldn't it be better to pass all the parameters required for creation of the project instead of an object?
+    //Where are all the checks called when a project is created?
+    wick.addProject(p);
+    p.addUserStory("ID", "Description", l);
+    System.out.println(p.getRequirementByID("ID").getType());
+
 
   }
 }

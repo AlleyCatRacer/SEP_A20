@@ -45,6 +45,8 @@ public abstract class Requirement
         return responsibleTeamMember;
     }
 
+    public abstract String getType();
+
     public void assignResponsibleTeamMember(TeamMember responsibleTeamMember)
     {
         this.responsibleTeamMember = responsibleTeamMember;
