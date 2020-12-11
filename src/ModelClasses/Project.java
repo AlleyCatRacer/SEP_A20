@@ -145,8 +145,7 @@ public class Project
       if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
       {
         doesExist = true;
-        TeamMember member = projectTeam.get(i);
-        projectTeam.remove(member);
+        projectTeam.remove(i);
       }
     }
     if (!doesExist) throw new IllegalArgumentException();

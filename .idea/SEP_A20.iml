@@ -11,7 +11,8 @@
       <excludeFolder url="file://$MODULE_DIR$/Javadoc" />
     </content>
     <content url="file://$MODULE_DIR$/src" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="JavaFX11" level="application" />
   </component>
 </module>
