@@ -100,6 +100,13 @@ public class UserStory extends Requirement
         while(i!=0);
         this.estimate=calculateEstimate();
     }
+    public Task getTaskByID(String taskID) {
+        for(int i = 0; i < requirementTasks.size(); i++) {
+            if(requirementTasks.get(i).getTaskId().equals(taskID))
+                return requirementTasks.get(i);
+        }
+        throw new IllegalArgumentException("Task with such ID in this requirement was not found");
+    }
 
     public void assignTask(Task task)
     {
