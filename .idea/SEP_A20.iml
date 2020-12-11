@@ -6,6 +6,8 @@
       <sourceFolder url="file://$MODULE_DIR$/ProjectManagementSystem/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/ProjectManagementSystem/TBD/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/Dropped" />
+      <excludeFolder url="file://$MODULE_DIR$/Dropped/src" />
       <excludeFolder url="file://$MODULE_DIR$/Javadoc" />
     </content>
     <content url="file://$MODULE_DIR$/src" />

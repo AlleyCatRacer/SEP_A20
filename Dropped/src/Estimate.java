@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream:Delimited/src/Delimited/Estimate.java
-package Delimited;
-=======
-package ModelClasses;
-
-import java.util.ArrayList;
->>>>>>> Stashed changes:Dropped/Estimate.java
-
 public class Estimate extends Time
 {
     private String id;
