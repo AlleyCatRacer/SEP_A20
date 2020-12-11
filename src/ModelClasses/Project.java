@@ -17,13 +17,22 @@ public class Project
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
+    isValidTitle(title);
     this.title=title;
+    isValidProjectId(projectId);
     this.projectId=projectId;
+    isValidCustomerId(customerId);
     this.customerId=customerId;
+    setDeadline(deadline);
     this.deadline=deadline;
+    isValidComment(comment);
     this.comment=comment;
     this.timeSpent=0;
     this.currentStatus=Status.WAITING.getStatusString();
+
+
+
+
   }
 
   //constructor for Project class sets title, projectId, customerId, deadline and comment
@@ -63,16 +72,13 @@ public class Project
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
         if(requirements.get(i) instanceof UserStory)
         {
-
-          return (UserStory) getUserStoryRequirement(i); ;
+          return getUserStoryRequirement(i);
         }else if (requirements.get(i) instanceof ProjectRelated)
         {
-
-          return (ProjectRelated) getProjectRelatedRequirement(i);
+          return getProjectRelatedRequirement(i);
         }else if (requirements.get(i) instanceof NonFunctional)
         {
-
-          return (NonFunctional) getNonFunctionalRequirement(i);
+          return  getNonFunctionalRequirement(i);
         }
       }
     }
