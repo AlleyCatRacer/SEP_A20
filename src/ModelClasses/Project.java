@@ -165,6 +165,20 @@ public class Project
     requirements.add(u);
   }
 
+  public Requirement getRequirementById(String requirementId)
+  {
+    int index = 0;
+    for (Requirement e : requirements)
+    {
+      if (e.getRequirementId().equals(requirementId))
+      {
+        index = requirements.indexOf(e);
+      }
+
+    }
+    return requirements.get(index);
+  }
+
   public void addProjectRelatedRequirement(String requirementId, String description, MyDate deadline){
     ProjectRelated r = new ProjectRelated(requirementId,description,deadline);
     String id = r.getRequirementId();

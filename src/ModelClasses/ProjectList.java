@@ -12,7 +12,7 @@ public class ProjectList
     int index = 0;
     for (Project e : projects)
     {
-      if (e.getTitle() == title)
+      if (e.getTitle().equals(title) )
       {
         index = projects.indexOf(e);
       }
