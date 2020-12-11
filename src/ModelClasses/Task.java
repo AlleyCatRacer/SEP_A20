@@ -110,7 +110,7 @@ public class Task
     public String getRequirementsIDsToWhichTheTaskBelongs() {
         String ids = "";
         for(int i = 0; i < belongsToRequirement.size(); i++) {
-            ids +=", " + belongsToRequirement.get(i).getRequirementId();
+            ids +=" " + belongsToRequirement.get(i).getRequirementId()+",";
         }
         return ids;
     }
@@ -119,6 +119,6 @@ public class Task
     {
         return "Task{" + "taskId='" + taskId + '\'' + ", description='"
             + description + '\'' + ", estimate=" + estimate + ", timeSpent="
-            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements " + getRequirementsIDsToWhichTheTaskBelongs();
+            + timeSpent + ", status=" + getStatus() + ", Belongs to these requirements :" + getRequirementsIDsToWhichTheTaskBelongs();
     }
 }
