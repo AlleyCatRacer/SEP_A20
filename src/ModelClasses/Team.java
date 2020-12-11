@@ -36,9 +36,8 @@ public class Team
         }
     }
 
-    public void addTeamMember(String name, String teamMemberId)
+    public void addTeamMember(TeamMember teamMember)
     {
-        TeamMember teamMember= new TeamMember(name,teamMemberId);
         teamMembers.add(teamMember);
     }
 
