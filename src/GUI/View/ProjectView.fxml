@@ -3,21 +3,24 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.ProjectView">
    <children>
       <HBox prefHeight="50.0" prefWidth="800.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="590.0" text="ProjectId" textAlignment="CENTER">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="590.0" text="Title" textAlignment="CENTER">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -45,66 +48,105 @@
                            <children>
                               <HBox>
                                  <children>
-                                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="100.0">
+                                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0">
                                        <children>
                                           <Label text="Customer ID">
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label text="Deadline">
+                                          <Label text="Project ID">
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
                                           </Label>
                                           <Label text="Status">
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                <Insets bottom="5.0" right="5.0" top="10.0" />
                                              </VBox.margin>
                                           </Label>
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="80.0" prefWidth="290.0">
                                        <children>
-                                          <Label text="Customer ID">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label text="Deadline">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label text="Status">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                          </Label>
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="290.0" />
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="290.0" />
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="290.0" />
                                        </children>
                                     </VBox>
                                  </children>
                               </HBox>
                               <Label maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Description">
                                  <VBox.margin>
-                                    <Insets top="10.0" />
+                                    <Insets />
                                  </VBox.margin>
                               </Label>
                               <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="130.0">
                                  <children>
-                                    <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="390.0">
+                                    <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="390.0">
                                        <content>
-                                          <Label text="Label" />
+                                          <TextFlow prefHeight="123.0" prefWidth="387.0" />
                                        </content>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
                                     </ScrollPane>
                                  </children>
                               </HBox>
                            </children>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </padding>
                         </VBox>
-                        <VBox minHeight="-Infinity" prefHeight="255.0" />
+                        <VBox minHeight="-Infinity" prefHeight="255.2">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Deadline">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="7.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Estimate">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="7.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label text="Spent time">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" right="5.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="289.0">
+                                       <children>
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="290.0" />
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="290.0" />
+                                          <TextArea accessibleRole="TEXT" editable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="290.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </HBox>
+                              <Label maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0" text="Comment">
+                                 <VBox.margin>
+                                    <Insets left="2.0" right="2.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="123.0" prefWidth="390.0">
+                                 <content>
+                                    <TextFlow lineSpacing="1.0" prefHeight="120.0" prefWidth="387.0" />
+                                 </content>
+                                 <VBox.margin>
+                                    <Insets left="3.0" />
+                                 </VBox.margin>
+                              </ScrollPane>
+                           </children></VBox>
                      </items>
                   </SplitPane>
                </children>
@@ -117,10 +159,61 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Accordion prefHeight="250.0" prefWidth="800.0">
+            <Accordion maxHeight="-Infinity" minHeight="-Infinity" prefHeight="254.0" prefWidth="800.0">
               <panes>
-                <TitledPane animated="false" text="requirementId" />
-                <TitledPane animated="false" text="requirementId" />
+                  <TitledPane expanded="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" text="requirementId">
+                     <content>
+                        <ScrollPane minHeight="-Infinity" prefHeight="100.0" prefWidth="798.0">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="195.0" prefWidth="795.0">
+                                 <children>
+                                    <HBox prefHeight="195.2" prefWidth="795.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="86.0">
+                                             <children>
+                                                <Label text="Deadline">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <Label text="Status">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" right="5.0" top="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox maxHeight="-Infinity" prefHeight="49.0" prefWidth="200.0">
+                                             <children>
+                                                <TextField accessibleRole="TEXT" editable="false" />
+                                                <TextField accessibleRole="TEXT" editable="false" />
+                                             </children>
+                                          </VBox>
+                                          <ButtonBar maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="506.0">
+                                            <buttons>
+                                              <Button mnemonicParsing="false" text="Details" />
+                                            </buttons>
+                                          </ButtonBar>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </content>
+                  </TitledPane>
+                <TitledPane expanded="false" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="75.0" text="requirementId">
+                     <content>
+                        <ScrollPane minHeight="-Infinity" prefHeight="100.0" prefWidth="798.0">
+                          <content>
+                            <AnchorPane minHeight="-Infinity" prefHeight="203.0" prefWidth="798.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="795.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </content></TitledPane>
               </panes>
             </Accordion>
          </children>
