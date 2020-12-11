@@ -20,7 +20,7 @@ public class TestMain {
 
     //Wouldn't it be better to pass all the parameters required for creation of the project instead of an object?
     //Where are all the checks called when a project is created?
-    wick.addProject(p);
+    wick.addProject("Title","id","cid",l,"comment");
     p.addUserStory("ID", "Description", l);
     p.getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
     p.getUserStoryRequirementByID("ID").createNewTask("taskID1", "Description5", 10);

@@ -1,5 +1,7 @@
 package ModelClasses;
 
+import ModelClasses.Requirement.NonFunctional;
+
 import java.util.ArrayList;
 
 public class ProjectList
@@ -34,8 +36,9 @@ public class ProjectList
 
     return projects.get(index);
   }
-  public void addProject(Project project){
-      projects.add(project);
+  public void addProject(String title,String projectId,String customerId, MyDate deadline, String comment){
+    Project n=new Project(title, projectId, customerId, deadline, comment);
+      projects.add(n);
   }
   public void removeProject(String title){
     projects.forEach((e) -> {

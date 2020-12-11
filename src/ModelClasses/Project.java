@@ -176,7 +176,7 @@ public class Project
     return true;
   }
 
-  //Checks whether the inputed taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
+  //Checks whether the input taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
 
   public void addNonFunctional(String requirementId, String description){
     NonFunctional n=new NonFunctional(requirementId,description);
