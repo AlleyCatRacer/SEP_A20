@@ -76,7 +76,7 @@ public class UserStory extends Requirement
         this.priority = priority;
     }
 
-    public void createNewTask(String taskId, String description, double estimate,UserStory requirement)
+    public void createNewTask(String taskId, String description, double estimate)
     {
         int i=1;
         do

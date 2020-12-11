@@ -57,12 +57,28 @@ public class Project
   public String getCurrentStatus() {
     return currentStatus;
   }
+
   public Requirement getRequirementByID(String requirementID) {
     for(int i = 0; i < requirements.size(); i++) {
-      if(requirements.get(i).getRequirementId().equals(requirementID))
-        return requirements.get(i);
+      if(requirements.get(i).getRequirementId().equals(requirementID)) {
+        if(requirements.get(i) instanceof UserStory)
+          getUserStoryRequirement(i);
+        else if (requirements.get(i) instanceof ProjectRelated)
+          getProjectRelatedRequirement(i);
+        else if (requirements.get(i) instanceof NonFunctional)
+          getNonFunctionalRequirement(i);
+
+      }
     }
-    return null;
+  }
+  public UserStory getUserStoryRequirement(int index) {
+    return (UserStory) requirements.get(index);
+  }
+  public ProjectRelated getProjectRelatedRequirement(int index) {
+    return (ProjectRelated) requirements.get(index);
+  }
+  public NonFunctional getNonFunctionalRequirement(int index) {
+    return (NonFunctional) requirements.get(index);
   }
 
   public void changeTitle(String title)
