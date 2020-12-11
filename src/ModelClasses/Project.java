@@ -152,6 +152,8 @@ public class Project
     if (!doesExist) throw new IllegalArgumentException();
   }
 
+  //i guess
+
   public void changeTitle(String title)
   {
     this.title = title;
