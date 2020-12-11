@@ -58,18 +58,19 @@ public class Project
     return currentStatus;
   }
 
-  public Requirement getRequirementByID(String requirementID) {
+  public Object getRequirementByID(String requirementID) {
     for(int i = 0; i < requirements.size(); i++) {
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
         if(requirements.get(i) instanceof UserStory)
-          getUserStoryRequirement(i);
+        return  getUserStoryRequirement(i);
         else if (requirements.get(i) instanceof ProjectRelated)
-          getProjectRelatedRequirement(i);
+        return  getProjectRelatedRequirement(i);
         else if (requirements.get(i) instanceof NonFunctional)
-          getNonFunctionalRequirement(i);
+        return  getNonFunctionalRequirement(i);
 
       }
     }
+    return new IllegalCallerException();
   }
   public UserStory getUserStoryRequirement(int index) {
     return (UserStory) requirements.get(index);
@@ -165,19 +166,6 @@ public class Project
     requirements.add(u);
   }
 
-  public Requirement getRequirementById(String requirementId)
-  {
-    int index = 0;
-    for (Requirement e : requirements)
-    {
-      if (e.getRequirementId().equals(requirementId))
-      {
-        index = requirements.indexOf(e);
-      }
-
-    }
-    return requirements.get(index);
-  }
 
   public void addProjectRelatedRequirement(String requirementId, String description, MyDate deadline){
     ProjectRelated r = new ProjectRelated(requirementId,description,deadline);
