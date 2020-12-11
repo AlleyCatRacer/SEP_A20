@@ -14,6 +14,7 @@ public class Project
   private double timeSpent;
   private String currentStatus;
   private ArrayList<Requirement> requirements;
+  private ArrayList<TeamMember> projectTeam;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
@@ -29,6 +30,7 @@ public class Project
     this.comment=comment;
     this.timeSpent=0;
     this.currentStatus=Status.WAITING.getStatusString();
+    projectTeam = new ArrayList<>();
   }
 
   //constructor for Project class sets title, projectId, customerId, deadline and comment and checks each argument
@@ -122,6 +124,33 @@ public class Project
     throw new IllegalArgumentException("The Non Functional requirement with such ID was not found");
   }
 
+  public String getProjectTeam(){
+    String s="";
+    for (TeamMember e : projectTeam)
+    {
+      s += " " +e.getName()+"~"+e.getTeamMemberId()+",";
+    }
+    return s;
+  }
+
+  public void addProjectTeamMember(String name, String teamMemberId){
+    TeamMember teamMember= new TeamMember(name,teamMemberId);
+    projectTeam.add(teamMember);
+  }
+
+  public void removeProjectTeamMember(String teamMemberId){
+    boolean doesExist = false;
+    for (int i = 0; i < projectTeam.size(); i++)
+    {
+      if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
+      {
+        doesExist = true;
+        TeamMember member = projectTeam.get(i);
+        projectTeam.remove(member);
+      }
+    }
+    if (!doesExist) throw new IllegalArgumentException();
+  }
 
   public void changeTitle(String title)
   {
@@ -238,7 +267,7 @@ public class Project
   //project id must not contain anything else then numbers and letters/capital letters and should be 8 digits/chars for now
 
   public boolean isValidTitle(String title){
-    if (!title.matches("[a-zA-Z]*")){
+    if (!title.matches("[a-zA-Z0-9]*")){
       throw new IllegalArgumentException();
     }else if (title.length()>25){
       throw new IllegalFormatWidthException(title.length());
@@ -303,9 +332,9 @@ public class Project
 
   @Override public String toString()
   {
-    return "Project{" + "title='" + title + '\'' + ", customerId='" + customerId
+    return "{title='" + title + '\'' + ", customerId='" + customerId
                    + '\'' + ", projectId='" + projectId + '\'' + ", deadline=" + deadline
                    + ", comment='" + comment + '\'' + ", timeSpent=" + timeSpent
-                   + ", currentStatus='" + currentStatus + '}';
+                   + ", currentStatus='" + currentStatus + '}'+"\n";
   }
 }
