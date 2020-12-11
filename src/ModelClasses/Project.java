@@ -128,7 +128,7 @@ public class Project
     String s="";
     for (TeamMember e : projectTeam)
     {
-      s += " " +e.getName()+"~"+e.getTeamMemberId()+",";
+      s += " " +e.getName()+"~"+e.getTeamMemberId()+"\n";
     }
     return s;
   }
