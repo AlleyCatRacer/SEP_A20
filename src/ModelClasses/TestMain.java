@@ -16,16 +16,15 @@ public class TestMain {
 
     //MyDate check
     MyDate l=new MyDate(12,12,2021);
-    Project p=new Project("Title","id","cid",l,"comment");
+
 
     //Wouldn't it be better to pass all the parameters required for creation of the project instead of an object?
     //Where are all the checks called when a project is created?
     wick.addProject("Title","id","cid",l,"comment");
-    p.addUserStory("ID", "Description", l);
-    p.getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
-    p.getUserStoryRequirementByID("ID").createNewTask("taskID1", "Description5", 10);
-    p.getUserStoryRequirementByID("ID").getRequirementTasks();
-    System.out.println(p.getUserStoryRequirementByID("ID").getRequirementTasks());
+    wick.getProjectByTitle("Title").addUserStory("ID", "Description", l);
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").createNewTask("taskID1", "Description5", 10);
+    System.out.println(wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getRequirementTasks());
 
 
 
