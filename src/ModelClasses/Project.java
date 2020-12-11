@@ -62,16 +62,23 @@ public class Project
     for(int i = 0; i < requirements.size(); i++) {
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
         if(requirements.get(i) instanceof UserStory)
-        return  getUserStoryRequirement(i);
-        else if (requirements.get(i) instanceof ProjectRelated)
-        return  getProjectRelatedRequirement(i);
-        else if (requirements.get(i) instanceof NonFunctional)
-        return  getNonFunctionalRequirement(i);
-
+        {
+          getUserStoryRequirement(i);
+          return null;
+        }else if (requirements.get(i) instanceof ProjectRelated)
+        {
+          getProjectRelatedRequirement(i);
+          return null;
+        }else if (requirements.get(i) instanceof NonFunctional)
+        {
+          getNonFunctionalRequirement(i);
+          return null;
+        }
       }
     }
     return new IllegalCallerException();
   }
+
   public UserStory getUserStoryRequirement(int index) {
     return (UserStory) requirements.get(index);
   }

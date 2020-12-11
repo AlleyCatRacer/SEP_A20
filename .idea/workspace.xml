@@ -56,15 +56,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Lukas\Documents\GitHub\SEP_A20\src\GUI" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited\src" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\Delimited" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\src\ModelClassess" />
       <recent name="C:\Users\AldisEir\Documents\GitHub\SEP_A20\ProjectManagementSystem\src\ModelClasses\Team&amp;Member" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Lukas\Documents\GitHub\SEP_A20\src\GUI" />
     </key>
   </component>
   <component name="RunManager">
@@ -140,10 +140,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="670" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607681717305" />
-    <state x="689" y="383" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607681673355">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="551" y="307" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607688290627">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="551" y="307" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1607510360784" />
+    <state x="551" y="307" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1607688290627" />
     <state x="689" y="383" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1607681673355" />
     <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1607609666408">
       <screen x="0" y="0" width="1536" height="824" />
