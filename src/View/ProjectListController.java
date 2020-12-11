@@ -1,6 +1,4 @@
 package View;
 
-public class ProjectListController
-{
-
+public class ProjectListController {
 }

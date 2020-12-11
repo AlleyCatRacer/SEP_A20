@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream:src/MyApplication.java
+=======
+import ModelClasses.ProjectManager;
+import View.ViewHandler;
+>>>>>>> Stashed changes:MyApplication.java
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.ProjectManager;
@@ -7,10 +12,19 @@ import view.ViewHandler;
 
 public class MyApplication extends Application
 {
+<<<<<<< Updated upstream:src/MyApplication.java
     public void start(Stage primaryStage)
     {
         ProjectManager model = new ProjectManager();
         ViewHandler view = new ViewHandler(model);
         view.start(primaryStage);
     }
+=======
+  public void start(Stage primaryStage)
+  {
+    ProjectManager model = new ProjectManager();
+    ViewHandler view = new ViewHandler(model);
+    view.start(primaryStage);
+  }
+>>>>>>> Stashed changes:MyApplication.java
 }
