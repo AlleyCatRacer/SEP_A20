@@ -1,6 +1,10 @@
-package ModelClasses;
+package GUI.Model;
 
-public class ProjectManager  implements ProjectModel{
+import ModelClasses.ProjectList;
+import ModelClasses.Team;
+
+public class ProjectManager  implements ProjectModel
+{
     private Team team;
     private ProjectList projectList;
     public ProjectManager()

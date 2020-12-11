@@ -1,7 +1,8 @@
+package GUI.View;
+
 <<<<<<< Updated upstream:src/MyApplication.java
 =======
-import ModelClasses.ProjectManager;
-import View.ViewHandler;
+import GUI.Model.ProjectManager;
 >>>>>>> Stashed changes:MyApplication.java
 import javafx.application.Application;
 import javafx.stage.Stage;

@@ -1,6 +1,6 @@
-package View;
+package GUI.View;
 
-import ModelClasses.ProjectModel;
+import GUI.Model.ProjectModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;

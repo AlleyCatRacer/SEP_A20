@@ -1,6 +1,9 @@
-package ModelClasses;
+package GUI.Model;
 
+import ModelClasses.Project;
 import ModelClasses.Requirement.*;
+import ModelClasses.Task;
+import ModelClasses.TeamMember;
 
 public interface ProjectModel {
     public void addProject(Project project);
