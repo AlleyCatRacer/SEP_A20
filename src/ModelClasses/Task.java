@@ -11,7 +11,7 @@ public class Task
     private double estimate;
     private double timeSpent;
     private Status status;
-    private ArrayList<UserStory> belongsToRequirement;
+    private ArrayList<UserStory> belongsToRequirement = new ArrayList<>();
 
     public Task(String taskId, String description, double estimate,UserStory requirement)
     {
@@ -20,8 +20,7 @@ public class Task
         this.estimate = estimate;
         timeSpent = 0;
         status = Status.WAITING;
-        this.belongsToRequirement = new ArrayList<>();
-        this.assignToRequirement(requirement);
+        this.belongsToRequirement.add(requirement);
     }
 
     public void changeDescription(String description)
@@ -109,5 +108,10 @@ public class Task
         belongsToRequirement.add(requirement);
     }
 
-
+    public String toString()
+    {
+        return "Task{" + "taskId='" + taskId + '\'' + ", description='"
+            + description + '\'' + ", estimate=" + estimate + ", timeSpent="
+            + timeSpent + ", status=" + getStatus() + ", belongsToRequirement=";
+    }
 }

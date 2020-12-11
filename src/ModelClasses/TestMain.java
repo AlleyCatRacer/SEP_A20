@@ -1,6 +1,6 @@
 package ModelClasses;
 
-import ModelClasses.Requirement.UserStory;
+import ModelClasses.Requirement.*;
 
 import java.util.Arrays;
 
@@ -22,7 +22,10 @@ public class TestMain {
     //Where are all the checks called when a project is created?
     wick.addProject(p);
     p.addUserStory("ID", "Description", l);
-    System.out.println((UserStory)(p.getRequirementByID("ID")));
+    p.getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
+    p.getUserStoryRequirementByID("ID").createNewTask("taskID1", "Description5", 10);
+    p.getUserStoryRequirementByID("ID").getRequirementTasks();
+    System.out.println(p.getUserStoryRequirementByID("ID").getRequirementTasks());
 
 
 

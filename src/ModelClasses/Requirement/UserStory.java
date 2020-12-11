@@ -142,7 +142,7 @@ public class UserStory extends Requirement
 
     }
 
-    @Override public String toString()
+    public String toString()
     {
         return "UserStory{" + "type='" + type + '\'' + ", timeSpent="
             + timeSpent + ", estimate=" + estimate + ", priority=" + priority

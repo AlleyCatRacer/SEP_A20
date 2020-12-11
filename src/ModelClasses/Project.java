@@ -58,13 +58,15 @@ public class Project
     return currentStatus;
   }
 
-  public Object getRequirementByID(String requirementID) {
+
+  //This piece of a joy will not see daylight unless it starts behaving
+
+  /*public Requirement getRequirementByID(String requirementID) {
     for(int i = 0; i < requirements.size(); i++) {
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
         if(requirements.get(i) instanceof UserStory)
         {
-          getUserStoryRequirement(i);
-          return null;
+         return (UserStory) requirements.get(i);
         }else if (requirements.get(i) instanceof ProjectRelated)
         {
           getProjectRelatedRequirement(i);
@@ -76,7 +78,7 @@ public class Project
         }
       }
     }
-    return new IllegalCallerException();
+    return null;
   }
 
   public UserStory getUserStoryRequirement(int index) {
@@ -88,6 +90,33 @@ public class Project
   public NonFunctional getNonFunctionalRequirement(int index) {
     return (NonFunctional) requirements.get(index);
   }
+*/
+
+  public ProjectRelated getProjectRelatedRequirementByID(String requirementID) {
+    for (Requirement requirement : requirements)
+    {
+      if (requirement.getRequirementId().equals(requirementID))
+        return (ProjectRelated) requirement;
+    }
+    throw new IllegalArgumentException("The Project Related requirement with such ID was not found");
+  }
+  public UserStory getUserStoryRequirementByID(String requirementID) {
+    for (Requirement requirement : requirements)
+    {
+      if (requirement.getRequirementId().equals(requirementID))
+        return (UserStory) requirement;
+    }
+    throw new IllegalArgumentException("The User Story requirement with such ID was not found");
+  }
+  public NonFunctional getNonFunctionalRequirementByID(String requirementID) {
+    for (Requirement requirement : requirements)
+    {
+      if (requirement.getRequirementId().equals(requirementID))
+        return (NonFunctional) requirement;
+    }
+    throw new IllegalArgumentException("The Non Functional requirement with such ID was not found");
+  }
+
 
   public void changeTitle(String title)
   {
