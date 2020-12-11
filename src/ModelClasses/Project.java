@@ -16,6 +16,7 @@ public class Project
   private ArrayList<Requirement> requirements;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
+
     requirements = new ArrayList<>();
     isValidTitle(title);
     this.title=title;
@@ -29,10 +30,7 @@ public class Project
     this.comment=comment;
     this.timeSpent=0;
     this.currentStatus=Status.WAITING.getStatusString();
-
-
-
-
+    
   }
 
   //constructor for Project class sets title, projectId, customerId, deadline and comment
