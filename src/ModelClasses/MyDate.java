@@ -270,7 +270,7 @@ public class MyDate
 
     public boolean isBefore(int day, int month, int year)
     {
-        int theseDays = LocalDate.now().getYear() * 365 + LocalDate.now().getMonthValue() * 31 + LocalDate.now().getDayOfYear();
+        int theseDays = LocalDate.now().getYear() * 365 + LocalDate.now().getMonthValue() * 31 + LocalDate.now().getDayOfMonth();
         int otherDays = year * 365 + month * 31 + day;
         return theseDays < otherDays;
     }
