@@ -26,7 +26,7 @@ public class Project
     this.currentStatus=Status.WAITING.getStatusString();
   }
 
-  //constructor for Project class sets title, projectId, customerId, deadline and comment
+  //constructor for Project class sets title, projectId, customerId, deadline and comment and checks each argument
 
   public ArrayList<Requirement> getRequirements() {
     return requirements;
