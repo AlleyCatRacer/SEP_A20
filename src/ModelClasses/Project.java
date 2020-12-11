@@ -17,10 +17,15 @@ public class Project
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
+    isValidTitle(title);
     this.title=title;
+    isValidProjectId(projectId);
     this.projectId=projectId;
+    isValidCustomerId(customerId);
     this.customerId=customerId;
+    setDeadline(deadline);
     this.deadline=deadline;
+    isValidComment(comment);
     this.comment=comment;
     this.timeSpent=0;
     this.currentStatus=Status.WAITING.getStatusString();
