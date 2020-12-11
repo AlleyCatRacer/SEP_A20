@@ -110,7 +110,9 @@ public class Task
     public String getRequirementsIDsToWhichTheTaskBelongs() {
         String ids = "";
         for(int i = 0; i < belongsToRequirement.size(); i++) {
-            ids +=", " + belongsToRequirement.get(i).getRequirementId();
+            ids += belongsToRequirement.get(i).getRequirementId();
+            if(belongsToRequirement.size() > 1)
+                ids += ", ";
         }
         return ids;
     }
