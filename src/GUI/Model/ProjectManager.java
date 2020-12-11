@@ -3,7 +3,7 @@ package GUI.Model;
 import ModelClasses.ProjectList;
 import ModelClasses.Team;
 
-public class ProjectManager  implements ProjectModel
+public class ProjectManager implements ProjectModel
 {
     private Team team;
     private ProjectList projectList;
