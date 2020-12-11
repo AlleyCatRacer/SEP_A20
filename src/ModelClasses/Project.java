@@ -33,7 +33,7 @@ public class Project
     
   }
 
-  //constructor for Project class sets title, projectId, customerId, deadline and comment
+  //constructor for Project class sets title, projectId, customerId, deadline and comment and checks each argument
 
   public ArrayList<Requirement> getRequirements() {
     return requirements;
