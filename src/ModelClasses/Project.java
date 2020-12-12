@@ -143,7 +143,23 @@ public class Project
 
   public void addProjectTeamMember(String name, String teamMemberId){
     TeamMember teamMember= new TeamMember(name,teamMemberId);
-    projectTeam.add(teamMember);
+        if (Team.class.cast(projectTeam).isIdTaken(teamMemberId))
+        {
+          throw new IllegalArgumentException("A team member with such ID already exists in the project");
+        }else{
+          projectTeam.add(teamMember);
+      }
+  }
+
+  public void editProjectRole(String teamMemberId, Role role)
+  {
+    for (int i = 0; i < projectTeam.size(); i++)
+    {
+      if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
+      {
+        projectTeam.get(i).setRole(role);
+      }
+    }
   }
 
   public void removeProjectTeamMember(String teamMemberId){
@@ -335,6 +351,7 @@ public class Project
       throw e;
     }
   }
+
 
 
 
