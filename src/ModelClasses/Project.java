@@ -151,10 +151,11 @@ public class Project
       });
       projectTeam.add(teamMember);
     }
-  
+
 
   public void editProjectRole(String teamMemberId, Role role)
   {
+   if(doesRoleScumOrOwner(role)){
     for (int i = 0; i < projectTeam.size(); i++)
     {
       if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
@@ -162,8 +163,8 @@ public class Project
         projectTeam.get(i).setRole(role);
       }
     }
+   }
   }
-
   public void removeProjectTeamMember(String teamMemberId){
     boolean doesExist = false;
     for (int i = 0; i < projectTeam.size(); i++)
@@ -354,6 +355,20 @@ public class Project
     }
   }
 
+  public boolean doesRoleScumOrOwner(Role role){
+
+    if(role.equals(Role.SCRUM_MASTER)||role.equals(Role.PRODUCT_OWNER))
+    {
+      projectTeam.forEach((e) -> {
+        if (e.getRole().equals(role)){
+
+          IllegalArgumentException r=new IllegalArgumentException("A project cannot have multiple "+role.getRoleString()+"s.");
+          throw r;
+        }
+      });
+    }
+    return true;
+  }
 
 
 
