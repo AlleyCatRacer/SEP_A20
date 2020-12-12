@@ -54,9 +54,9 @@ public class TestMain {
 
 
     //Figuring out the Team situation
-    Team.addTeamMember("John", "123");
-    Team.addTeamMember("StevieTheTV", "124");
-    Team.addTeamMember("Geralt", "125");
+    Team.hire("John", "123");
+    Team.hire("StevieTheTV", "124");
+    Team.hire("Geralt", "125");
     wick.getProjectByTitle("Title").addTeamMemberToTheProject("124");
     wick.getProjectByTitle("Title").addTeamMemberToTheProject("125");
     wick.getProjectByTitle("Title").editProjectMemberRole("125", Role.SCRUM_MASTER);

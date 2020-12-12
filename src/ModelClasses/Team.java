@@ -15,7 +15,7 @@ public class Team
         return roster;
     }
 
-    public TeamMember getTeamMemberById(String teamMemberId)
+    public static TeamMember getTeamMemberById(String teamMemberId)
     {
         for (int i = 0; i < roster.size(); i++)
         {
@@ -24,25 +24,19 @@ public class Team
                 return roster.get(i);
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Person with such ID was not found in employees' roster");
     }
 
     //getTeamMemberByProject should be in project
 
-    public void editRole(String teamMemberId, Role role)
-    {
-        for (int i = 0; i < roster.size(); i++)
-        {
-            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
-            {
-                roster.get(i).setRole(role);
-            }
-        }
-    }
 
-    public static void addTeamMember(String name, String id) {
-        TeamMember human = new TeamMember(name, id);
-        roster.add(human);
+    public static void hire(String name, String id) {
+        if(isIdAvailable(id)) {
+            TeamMember human = new TeamMember(name, id);
+            roster.add(human);
+        }
+        else
+            throw new IllegalArgumentException("This ID is already taken");
     }
 
     public static void removeMemberFromTheRoster(String teamMemberId)
@@ -59,17 +53,15 @@ public class Team
         if (!doesExist) throw new IllegalArgumentException("Person with such id does not exist");
     }
 
-//    public boolean isIdTaken(String teamMemberId)
-//    {
-//        for (int i = 0; i < roster.size(); i++)
-//        {
-//            if (roster.get(i).isExisting(teamMemberId))
-//            {
-//                return true;
-//            }
-//        }
-//        return false;
-//
-//    }
+    public static boolean isIdAvailable(String teamMemberId)
+    {
+        for (int i = 0; i < roster.size(); i++)
+        {
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
+            return false;
+        }
+        return true;
+
+    }
 
 }
