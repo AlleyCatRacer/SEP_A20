@@ -73,4 +73,8 @@ public class Team
 
     }
 
+    public ArrayList<TeamMember> getTeamMembers()
+    {
+        return teamMembers;
+    }
 }
