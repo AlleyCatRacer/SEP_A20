@@ -1,12 +1,10 @@
-package GUI.View;
+/*package GUI.View;
 
-import GUI.Model.ProjectModel;
+import ModelClasses.ProjectModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
-import model.GradeListModel;
-import model.ProjectModel;
 
 public class ViewHandler
 {
@@ -17,7 +15,7 @@ public class ViewHandler
   private AddGradeViewController addGradeViewController;
   private DetailsViewController detailsViewController;*/
   //add controllers when done
-
+/*
   //this is an example, change everything
   public ViewHandler(ProjectModel model)
   {
@@ -138,4 +136,4 @@ public class ViewHandler
 
 
 
-}
+}*/

@@ -1,4 +1,4 @@
-package GUI;
+/*package GUI;
 
 
 import GUI.View.ViewHandler;
@@ -21,4 +21,4 @@ public class MyApplication extends Application
         ViewHandler view = new ViewHandler(model);
         view.start(primaryStage);
     }
-}
+}*/

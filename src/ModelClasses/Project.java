@@ -99,6 +99,7 @@ public class Project
   }
 */
 
+
   public ProjectRelated getProjectRelatedRequirementByID(String requirementID) {
     for (Requirement requirement : requirements)
     {
@@ -110,7 +111,7 @@ public class Project
   public UserStory getUserStoryRequirementByID(String requirementID) {
     for (Requirement requirement : requirements)
     {
-      if (requirement.getRequirementId().equals(requirementID))
+      if (requirement.getRequirementId().equalsIgnoreCase(requirementID))
         return (UserStory) requirement;
     }
     throw new IllegalArgumentException("The User Story requirement with such ID was not found");
@@ -131,6 +132,13 @@ public class Project
       s += " " +e.getName()+"~"+e.getTeamMemberId()+"\n";
     }
     return s;
+  }
+  public TeamMember getProjectTeamMemberByID(String memberID) {
+    for (TeamMember teamMember : projectTeam) {
+      if (teamMember.getTeamMemberId().equalsIgnoreCase(memberID))
+        return teamMember;
+    }
+    throw new IllegalArgumentException("A team member with such ID was not found in this project");
   }
 
   public void addProjectTeamMember(String name, String teamMemberId){
@@ -186,11 +194,11 @@ public class Project
 
 
   public void removeRequirement(String requirementId){
-    requirements.forEach((e) -> {
-      if (e.getRequirementId().equals(requirementId)){
-        requirements.remove(e);
-      }
-    });
+    for(int i = 0; i < requirements.size(); i++) {
+      if(requirements.get(i).getRequirementId().equals(requirementId))
+        requirements.remove(i);
+
+    }
   }
 
   //removes project by the given Id

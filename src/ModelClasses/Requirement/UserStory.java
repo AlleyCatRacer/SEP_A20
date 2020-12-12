@@ -113,9 +113,15 @@ public class UserStory extends Requirement
         requirementTasks.add(task);
     }
 
-    public void removeTask(Task task)
-    {
-        requirementTasks.remove(task);
+    public void removeTask(String taskID) {
+        for (int i = 0; i < requirementTasks.size(); i++)
+        {
+            if (requirementTasks.get(i).getTaskId().equalsIgnoreCase(taskID))
+            {
+                requirementTasks.remove(i);
+            }
+
+        }
     }
 
     public void changeDeadline(MyDate deadline)

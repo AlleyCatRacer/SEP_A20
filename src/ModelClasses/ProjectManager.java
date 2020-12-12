@@ -1,4 +1,4 @@
-package ModelClasses;
+/*package ModelClasses;
 
 public class ProjectManager implements ProjectModel
 {
@@ -12,4 +12,4 @@ public class ProjectManager implements ProjectModel
     }
 
     public
-}
+}*/
