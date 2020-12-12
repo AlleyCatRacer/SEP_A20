@@ -32,7 +32,7 @@ public class TestMain {
     //Removing task
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").removeTask("taskID0");
     //Adding a member to a team
-    wick.getProjectByTitle("Title").addProjectTeamMember("Bob", "TheBuilder123");
+//    wick.getProjectByTitle("Title").addProjectTeamMember("Bob", "TheBuilder123");
     //Logging hours
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").logHours(15);
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
@@ -43,14 +43,26 @@ public class TestMain {
     wick.getProjectByTitle("Title").editComment("From now on iterative approach will be applied in this Kingdom!");
     wick.getProjectByTitle("Title").editStatus(Status.ACCEPTED);
     //Changing team member's role
-    wick.getProjectByTitle("Title").getProjectTeamMemberByID("TheBuilder123").setRole(Role.SCRUM_MASTER);
+//    wick.getProjectByTitle("Title").getProjectTeamMemberByID("TheBuilder123").setRole(Role.SCRUM_MASTER);
     //Changing requirement's status
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").changeStatus(Status.STARTED);
     //Automatic change of requirement's status when all tasks are completed
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeStatus(Status.ENDED);
     //Automatic update of an estimate and timeSpent when the task is updated
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeEstimate(50);
-    System.out.println(wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID"));
+
+
+
+    //Figuring out the Team situation
+    Team roster = new Team();
+    TeamMember human1 = new TeamMember("John", "123");
+    TeamMember human2 = new TeamMember("StevieTheTV", "124");
+    TeamMember human3 = new TeamMember("Geralt", "125");
+    roster.addTeamMember(human1);
+    roster.addTeamMember(human2);
+    roster.addTeamMember(human3);
+    wick.getProjectByTitle("Title").addTeamMemberToTheProject("124");
+    System.out.println(wick.getProjectByTitle("Title").getMembersOfTheProject());
 
 
 

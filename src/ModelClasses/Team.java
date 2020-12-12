@@ -4,11 +4,15 @@ import java.util.ArrayList;
 
 public class Team
 {
-    private ArrayList<TeamMember> teamMembers;
+    private static ArrayList<TeamMember> teamMembers;
 
     public Team()
     {
         teamMembers = new ArrayList<>();
+    }
+
+    public static ArrayList<TeamMember> getTheRoster() {
+        return teamMembers;
     }
 
     public TeamMember getTeamMemberById(String teamMemberId)

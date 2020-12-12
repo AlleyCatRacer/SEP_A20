@@ -15,6 +15,7 @@ public class Project
   private String currentStatus;
   private ArrayList<Requirement> requirements;
   private ArrayList<TeamMember> projectTeam;
+  private Team roster;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
@@ -44,6 +45,7 @@ public class Project
     return title;
   }
 
+
   public String getProjectId() {
     return projectId;
   }
@@ -63,6 +65,12 @@ public class Project
 
   public String getCurrentStatus() {
     return currentStatus;
+  }
+  public void addTeamMemberToTheProject(String memberID) {
+    for(int i = 0; i < Team.getTheRoster().size(); i++) {
+      if(Team.getTheRoster().get(i).getTeamMemberId().equals(memberID))
+        projectTeam.add(Team.getTheRoster().get(i));
+    }
   }
 
 
@@ -140,16 +148,19 @@ public class Project
     }
     throw new IllegalArgumentException("A team member with such ID was not found in this project");
   }
-
-  public void addProjectTeamMember(String name, String teamMemberId){
-    TeamMember teamMember= new TeamMember(name,teamMemberId);
-        if (Team.class.cast(projectTeam).isIdTaken(teamMemberId))
-        {
-          throw new IllegalArgumentException("A team member with such ID already exists in the project");
-        }else{
-          projectTeam.add(teamMember);
-      }
+  public ArrayList<TeamMember> getMembersOfTheProject() {
+    return projectTeam;
   }
+
+//  public void addProjectTeamMember(String name, String teamMemberId){
+//    TeamMember teamMember= new TeamMember(name,teamMemberId);
+//        if (Team.class.cast(projectTeam).isIdTaken(teamMemberId))
+//        {
+//          throw new IllegalArgumentException("A team member with such ID already exists in the project");
+//        }else{
+//          projectTeam.add(teamMember);
+//      }
+//  }
 
   public void editProjectRole(String teamMemberId, Role role)
   {
