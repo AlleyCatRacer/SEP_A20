@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public class Team
 {
-    private static ArrayList<TeamMember> teamMembers;
+    private static ArrayList<TeamMember> roster = new ArrayList<>();
 
     public Team()
     {
-        teamMembers = new ArrayList<>();
+        roster = new ArrayList<>();
     }
 
     public static ArrayList<TeamMember> getTheRoster() {
-        return teamMembers;
+        return roster;
     }
 
     public TeamMember getTeamMemberById(String teamMemberId)
     {
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
-                return teamMembers.get(i);
+                return roster.get(i);
             }
         }
         throw new IllegalArgumentException();
@@ -31,50 +31,45 @@ public class Team
 
     public void editRole(String teamMemberId, Role role)
     {
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
-                teamMembers.get(i).setRole(role);
+                roster.get(i).setRole(role);
             }
         }
     }
 
-    public void addTeamMember(TeamMember teamMember)
-    {
-        teamMembers.add(teamMember);
+    public static void addTeamMember(String name, String id) {
+        TeamMember human = new TeamMember(name, id);
+        roster.add(human);
     }
 
-    public void removeTeamMember(String teamMemberId)
+    public static void removeMemberFromTheRoster(String teamMemberId)
     {
         boolean doesExist = false;
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
                 doesExist = true;
-                TeamMember member = teamMembers.get(i);
-                teamMembers.remove(member);
+                roster.remove(roster.get(i));
             }
         }
-        if (!doesExist) throw new IllegalArgumentException();
+        if (!doesExist) throw new IllegalArgumentException("Person with such id does not exist");
     }
 
-    public boolean isIdTaken(String teamMemberId)
-    {
-        for (int i = 0; i < teamMembers.size(); i++)
-        {
-            if (teamMembers.get(i).isExisting(teamMemberId))
-            {
-                return true;
-            }
-        }
-        return false;
+//    public boolean isIdTaken(String teamMemberId)
+//    {
+//        for (int i = 0; i < roster.size(); i++)
+//        {
+//            if (roster.get(i).isExisting(teamMemberId))
+//            {
+//                return true;
+//            }
+//        }
+//        return false;
+//
+//    }
 
-    }
-
-    public ArrayList<TeamMember> getTeamMembers()
-    {
-        return teamMembers;
-    }
 }

@@ -15,7 +15,6 @@ public class Project
   private String currentStatus;
   private ArrayList<Requirement> requirements;
   private ArrayList<TeamMember> projectTeam;
-  private Team roster;
 
   public Project(String title,String projectId,String customerId, MyDate deadline, String comment){
     requirements = new ArrayList<>();
@@ -66,16 +65,8 @@ public class Project
   public String getCurrentStatus() {
     return currentStatus;
   }
-  public void addTeamMemberToTheProject(String memberID) {
-    for(int i = 0; i < Team.getTheRoster().size(); i++) {
-      if(Team.getTheRoster().get(i).getTeamMemberId().equals(memberID))
-        if (Team.class.cast(projectTeam).isIdTaken(memberID))
-            {
-              throw new IllegalArgumentException("A team member with such ID already exists in the project");
-             }else{
-               projectTeam.add(Team.getTheRoster().get(i));
-          }
-    }
+  public ArrayList<TeamMember> getMembersOfTheProject() {
+    return projectTeam;
   }
 
 
@@ -138,28 +129,58 @@ public class Project
     throw new IllegalArgumentException("The Non Functional requirement with such ID was not found");
   }
 
-  public TeamMember getProjectTeamMemberByID(String memberID) {
-    for (TeamMember teamMember : projectTeam) {
-      if (teamMember.getTeamMemberId().equalsIgnoreCase(memberID))
-        return teamMember;
+  public void addTeamMemberToTheProject(String memberID) {
+    for(int i = 0; i < Team.getTheRoster().size(); i++) {
+      if(Team.getTheRoster().get(i).getTeamMemberId().equals(memberID)) {
+        if (!(isIDUniqueWithinTheProject(memberID)))
+        {
+          throw new IllegalArgumentException(
+              "A team member with such ID already exists in the project");
+        }
+        else
+          projectTeam.add(Team.getTheRoster().get(i));
+      }
+
     }
-    throw new IllegalArgumentException("A team member with such ID was not found in this project");
   }
-  public ArrayList<TeamMember> getMembersOfTheProject() {
-    return projectTeam;
+  public boolean isIDUniqueWithinTheProject (String memberID) {
+    for(int i = 0; i < projectTeam.size(); i++) {
+      if(projectTeam.get(i).getTeamMemberId().equals(memberID))
+        return false;
+    }
+    return true;
   }
-
-
-  public void editProjectRole(String teamMemberId, Role role)
+  public void editProjectMemberRole(String teamMemberId, Role role)
   {
-    for (int i = 0; i < projectTeam.size(); i++)
-    {
-      if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
-      {
-        projectTeam.get(i).setRole(role);
+    int count = 0;
+    if(role.equals(Role.TEAM_MEMBER)) {
+      for(int i = 0; i < projectTeam.size(); i++) {
+        if(projectTeam.get(i).getTeamMemberId().equals(teamMemberId)) {
+          count++;
+          projectTeam.get(i).setRole(role);
+        }
+      }
+      if(count == 0)
+        throw new IllegalArgumentException("Person with such ID was not found within this project");
+    }
+    else {
+      for(int i = 0; i < projectTeam.size(); i++) {
+        if(projectTeam.get(i).getRole().equals(role))
+          throw new IllegalArgumentException("There is a " + role + " already assigned to this project");
+      }
+      for(int i = 0; i < projectTeam.size(); i++) {
+        if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId)) {
+          count++;
+          projectTeam.get(i).setRole(role);
+        }
+      }
+      if(count == 0)
+        throw new IllegalArgumentException("Person with such ID was not found within this project");
       }
     }
-  }
+
+
+
 
   public void removeProjectTeamMember(String teamMemberId){
     boolean doesExist = false;
@@ -172,6 +193,13 @@ public class Project
       }
     }
     if (!doesExist) throw new IllegalArgumentException();
+  }
+  public TeamMember getProjectTeamMemberByID(String memberID) {
+    for (TeamMember teamMember : projectTeam) {
+      if (teamMember.getTeamMemberId().equalsIgnoreCase(memberID))
+        return teamMember;
+    }
+    throw new IllegalArgumentException("A team member with such ID was not found in this project");
   }
 
   //i guess
