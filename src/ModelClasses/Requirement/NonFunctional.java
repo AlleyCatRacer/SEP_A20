@@ -19,7 +19,7 @@ public class NonFunctional extends Requirement
         if(!(banana instanceof NonFunctional))
             return false;
         NonFunctional temp = (NonFunctional) banana;
-        return(temp.type.equals(type));
+        return(temp.type.equals(type) && temp.getStatus().equals(getStatus()) && temp.getRequirementId().equals(getRequirementId()) && temp.getDescription().equals(getDescription()) && temp.getResponsibleTeamMember().equals(getResponsibleTeamMember()));
     }
 
     @Override public String toString()

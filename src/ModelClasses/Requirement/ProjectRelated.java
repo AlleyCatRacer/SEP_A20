@@ -81,7 +81,7 @@ public class ProjectRelated extends Requirement
         if(!(banana instanceof ProjectRelated))
             return false;
         ProjectRelated temp = (ProjectRelated) banana;
-        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type));
+        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type) && temp.getStatus().equals(getStatus()) && temp.getRequirementId().equals(getRequirementId()) && temp.getDescription().equals(getDescription()) && temp.getResponsibleTeamMember().equals(getResponsibleTeamMember()));
     }
 
     @Override public String toString()

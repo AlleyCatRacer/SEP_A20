@@ -34,7 +34,9 @@ public class TestMain {
     //Adding a member to a team
     wick.getProjectByTitle("Title").addProjectTeamMember("Bob", "TheBuilder123");
     //Logging hours
-    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").logHours(20);
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").logHours(15);
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").createNewTask("taskID0", "Description", 100);
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID0").logHours(23);
     //Changing priority
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").changePriority(Priority.CRITICAL);
     //Changing designated methodology i.e. comment
@@ -46,7 +48,9 @@ public class TestMain {
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").changeStatus(Status.STARTED);
     //Automatic change of requirement's status when all tasks are completed
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeStatus(Status.ENDED);
-    System.out.println(wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getStatus());
+    //Automatic update of an estimate and timeSpent when the task is updated
+    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeEstimate(50);
+    System.out.println(wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID"));
 
 
 
