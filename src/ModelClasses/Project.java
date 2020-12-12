@@ -69,7 +69,12 @@ public class Project
   public void addTeamMemberToTheProject(String memberID) {
     for(int i = 0; i < Team.getTheRoster().size(); i++) {
       if(Team.getTheRoster().get(i).getTeamMemberId().equals(memberID))
-        projectTeam.add(Team.getTheRoster().get(i));
+        if (Team.class.cast(projectTeam).isIdTaken(memberID))
+            {
+              throw new IllegalArgumentException("A team member with such ID already exists in the project");
+             }else{
+               projectTeam.add(Team.getTheRoster().get(i));
+          }
     }
   }
 
@@ -133,14 +138,6 @@ public class Project
     throw new IllegalArgumentException("The Non Functional requirement with such ID was not found");
   }
 
-  public String getProjectTeam(){
-    String s="";
-    for (TeamMember e : projectTeam)
-    {
-      s += " " +e.getName()+"~"+e.getTeamMemberId()+"\n";
-    }
-    return s;
-  }
   public TeamMember getProjectTeamMemberByID(String memberID) {
     for (TeamMember teamMember : projectTeam) {
       if (teamMember.getTeamMemberId().equalsIgnoreCase(memberID))
@@ -152,15 +149,6 @@ public class Project
     return projectTeam;
   }
 
-//  public void addProjectTeamMember(String name, String teamMemberId){
-//    TeamMember teamMember= new TeamMember(name,teamMemberId);
-//        if (Team.class.cast(projectTeam).isIdTaken(teamMemberId))
-//        {
-//          throw new IllegalArgumentException("A team member with such ID already exists in the project");
-//        }else{
-//          projectTeam.add(teamMember);
-//      }
-//  }
 
   public void editProjectRole(String teamMemberId, Role role)
   {
