@@ -1,4 +1,4 @@
-package GUI.Model;
+package ModelClasses;
 
 import ModelClasses.MyDate;
 import ModelClasses.Project;

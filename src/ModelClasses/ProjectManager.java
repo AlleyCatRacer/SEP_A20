@@ -1,7 +1,4 @@
-package GUI.Model;
-
-import ModelClasses.ProjectList;
-import ModelClasses.Team;
+package ModelClasses;
 
 public class ProjectManager implements ProjectModel
 {

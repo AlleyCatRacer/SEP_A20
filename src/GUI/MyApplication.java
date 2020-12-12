@@ -1,7 +1,8 @@
-package GUI.View;
+package GUI;
 
 
-import GUI.Model.ProjectManager;
+import GUI.View.ViewHandler;
+import ModelClasses.ProjectManager;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
