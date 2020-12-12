@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b79009c-805e-4b11-b0a5-b9cf851d33ac" name="Default Changelist" comment="made for intelij" />
+    <list default="true" id="3b79009c-805e-4b11-b0a5-b9cf851d33ac" name="Default Changelist" comment="ProjectView" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +113,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="made for intelij" />
-    <option name="LAST_COMMIT_MESSAGE" value="made for intelij" />
+    <MESSAGE value="ProjectView" />
+    <option name="LAST_COMMIT_MESSAGE" value="ProjectView" />
   </component>
   <component name="WindowStateProjectService">
     <state x="520" y="241" key="#Notifications" timestamp="1607510722200">
