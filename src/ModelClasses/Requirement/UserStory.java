@@ -48,6 +48,17 @@ public class UserStory extends Requirement
         {
             hours += requirementTasks.get(i).getEstimate();
         }
+        this.estimate = hours;
+        return hours;
+    }
+    public double calculateTimeSpent()
+    {
+        double hours = 0;
+        for (int i = 0; i < requirementTasks.size(); i++)
+        {
+            hours += requirementTasks.get(i).getTimeSpent();
+        }
+        this.timeSpent = hours;
         return hours;
     }
 
@@ -151,7 +162,7 @@ public class UserStory extends Requirement
         if(!(banana instanceof UserStory))
             return false;
         UserStory temp = (UserStory) banana;
-        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type) && temp.estimate == estimate && temp.requirementTasks.equals(requirementTasks));
+        return(temp.deadline.equals(deadline) && temp.priority.equals(priority) && temp.timeSpent == timeSpent && temp.type.equals(type) && temp.estimate == estimate && temp.requirementTasks.equals(requirementTasks) && temp.getStatus().equals(getStatus()) && temp.getRequirementId().equals(getRequirementId()) && temp.getDescription().equals(getDescription()) && temp.getResponsibleTeamMember().equals(getResponsibleTeamMember()));
 
     }
 
@@ -160,6 +171,6 @@ public class UserStory extends Requirement
         return "UserStory{" + "type='" + type + '\'' + ", timeSpent="
             + timeSpent + ", estimate=" + estimate + ", priority=" + priority
             + ", requirementTasks=" + requirementTasks + ", deadline="
-            + deadline + '}';
+            + deadline + '}' + ", status " + getStatus();
     }
 }

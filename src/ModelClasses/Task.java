@@ -43,11 +43,15 @@ public class Task
     public void changeEstimate(double estimate)
     {
         this.estimate = estimate;
+        for(int i = 0; i < belongsToRequirement.size(); i++) {
+            belongsToRequirement.get(i).calculateEstimate();
+        }
+
     }
 
     public boolean isValidTime(double hours)
     {
-        return (hours%0.5==0);
+        return (hours%0.5==0 && hours > 0);
     }
 
     public void logHours(double timeSpent)
@@ -55,8 +59,12 @@ public class Task
         if (isValidTime(timeSpent))
         {
             this.timeSpent += timeSpent;
+            for(int i = 0; i < belongsToRequirement.size(); i++) {
+                belongsToRequirement.get(i).calculateTimeSpent();
+            }
         }
-        //exception
+        else
+        throw new IllegalArgumentException("Invalid amount of hours");
     }
 
     public double getEstimate()
@@ -121,6 +129,6 @@ public class Task
     {
         return "Task{" + "taskId='" + taskId + '\'' + ", description='"
             + description + '\'' + ", estimate=" + estimate + ", timeSpent="
-            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements " + getRequirementsIDsToWhichTheTaskBelongs();
+            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements: " + getRequirementsIDsToWhichTheTaskBelongs();
     }
 }
