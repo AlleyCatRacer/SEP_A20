@@ -19,30 +19,20 @@ public class ViewHandler
   public ViewHandler(ProjectModel model)
   {
     this.model = model;
-    this.currentScene = new Scene(new Region());
+    this.currentScene = new Scene(new Region(), 500, 500);
   }
 
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
+    primaryStage.setTitle("The Void");
     openView();
   }
 
   public void openView()
   {
-    Region root = null;
-    switch (id)
-    {
-      case "list":
-        root = loadGradeListView("GradeListView.fxml");
-        break;
-      case "add":
-        root = loadAddGradeView("AddGradeView.fxml");
-        break;
-      case "details":
-        root = loadDetailsView("DetailsView.fxml");
-        break;
-    }
+    Region root = loadProjectListView("ProjectListView.fxml");
+
     currentScene.setRoot(root);
     String title = "";
     if (root.getUserData() != null)
@@ -62,14 +52,22 @@ public class ViewHandler
   }
 
   private Region loadProjectListView(String fxmlFile) {
-    if(ProjectListController == null) {
+    if(projectListController == null) {
       try {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
+        projectListController = loader.getController();
 
       }
+      catch (Exception e) {
+        e.printStackTrace();
+      }
     }
+    else
+      projectListController.reset();
+
+    return projectListController.getRoot();
   }
 
   /*private Region loadGradeListView(String fxmlFile)
