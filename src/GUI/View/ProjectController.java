@@ -13,4 +13,14 @@ public class ProjectController
     {
 
     }
+
+    public void reset()
+    {
+
+    }
+
+    public Region getRoot()
+    {
+
+    }
 }
