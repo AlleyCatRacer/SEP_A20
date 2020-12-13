@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" userData="Well Of Tears" fx:controller="GUI.View.ProjectListController">
+<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" userData="Well Of Tears" fx:controller="GUI.View.HomeController">
    <children>
       <SplitPane dividerPositions="0.5" prefHeight="700.0" prefWidth="1200.0">
          <items>

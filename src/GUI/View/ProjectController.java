@@ -6,6 +6,7 @@ import javafx.scene.layout.Region;
 
 public class ProjectController
 {
+    private Region root;
     private ViewHandler viewHandler;
     private ProjectModel model;
 
@@ -19,8 +20,7 @@ public class ProjectController
 
     }
 
-    public Region getRoot()
-    {
-
+    public Region getRoot() {
+        return root;
     }
 }

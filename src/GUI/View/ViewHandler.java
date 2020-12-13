@@ -69,9 +69,7 @@ public class ViewHandler
             }
         }
         else
-        {
             homeController.reset();
-        }
         return homeController.getRoot();
     }
 
@@ -99,7 +97,7 @@ public class ViewHandler
         return projectController.getRoot();
     }
 
-    private Region loadDetailsView(String fxmlFile)
+    /*private Region loadDetailsView(String fxmlFile)
     {
         if (detailsViewController == null)
         {
@@ -316,5 +314,5 @@ public class ViewHandler
         return editTaskController.getRoot();
 
     }
-    return editTaskController.getRoot();
+    return editTaskController.getRoot();*/
 }
