@@ -13,7 +13,7 @@ public class ViewHandler
     private RequirementController requirementController;
     private TaskController taskController;
     private Scene currentScene;
-    private Stage primaryStage;
+    private Stage stage;
     private ProjectModel model;
 
     public ViewHandler(ProjectModel model)
@@ -24,7 +24,7 @@ public class ViewHandler
 
     public void start(Stage primaryStage)
     {
-        this.primaryStage = primaryStage;
+        this.stage = primaryStage;
         openView();
     }
 
@@ -38,16 +38,16 @@ public class ViewHandler
         {
             title += root.getUserData();
         }
-        primaryStage.setTitle(title);
-        primaryStage.setScene(currentScene);
-        primaryStage.setWidth(root.getPrefWidth());
-        primaryStage.setHeight(root.getPrefHeight());
-        primaryStage.show();
+        stage.setTitle(title);
+        stage.setScene(currentScene);
+        stage.setWidth(root.getPrefWidth());
+        stage.setHeight(root.getPrefHeight());
+        stage.show();
     }
 
     public void closeView()
     {
-        primaryStage.close();
+        stage.close();
     }
 
     private Region loadHomeView(String fxmlFile)
