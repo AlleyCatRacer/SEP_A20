@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class ViewHandler
 {
-  private ProjectListController projectListController;
+  private HomeController projectListController;
   private ProjectController projectController;
   private RequirementController requirementController;
   private TaskController taskController;
