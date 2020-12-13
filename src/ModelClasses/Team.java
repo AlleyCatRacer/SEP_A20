@@ -4,74 +4,64 @@ import java.util.ArrayList;
 
 public class Team
 {
-    private static ArrayList<TeamMember> teamMembers;
+    private static ArrayList<TeamMember> roster = new ArrayList<>();
 
     public Team()
     {
-        teamMembers = new ArrayList<>();
+        roster = new ArrayList<>();
     }
 
     public static ArrayList<TeamMember> getTheRoster() {
-        return teamMembers;
+        return roster;
     }
 
-    public TeamMember getTeamMemberById(String teamMemberId)
+    public static TeamMember getTeamMemberById(String teamMemberId)
     {
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
-                return teamMembers.get(i);
+                return roster.get(i);
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Person with such ID was not found in employees' roster");
     }
 
     //getTeamMemberByProject should be in project
 
-    public void editRole(String teamMemberId, Role role)
-    {
-        for (int i = 0; i < teamMembers.size(); i++)
-        {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
-            {
-                teamMembers.get(i).setRole(role);
-            }
+
+    public static void hire(String name, String id) {
+        if(isIdAvailable(id)) {
+            TeamMember human = new TeamMember(name, id);
+            roster.add(human);
         }
+        else
+            throw new IllegalArgumentException("This ID is already taken");
     }
 
-    public void addTeamMember(TeamMember teamMember)
-    {
-        teamMembers.add(teamMember);
-    }
-
-    public void removeTeamMember(String teamMemberId)
+    public static void removeMemberFromTheRoster(String teamMemberId)
     {
         boolean doesExist = false;
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).getTeamMemberId().equals(teamMemberId))
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
                 doesExist = true;
-                TeamMember member = teamMembers.get(i);
-                teamMembers.remove(member);
+                roster.remove(roster.get(i));
             }
         }
-        if (!doesExist) throw new IllegalArgumentException();
+        if (!doesExist) throw new IllegalArgumentException("Person with such id does not exist");
     }
 
-    public boolean isIdTaken(String teamMemberId)
+    public static boolean isIdAvailable(String teamMemberId)
     {
-        for (int i = 0; i < teamMembers.size(); i++)
+        for (int i = 0; i < roster.size(); i++)
         {
-            if (teamMembers.get(i).isExisting(teamMemberId))
-            {
-                return true;
-            }
+            if (roster.get(i).getTeamMemberId().equals(teamMemberId))
+            return false;
         }
-        return false;
+        return true;
 
     }
-
 
 }

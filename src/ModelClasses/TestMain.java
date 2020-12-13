@@ -54,15 +54,14 @@ public class TestMain {
 
 
     //Figuring out the Team situation
-    Team roster = new Team();
-    TeamMember human1 = new TeamMember("John", "123");
-    TeamMember human2 = new TeamMember("StevieTheTV", "124");
-    TeamMember human3 = new TeamMember("Geralt", "125");
-    roster.addTeamMember(human1);
-    roster.addTeamMember(human2);
-    roster.addTeamMember(human3);
+    Team.hire("John", "123");
+    Team.hire("StevieTheTV", "124");
+    Team.hire("Geralt", "125");
     wick.getProjectByTitle("Title").addTeamMemberToTheProject("124");
+    wick.getProjectByTitle("Title").addTeamMemberToTheProject("125");
+    wick.getProjectByTitle("Title").editProjectMemberRole("125", Role.SCRUM_MASTER);
     System.out.println(wick.getProjectByTitle("Title").getMembersOfTheProject());
+
 
 
 

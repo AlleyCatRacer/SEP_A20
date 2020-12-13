@@ -86,4 +86,9 @@ public class TeamMember
         return (this.teamMemberId.equals(teamMemberId));
     }
 
+    @Override public String toString()
+    {
+        return "TeamMember{" + "name='" + name + '\'' + ", teamMemberId='"
+            + teamMemberId + '\'' + ", tasks=" + tasks + ", role=" + role + '}';
+    }
 }
