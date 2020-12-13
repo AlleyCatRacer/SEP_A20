@@ -1,6 +1,7 @@
-/*package GUI;
+package GUI;
 
 import javafx.application.Application;
+
 
 public class Main
 {
@@ -8,4 +9,4 @@ public class Main
     {
         Application.launch(MyApplication.class);
     }
-}*/
+}

@@ -1,4 +1,4 @@
-/*package GUI.View;
+package GUI.View;
 
 import ModelClasses.ProjectModel;
 import javafx.fxml.FXMLLoader;
@@ -8,28 +8,27 @@ import javafx.stage.Stage;
 
 public class ViewHandler
 {
+  private ProjectListController projectListController;
+  private ProjectController projectController;
+  private RequirementController requirementController;
+  private TaskController taskController;
   private Scene currentScene;
   private Stage primaryStage;
   private ProjectModel model;
-  /*private GradeListViewController gradeListViewController;
-  private AddGradeViewController addGradeViewController;
-  private DetailsViewController detailsViewController;*/
-  //add controllers when done
-/*
-  //this is an example, change everything
+
   public ViewHandler(ProjectModel model)
   {
     this.model = model;
-    currentScene = new Scene(new Region());
+    this.currentScene = new Scene(new Region());
   }
 
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
-    openView("list");
+    openView();
   }
 
-  public void openView(String id)
+  public void openView()
   {
     Region root = null;
     switch (id)
@@ -62,7 +61,18 @@ public class ViewHandler
     primaryStage.close();
   }
 
-  private Region loadGradeListView(String fxmlFile)
+  private Region loadProjectListView(String fxmlFile) {
+    if(ProjectListController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        Region root = loader.load();
+
+      }
+    }
+  }
+
+  /*private Region loadGradeListView(String fxmlFile)
   {
     if (gradeListViewController == null)
     {
@@ -132,8 +142,8 @@ public class ViewHandler
       detailsViewController.reset();
     }
     return detailsViewController.getRoot();
-  }
+  }*/
 
 
 
-}*/
+}

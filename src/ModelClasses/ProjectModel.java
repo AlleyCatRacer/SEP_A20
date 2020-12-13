@@ -10,7 +10,11 @@ public interface ProjectModel
 {
     void addProject(String title, String projectId, String customerId, MyDate deadline, String comment);
 
-    void addRequirement(Requirement requirement);
+    void addUserStory(String projectID, String REQUIREMENTID, String description, MyDate deadline);
+
+    void addProjectRelated();
+
+    void addNonFunctional();
 
     void addTask(Task task);
 

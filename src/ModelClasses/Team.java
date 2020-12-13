@@ -39,7 +39,7 @@ public class Team
             throw new IllegalArgumentException("This ID is already taken");
     }
 
-    public static void removeMemberFromTheRoster(String teamMemberId)
+    public static void fire(String teamMemberId)
     {
         boolean doesExist = false;
         for (int i = 0; i < roster.size(); i++)
