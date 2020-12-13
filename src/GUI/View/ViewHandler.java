@@ -19,13 +19,12 @@ public class ViewHandler
   public ViewHandler(ProjectModel model)
   {
     this.model = model;
-    this.currentScene = new Scene(new Region(), 500, 500);
+    this.currentScene = new Scene(new Region());
   }
 
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
-    primaryStage.setTitle("The Void");
     openView();
   }
 
@@ -58,6 +57,7 @@ public class ViewHandler
         loader.setLocation(getClass().getResource(fxmlFile));
         Region root = loader.load();
         projectListController = loader.getController();
+        projectListController.initiator(root, this, model);
 
       }
       catch (Exception e) {

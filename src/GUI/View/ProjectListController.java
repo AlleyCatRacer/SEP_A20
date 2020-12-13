@@ -16,7 +16,7 @@ public class ProjectListController {
   public Region getRoot() {
     return root;
   }
-  public void init(Region root, ViewHandler viewHandler, ProjectModel model) {
+  public void initiator(Region root, ViewHandler viewHandler, ProjectModel model) {
     this.root = root;
     this.viewHandler = viewHandler;
     this.model = model;
