@@ -18,9 +18,21 @@
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
          <children>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+               </padding>
+            </HBox>
             <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="ProjectTitle1" alignment="CENTER" contentDisplay="CENTER" text="RequirementID" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                  <Label fx:id="requirementId" alignment="CENTER" contentDisplay="CENTER" text="RequirementID" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                      <padding>
                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                      </padding>
@@ -28,14 +40,14 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                      <HBox.margin>
-                        <Insets left="90.0" />
+                        <Insets />
                      </HBox.margin>
                   </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                <children>
-                  <Button fx:id="EditButton1" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#EditWindow" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
+                  <Button fx:id="EditReqButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#EditWindow" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
@@ -90,7 +102,7 @@
                               </VBox>
                               <VBox spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="CustomerId" text="Functional">
+                                    <Label fx:id="ReqType" text="Functional">
                                        <VBox.margin>
                                           <Insets bottom="5.0" right="5.0" top="7.0" />
                                        </VBox.margin>
@@ -98,7 +110,7 @@
                                           <Font name="System Italic" size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="CustomerId1" text="Undefined">
+                                    <Label fx:id="ReqPriority" text="Undefined">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -106,7 +118,7 @@
                                           <Insets bottom="5.0" right="5.0" top="7.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label fx:id="ProjectStatus" text="Waiting">
+                                    <Label fx:id="ReqStatus" text="Waiting">
                                        <VBox.margin>
                                           <Insets bottom="6.0" right="6.0" top="7.0" />
                                        </VBox.margin>
@@ -138,7 +150,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label text="Jane Doe">
+                                          <Label fx:id="Responsible" text="Jane Doe">
                                              <font>
                                                 <Font size="16.0" />
                                              </font>
@@ -147,7 +159,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Assign">
+                                          <Button fx:id="AssignResponsibleButton" mnemonicParsing="false" text="Assign">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -175,7 +187,7 @@
                                  <children>
                                     <TextFlow minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="580.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <TextArea fx:id="Description" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="580.0" />
+                                          <TextArea fx:id="ReqDescription" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="580.0" />
                                        </children>
                                     </TextFlow>
                                  </children>
@@ -230,7 +242,7 @@
                               </VBox>
                               <VBox spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Label fx:id="ProjectDeadline" text="MyDate">
+                                    <Label fx:id="ReqDeadline" text="MyDate">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -238,7 +250,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ProjectEstimate" text="Hours">
+                                    <Label fx:id="ReqEstimate" text="Hours">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -246,7 +258,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="ProjectTimeSpent" text="Hours">
+                                    <Label fx:id="ReqTimeSpent" text="Hours">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
@@ -279,9 +291,9 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Accordion VBox.vgrow="NEVER">
+                                    <Accordion fx:id="ReqTaskAccordion" VBox.vgrow="NEVER">
                                        <panes>
-                                          <TitledPane expanded="false" text="taskId">
+                                          <TitledPane fx:id="taskId" expanded="false" text="taskId">
                                              <content>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
@@ -297,7 +309,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqStatus1" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
+                                                                  <Label fx:id="TaskStatus1" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -323,7 +335,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqType1" alignment="CENTER" contentDisplay="CENTER" text="Hours">
+                                                                  <Label fx:id="TaskEstimate1" alignment="CENTER" contentDisplay="CENTER" text="Hours">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -340,7 +352,7 @@
                                                       </HBox>
                                                       <ButtonBar HBox.hgrow="NEVER">
                                                          <buttons>
-                                                            <Button fx:id="ReqDetailButton1" mnemonicParsing="false" text="Details" />
+                                                            <Button fx:id="TaskDetailsButton1" mnemonicParsing="false" text="Details" />
                                                          </buttons>
                                                          <HBox.margin>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -356,7 +368,7 @@
                                                 <Font size="15.0" />
                                              </font>
                                           </TitledPane>
-                                          <TitledPane fx:id="ReqDetailButton2" expanded="false" text="taskId">
+                                          <TitledPane fx:id="taskId2" expanded="false" text="taskId">
                                              <font>
                                                 <Font size="15.0" />
                                              </font>
@@ -375,7 +387,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqStatus11" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
+                                                                  <Label fx:id="TaskStatus2" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -401,7 +413,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqType11" alignment="CENTER" contentDisplay="CENTER" text="Hours">
+                                                                  <Label fx:id="TaskEstimate2" alignment="CENTER" contentDisplay="CENTER" text="Hours">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -418,7 +430,7 @@
                                                       </HBox>
                                                       <ButtonBar HBox.hgrow="NEVER">
                                                          <buttons>
-                                                            <Button fx:id="ReqDetailButton11" mnemonicParsing="false" text="Details" />
+                                                            <Button fx:id="TaskDetailsButton2" mnemonicParsing="false" text="Details" />
                                                          </buttons>
                                                          <HBox.margin>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -449,7 +461,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Remove Task">
+                                          <Button fx:id="RemoveTaskButton" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Remove Task">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -458,7 +470,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Add Task" />
+                                          <Button fx:id="AddTaskButton" alignment="CENTER" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Add Task" />
                                        </children>
                                     </HBox>
                                  </children>

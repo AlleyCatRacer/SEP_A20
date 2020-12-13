@@ -29,8 +29,14 @@
                         </Label>
                         <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="SearchProjectButton" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER" />
-                              <TextField fx:id="SearchProjectTitle" maxWidth="250.0" promptText="Search by title" HBox.hgrow="ALWAYS" />
+                              <Button fx:id="SearchProjectButton" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
+                              <TextField fx:id="SearchProjectTitle" maxWidth="250.0" promptText="Search by title" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                      </children>
@@ -41,10 +47,36 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <ListView fx:id="ProjectList" prefHeight="700.0">
-                     <padding>
+                  <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Active">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="ActiveProjectList">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ListView>
+                     </children>
+                     <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></ListView>
+                     </VBox.margin>
+                  </VBox>
+                  <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <Label text="Ended">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ListView fx:id="EndedProjectList" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </VBox>
                </children>
             </VBox>
             <VBox spacing="20.0">
@@ -55,7 +87,7 @@
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Team members">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font name="System Bold" size="20.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets />
@@ -63,8 +95,14 @@
                               </Label>
                               <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="SearchTeam" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER" />
-                                    <TextField fx:id="TeamMemberIdSearch" maxWidth="250.0" promptText="Search by employee ID" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="SearchTeamButton" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Button>
+                                    <TextField fx:id="SearchTeamMemberId" maxWidth="250.0" promptText="Search by employee ID" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></TextField>
                                  </children>
                               </HBox>
                            </children>
@@ -76,10 +114,16 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                  <children>
-                                  <Button alignment="CENTER" contentDisplay="CENTER" minWidth="140.0" mnemonicParsing="false" text="Add team member" />
+                                  <Button fx:id="AddTeamMemberButton" alignment="CENTER" contentDisplay="CENTER" minWidth="140.0" mnemonicParsing="false" text="Add team member">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Button>
                                  </children>
                               </VBox>
-                              <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="140.0" mnemonicParsing="false" text="Remove team member" HBox.hgrow="NEVER" />
+                              <Button fx:id="RemoveTeamMemberButton" alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="140.0" mnemonicParsing="false" text="Remove team member" HBox.hgrow="NEVER">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Button>
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -89,80 +133,62 @@
                   </VBox>
                   <Accordion fx:id="TeamAccordion">
                     <panes>
-                      <TitledPane fx:id="TeamMember1" animated="false" text="teamMemberId">
+                      <TitledPane fx:id="teamMemberId1" expanded="false" text="teamMemberId">
                            <content>
                               <Pane maxWidth="-Infinity" prefWidth="590.0">
                                  <children>
-                                    <VBox alignment="CENTER_RIGHT" prefWidth="590.0">
+                                    <VBox alignment="CENTER" prefWidth="590.0">
                                        <children>
-                                          <HBox alignment="CENTER" spacing="50.0">
+                                          <HBox alignment="CENTER" spacing="40.0">
                                              <children>
-                                                <HBox spacing="40.0">
-                                                   <children>
-                                                      <Label text="Employee ID:">
-                                                         <font>
-                                                            <Font name="System Bold" size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label text="ID">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox spacing="40.0">
-                                                   <children>
-                                                      <Label text="Name:">
-                                                         <font>
-                                                            <Font name="System Bold" size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label text="John Smith">
-                                                         <font>
-                                                            <Font size="14.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
+                                                <Label text="Employee ID:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="Id1" text="ID">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label text="Name:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Name1" text="John Smith">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                                             </padding>
-                                          </HBox>
-                                          <HBox alignment="CENTER" spacing="50.0">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" spacing="40.0">
-                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" text="Responsibilities:">
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="Responsibilities:">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
                                           <HBox alignment="CENTER" maxHeight="125.0" spacing="30.0">
                                              <children>
-                                                <VBox alignment="CENTER" prefWidth="280.0">
+                                                <VBox alignment="CENTER_LEFT" prefWidth="280.0">
                                                    <children>
-                                                      <HBox alignment="CENTER_LEFT">
-                                                         <children>
-                                                            <Label contentDisplay="CENTER" text="Requirement(s)">
-                                                               <font>
-                                                                  <Font size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </HBox>
+                                                      <Label contentDisplay="CENTER" text="Requirement(s)">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
                                                       <ScrollPane fitToWidth="true" maxHeight="125.0" maxWidth="300.0">
                                                          <content>
-                                                            <ListView maxHeight="99.0">
+                                                            <ListView fx:id="ReqResponsible1" maxHeight="99.0">
                                                                <padding>
                                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                </padding>
@@ -173,18 +199,14 @@
                                                 </VBox>
                                                 <VBox prefWidth="280.0">
                                                    <children>
-                                                      <HBox alignment="CENTER_LEFT">
-                                                         <children>
-                                                            <Label contentDisplay="CENTER" text="Task(s)">
-                                                               <font>
-                                                                  <Font size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </HBox>
+                                                      <Label contentDisplay="CENTER" text="Task(s)">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
                                                       <ScrollPane fitToWidth="true" maxHeight="125.0" maxWidth="300.0">
                                                          <content>
-                                                            <ListView maxHeight="99.0">
+                                                            <ListView fx:id="TaskResponsible1" maxHeight="99.0">
                                                                <padding>
                                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                </padding>
@@ -207,80 +229,62 @@
                               </Pane>
                            </content>
                       </TitledPane>
-                        <TitledPane fx:id="TeamMember2" animated="false" text="teamMemberId">
+                        <TitledPane fx:id="teamMemberId2" expanded="false" text="teamMemberId">
                            <content>
                               <Pane maxWidth="-Infinity" prefWidth="590.0">
                                  <children>
-                                    <VBox alignment="CENTER_RIGHT" prefWidth="590.0">
+                                    <VBox alignment="CENTER" prefWidth="590.0">
                                        <children>
-                                          <HBox alignment="CENTER" spacing="50.0">
+                                          <HBox alignment="CENTER" spacing="40.0">
                                              <children>
-                                                <HBox spacing="40.0">
-                                                   <children>
-                                                      <Label text="Employee ID:">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="ID" text="ID">
-                                                         <font>
-                                                            <Font size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
-                                                <HBox spacing="40.0">
-                                                   <children>
-                                                      <Label text="Name:">
-                                                         <font>
-                                                            <Font name="System Bold" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label fx:id="Name" text="Jane Doe">
-                                                         <font>
-                                                            <Font size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </HBox>
+                                                <Label text="Employee ID:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="Id2" text="ID">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label text="Name:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets left="20.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Label fx:id="Name2" text="Jane Doe">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
-                                             </padding>
-                                          </HBox>
-                                          <HBox alignment="CENTER" spacing="50.0">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
                                           </HBox>
-                                          <HBox alignment="CENTER" spacing="40.0">
-                                             <children>
-                                                <Label alignment="CENTER" contentDisplay="CENTER" text="Responsibilities:">
-                                                   <font>
-                                                      <Font size="16.0" />
-                                                   </font>
-                                                   <HBox.margin>
-                                                      <Insets bottom="5.0" />
-                                                   </HBox.margin>
-                                                </Label>
-                                             </children>
-                                          </HBox>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" text="Responsibilities:">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
                                           <HBox alignment="CENTER" spacing="30.0">
                                              <children>
-                                                <VBox alignment="CENTER" prefWidth="280.0">
+                                                <VBox HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <HBox alignment="CENTER_LEFT">
-                                                         <children>
-                                                            <Label contentDisplay="CENTER" text="Requirement(s)">
-                                                               <font>
-                                                                  <Font size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </HBox>
-                                                      <ScrollPane fitToWidth="true" maxHeight="202.0" maxWidth="300.0">
+                                                      <Label contentDisplay="CENTER" text="Requirement(s)">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ScrollPane fitToWidth="true" maxHeight="125.0" maxWidth="300.0">
                                                          <content>
-                                                            <ListView fx:id="ReqResponsible" maxHeight="200.0">
+                                                            <ListView fx:id="ReqResponsible2" maxHeight="123.0">
                                                                <padding>
                                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                </padding>
@@ -289,20 +293,16 @@
                                                       </ScrollPane>
                                                    </children>
                                                 </VBox>
-                                                <VBox prefWidth="280.0">
+                                                <VBox HBox.hgrow="ALWAYS">
                                                    <children>
-                                                      <HBox alignment="CENTER_LEFT">
-                                                         <children>
-                                                            <Label contentDisplay="CENTER" text="Task(s)">
-                                                               <font>
-                                                                  <Font size="14.0" />
-                                                               </font>
-                                                            </Label>
-                                                         </children>
-                                                      </HBox>
-                                                      <ScrollPane fitToWidth="true" maxHeight="202.0" maxWidth="300.0">
+                                                      <Label contentDisplay="CENTER" text="Task(s)">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ScrollPane fitToWidth="true" maxHeight="125.0" maxWidth="300.0">
                                                          <content>
-                                                            <ListView fx:id="TaskResponsible" maxHeight="200.0">
+                                                            <ListView fx:id="TaskResponsible2" maxHeight="123.0">
                                                                <padding>
                                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                </padding>
