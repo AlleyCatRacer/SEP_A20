@@ -3,14 +3,14 @@ package GUI.View;
 import ModelClasses.ProjectModel;
 import javafx.scene.layout.Region;
 
-public class ProjectListController {
+public class HomeController {
 
 
   private Region root;
   private ProjectModel model;
   private ViewHandler viewHandler;
 
-  public ProjectListController() {
+  public HomeController() {
 
   }
   public Region getRoot() {

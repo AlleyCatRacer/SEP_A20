@@ -1,16 +1,12 @@
 package ModelClasses;
 
-import ModelClasses.MyDate;
-import ModelClasses.Project;
-import ModelClasses.Requirement.Requirement;
-import ModelClasses.Task;
-import ModelClasses.TeamMember;
+import ModelClasses.Requirement.*;
 
 public interface ProjectModel
 {
     void addProject(String title, String projectId, String customerId, MyDate deadline, String comment);
 
-    void addUserStory(String projectID, String REQUIREMENTID, String description, MyDate deadline);
+    void addUserStory(String projectID, String requirementId, String description, MyDate deadline);
 
     void addProjectRelated();
 
