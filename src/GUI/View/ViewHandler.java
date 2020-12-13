@@ -8,114 +8,75 @@ import javafx.stage.Stage;
 
 public class ViewHandler
 {
-  private HomeController projectListController;
-  private ProjectController projectController;
-  private RequirementController requirementController;
-  private TaskController taskController;
-  private Scene currentScene;
-  private Stage primaryStage;
-  private ProjectModel model;
+    private HomeController homeController;
+    private ProjectController projectController;
+    private RequirementController requirementController;
+    private TaskController taskController;
+    private Scene currentScene;
+    private Stage primaryStage;
+    private ProjectModel model;
 
-  public ViewHandler(ProjectModel model)
-  {
-    this.model = model;
-    this.currentScene = new Scene(new Region());
-  }
-
-  public void start(Stage primaryStage)
-  {
-    this.primaryStage = primaryStage;
-    openView();
-  }
-
-  public void openView()
-  {
-    Region root = loadProjectListView("ProjectListView.fxml");
-
-    currentScene.setRoot(root);
-    String title = "";
-    if (root.getUserData() != null)
+    public ViewHandler(ProjectModel model)
     {
-      title += root.getUserData();
+        this.model = model;
+        this.currentScene = new Scene(new Region());
     }
-    primaryStage.setTitle(title);
-    primaryStage.setScene(currentScene);
-    primaryStage.setWidth(root.getPrefWidth());
-    primaryStage.setHeight(root.getPrefHeight());
-    primaryStage.show();
-  }
 
-  public void closeView()
-  {
-    primaryStage.close();
-  }
-
-  private Region loadProjectListView(String fxmlFile) {
-    if(projectListController == null) {
-      try {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        projectListController = loader.getController();
-        projectListController.initiator(root, this, model);
-
-      }
-      catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-    else
-      projectListController.reset();
-
-    return projectListController.getRoot();
-  }
-
-  /*private Region loadGradeListView(String fxmlFile)
-  {
-    if (gradeListViewController == null)
+    public void start(Stage primaryStage)
     {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        gradeListViewController = loader.getController();
-        gradeListViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
+        this.primaryStage = primaryStage;
+        openView();
     }
-    else
-    {
-      gradeListViewController.reset();
-    }
-    return gradeListViewController.getRoot();
-  }
 
-  private Region loadAddGradeView(String fxmlFile)
-  {
-    if (addGradeViewController == null)
+    public void openView()
     {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        addGradeViewController = loader.getController();
-        addGradeViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
+        Region root = loadHomeView("HomeView.fxml");
+
+        currentScene.setRoot(root);
+        String title = "";
+        if (root.getUserData() != null)
+        {
+            title += root.getUserData();
+        }
+        primaryStage.setTitle(title);
+        primaryStage.setScene(currentScene);
+        primaryStage.setWidth(root.getPrefWidth());
+        primaryStage.setHeight(root.getPrefHeight());
+        primaryStage.show();
     }
-    else
+
+    public void closeView()
     {
-<<<<<<< Updated upstream
-      addGradeViewController.reset();
-=======
+        primaryStage.close();
+    }
+
+    private Region loadHomeView(String fxmlFile)
+    {
+        if (homeController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                homeController = loader.getController();
+                homeController.initiator(root, this, model);
+
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            homeController.reset();
+        }
+        return homeController.getRoot();
+    }
+
+    private Region loadProjectView(String fxmlFile)
+    {
         if (projectController == null)
         {
             try
@@ -136,33 +97,32 @@ public class ViewHandler
             projectController.reset();
         }
         return projectController.getRoot();
->>>>>>> Stashed changes
     }
-    return addGradeViewController.getRoot();
-  }
 
-<<<<<<< Updated upstream
-  private Region loadDetailsView(String fxmlFile)
-  {
-    if (detailsViewController == null)
+    private Region loadDetailsView(String fxmlFile)
     {
-      try
-      {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(fxmlFile));
-        Region root = loader.load();
-        detailsViewController = loader.getController();
-        detailsViewController.init(this, model, root);
-      }
-      catch (Exception e)
-      {
-        e.printStackTrace();
-      }
+        if (detailsViewController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                detailsViewController = loader.getController();
+                detailsViewController.init(this, model, root);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            detailsViewController.reset();
+        }
+        return detailsViewController.getRoot();
     }
-    else
-    {
-      detailsViewController.reset();
-=======
+
     private Region loadRequirementView(String fxmlFile)
     {
         if (requirementController == null)
@@ -213,15 +173,15 @@ public class ViewHandler
 
     private Region loadEditProject(String fxmlFile)
     {
-        if (editProjectController==null)
+        if (editProjectController == null)
         {
             try
             {
-                FXMLLoader loader=new FXMLLoader();
+                FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
-                Region root=loader.load();
+                Region root = loader.load();
                 editProjectController = loader.getController();
-                editProjectController.init(this,model,root);
+                editProjectController.init(this, model, root);
             }
             catch (Exception e)
             {
@@ -237,7 +197,7 @@ public class ViewHandler
 
     private Region loadAddTeamMember(String fxmlFile)
     {
-        if(addTeamMemberController==null)
+        if (addTeamMemberController == null)
         {
             try
             {
@@ -246,30 +206,31 @@ public class ViewHandler
                 Region root = loader.load();
                 addTeamMemberController = loader.getController();
                 addTeamMemberController.init(this, model, root);
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 e.printStackTrace();
             }
         }
         else
-            {
-                addTeamMember.reset();
-            }
+        {
+            addTeamMember.reset();
+        }
         return addTeamMemberController.getRoot();
     }
 
     private Region loadRemoveTeamMember(String fxmlFile)
     {
-        if (removeTeamMember==null)
+        if (removeTeamMember == null)
         {
             try
             {
-                FXMLLoader loader=new FXMLLoader();
+                FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
-                Region root=loader.load();
+                Region root = loader.load();
 
-                removeTeamMemberController=loader.getController();
-                removeTeamMemberController.init(this,model,root);
+                removeTeamMemberController = loader.getController();
+                removeTeamMemberController.init(this, model, root);
             }
             catch (Exception e)
             {
@@ -285,15 +246,15 @@ public class ViewHandler
 
     private Region loadEditRequirement(String fxmlFile)
     {
-        if(editRequirementController==null)
+        if (editRequirementController == null)
         {
             try
             {
-                FXMLLoader loader=new FXMLLoader();
+                FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
-                Region root=loader.load();
-                editRequirementController=loader.load();
-                editRequirementController.init(this,model,root);
+                Region root = loader.load();
+                editRequirementController = loader.load();
+                editRequirementController.init(this, model, root);
             }
             catch (Exception e)
             {
@@ -307,9 +268,9 @@ public class ViewHandler
         return editRequirementController.getRoot();
     }
 
-    private Region loadAddTaskController(String fxmlFile)
+    private Region loadAddTask(String fxmlFile)
     {
-        if (addTaskController==null)
+        if (addTaskController == null)
         {
             try
             {
@@ -331,17 +292,17 @@ public class ViewHandler
         return addTaskController.getRoot();
     }
 
-    private Region loadEditTaskController(String fxmlFile)
+    private Region loadEditTask(String fxmlFile)
     {
-        if (editTaskController==null)
+        if (editTaskController == null)
         {
             try
             {
-                FXMLLoader loader=new FXMLLoader();
+                FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
-                Region root=loader.load();
-                editTaskController =loader.getController();
-                editTaskController.init(this,model,root);
+                Region root = loader.load();
+                editTaskController = loader.getController();
+                editTaskController.init(this, model, root);
             }
             catch (Exception e)
             {
@@ -353,11 +314,7 @@ public class ViewHandler
             editTaskController.reset();
         }
         return editTaskController.getRoot();
->>>>>>> Stashed changes
+
     }
-    return detailsViewController.getRoot();
-  }*/
-
-
-
+    return editTaskController.getRoot();
 }
