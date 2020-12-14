@@ -6,6 +6,8 @@ public interface ProjectModel
 {
     void addProject(String title, String projectId, String customerId, MyDate deadline, String comment);
 
+    ProjectList getProjectList();
+
     void addUserStory(String projectID, String requirementId, String description, MyDate deadline);
 
     void addProjectRelated();

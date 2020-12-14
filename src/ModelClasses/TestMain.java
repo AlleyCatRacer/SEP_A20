@@ -63,7 +63,9 @@ public class TestMain {
     System.out.println(wick.getProjectByTitle("Title").getMembersOfTheProject());
 
 
-
+    //All Projects
+    System.out.println(wick.toString());
+    System.out.println();
 
 
 

@@ -35,6 +35,9 @@ public class ProjectManager implements ProjectModel
 
         }
     }
+    public ProjectList getProjectList() {
+        return projectList;
+    }
 
     @Override
     public void addProjectRelated()

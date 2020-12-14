@@ -15,7 +15,9 @@ public class AddProjectController {
   @FXML TextField ChangeTitle;
   @FXML TextField ProjectID;
   @FXML TextField CustomerID;
-  @FXML DatePicker DatePicker;
+  @FXML TextField Day;
+  @FXML TextField Month;
+  @FXML TextField Year;
   @FXML TextArea Comment;
   private Region root;
   private ProjectModel model;
@@ -39,7 +41,8 @@ public class AddProjectController {
     viewHandler.openView("homeView");
   }
   @FXML private void createProjectButtonPressed() {
-    model.addProject(ChangeTitle.getText(), ProjectID.getText(), CustomerID.getText(), (MyDate)DatePicker.getChronology(), Comment.getText());
+    MyDate deadline = new MyDate(Integer.parseInt(Day.getText()), Integer.parseInt(Month.getText()), Integer.parseInt(Year.getText()));
+    model.addProject(ChangeTitle.getText(), ProjectID.getText(), CustomerID.getText(), deadline, Comment.getText());
     viewHandler.openView("homeView");
   }
 }

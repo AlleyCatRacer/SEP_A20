@@ -19,7 +19,7 @@
    <children>
       <Pane prefHeight="450.0" prefWidth="800.0" userData="Project Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="800.0">
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="800.0">
                <children>
                   <TextField fx:id="ChangeTitle" alignment="CENTER" promptText="Title">
                      <font>
@@ -27,11 +27,8 @@
                      </font>
                   </TextField>
                </children>
-               <padding>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </padding>
             </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="47.0" prefHeight="400.0" prefWidth="795.0">
+            <VBox alignment="CENTER" layoutX="3.0" layoutY="47.0" prefHeight="400.0" prefWidth="795.0">
                <children>
                   <SplitPane dividerPositions="0.5" VBox.vgrow="SOMETIMES">
                      <items>
@@ -162,11 +159,25 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT">
                                        <children>
-                                          <TextField promptText="dd/mm/yyyy">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </TextField>
+                                          <HBox spacing="5.0" VBox.vgrow="NEVER">
+                                             <children>
+                                                <TextField fx:id="Day" maxWidth="50.0" promptText="DD">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="Month" maxWidth="50.0" promptText="MM">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <TextField fx:id="Year" maxWidth="100.0" promptText="YYYY">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </HBox>
                                           <Label text="0">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
@@ -219,12 +230,15 @@
                         <Insets />
                      </VBox.margin>
                   </SplitPane>
-                  <Separator />
-                  <VBox VBox.vgrow="ALWAYS">
+                  <Separator>
+                     <VBox.margin>
+                        <Insets bottom="2.0" top="2.0" />
+                     </VBox.margin></Separator>
+                  <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
                      <children>
                         <VBox alignment="CENTER">
                            <VBox.margin>
-                              <Insets top="5.0" />
+                              <Insets />
                            </VBox.margin>
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" text="Team">
@@ -241,7 +255,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </ListView>
-                              <VBox>
+                              <VBox alignment="CENTER">
                                  <children>
                                     <HBox alignment="CENTER_LEFT">
                                        <children>
@@ -284,24 +298,27 @@
                               </VBox>
                            </children>
                            <VBox.margin>
-                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                              <Insets />
                            </VBox.margin>
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator />
-                  <HBox VBox.vgrow="NEVER">
+                  <Separator>
+                     <VBox.margin>
+                        <Insets top="2.0" />
+                     </VBox.margin></Separator>
+                  <HBox alignment="CENTER" VBox.vgrow="NEVER">
                      <children>
                         <VBox HBox.hgrow="ALWAYS">
                            <children>
-                              <HBox>
+                              <HBox alignment="CENTER">
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
                                  <children>
                                     <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
+                                          <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#cancelProjectButtonPressed" text="Cancel">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -310,7 +327,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Create">
+                                          <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" onAction="#createProjectButtonPressed" text="Create">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -322,13 +339,13 @@
                            </children>
                         </VBox>
                      </children>
+                     <VBox.margin>
+                        <Insets right="2.0" />
+                     </VBox.margin>
                   </HBox>
                </children>
             </VBox>
          </children>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
       </Pane>
    </children>
 </AnchorPane>

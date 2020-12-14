@@ -379,7 +379,7 @@ public class Project
     {
         if (!title.matches("[a-zA-Z0-9]*"))
         {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("The title can contain only letters of English alphabet and numbers from 0 to 9. Please try again.");
         }
         else if (title.length() > 25)
         {
