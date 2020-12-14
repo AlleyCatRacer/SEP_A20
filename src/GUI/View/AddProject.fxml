@@ -15,11 +15,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.AddProjectController">
+<AnchorPane prefHeight="705.0" prefWidth="1205.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.AddProjectController">
    <children>
-      <Pane prefHeight="450.0" prefWidth="800.0" userData="Project Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane prefHeight="700.0" prefWidth="1200.0" userData="Project Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="800.0">
+            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="1200.0">
                <children>
                   <TextField fx:id="ChangeTitle" alignment="CENTER" promptText="Title">
                      <font>
@@ -27,8 +27,11 @@
                      </font>
                   </TextField>
                </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
             </HBox>
-            <VBox alignment="CENTER" layoutX="3.0" layoutY="47.0" prefHeight="400.0" prefWidth="795.0">
+            <VBox alignment="CENTER" layoutX="3.0" layoutY="47.0" prefHeight="650.0" prefWidth="1195.0">
                <children>
                   <SplitPane dividerPositions="0.5" VBox.vgrow="SOMETIMES">
                      <items>
@@ -255,7 +258,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </ListView>
-                              <VBox alignment="CENTER">
+                              <VBox alignment="TOP_CENTER">
                                  <children>
                                     <HBox alignment="CENTER_LEFT">
                                        <children>

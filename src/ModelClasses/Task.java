@@ -10,17 +10,25 @@ public class Task
     private String description;
     private double estimate;
     private double timeSpent;
-    private Status status;
-    private ArrayList<UserStory> belongsToRequirement = new ArrayList<>();
+    private String status;
+    private String requirementId;
 
-    public Task(String taskId, String description, double estimate,UserStory requirement)
+    public Task(String taskId, String description, double estimate,String requirementId)
     {
         this.taskId = taskId;
         this.description = description;
         this.estimate = estimate;
         timeSpent = 0;
-        status = Status.WAITING;
-        this.belongsToRequirement.add(requirement);
+        status = Status.WAITING.getStatusString();
+        this.requirementId = requirementId;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setTimeSpent(double timeSpent) {
+        this.timeSpent = timeSpent;
     }
 
     public void changeDescription(String description)
@@ -28,7 +36,7 @@ public class Task
         this.description = description;
     }
 
-    public void changeStatus(Status status)
+   /* public void changeStatus(Status status)
     {
         if(status.getStatusString().equals(Status.ENDED.getStatusString()) )
         {
@@ -38,16 +46,16 @@ public class Task
             }
         }
         this.status = status;
-    }
+    }*/
 
-    public void changeEstimate(double estimate)
+   /* public void changeEstimate(double estimate)
     {
         this.estimate = estimate;
         for(int i = 0; i < belongsToRequirement.size(); i++) {
             belongsToRequirement.get(i).calculateEstimate();
         }
 
-    }
+    }*/
 
     public boolean isValidTime(double hours)
     {
@@ -59,9 +67,9 @@ public class Task
         if (isValidTime(timeSpent))
         {
             this.timeSpent += timeSpent;
-            for(int i = 0; i < belongsToRequirement.size(); i++) {
+            /*for(int i = 0; i < belongsToRequirement.size(); i++) {
                 belongsToRequirement.get(i).calculateTimeSpent();
-            }
+            }*/
         }
         else
         throw new IllegalArgumentException("Invalid amount of hours");
@@ -74,7 +82,7 @@ public class Task
 
     public String getStatus()
     {
-        return status.getStatusString();
+        return status;
     }
 
     public String getDescription()
@@ -111,11 +119,11 @@ public class Task
         teamMember.assignTaskToTeamMember(this);
     }
 
-    public void assignToRequirement(UserStory requirement)
+    public void assignToRequirement(String requirementId)
     {
-        belongsToRequirement.add(requirement);
+        this.requirementId = requirementId;
     }
-    public String getRequirementsIDsToWhichTheTaskBelongs() {
+  /*  public String getRequirementsIDsToWhichTheTaskBelongs() {
         String ids = "";
         for(int i = 0; i < belongsToRequirement.size(); i++) {
             ids += belongsToRequirement.get(i).getRequirementId();
@@ -123,12 +131,13 @@ public class Task
                 ids += ", ";
         }
         return ids;
-    }
+    }*/
 
     public String toString()
     {
-        return "Task{" + "taskId='" + taskId + '\'' + ", description='"
+        return taskId + "-" + description + "-" + estimate + "-" + timeSpent;
+       /* return "Task{" + "taskId='" + taskId + '\'' + ", description='"
             + description + '\'' + ", estimate=" + estimate + ", timeSpent="
-            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements: " + getRequirementsIDsToWhichTheTaskBelongs();
+            + timeSpent + ", status=" + getStatus() + ", belongs to these requirements: " + getRequirementsIDsToWhichTheTaskBelongs();*/
     }
 }

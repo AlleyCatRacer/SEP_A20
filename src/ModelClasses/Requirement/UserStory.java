@@ -92,7 +92,7 @@ public class UserStory extends Requirement
         int i=1;
         do
         {
-            Task task = new Task(taskId, description, estimate, this);
+            Task task = new Task(taskId, description, estimate, super.getRequirementId());
             try
             {
                 if(task.isValidTaskId(taskId, this))
@@ -153,7 +153,7 @@ public class UserStory extends Requirement
         }
         if (counter==requirementTasks.size()-1)
         {
-            changeStatus(Status.ENDED);
+            super.changeStatus(Status.ENDED);
         }
     }
 
@@ -168,9 +168,11 @@ public class UserStory extends Requirement
 
     public String toString()
     {
-        return "UserStory{" + "type='" + type + '\'' + ", timeSpent="
-            + timeSpent + ", estimate=" + estimate + ", priority=" + priority
-            + ", requirementTasks=" + requirementTasks + ", deadline="
-            + deadline + '}' + ", status " + getStatus();
+        String output =  super.toString() + "-" + type + "-" + estimate + "-" + timeSpent + "-" + priority + "-" + deadline;
+        for (int i = 0; i < requirementTasks.size(); i++)
+        {
+            output += "/" + requirementTasks.get(i).toString();
+        }
+        return output;
     }
 }
