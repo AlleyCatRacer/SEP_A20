@@ -35,7 +35,13 @@ public class AddProjectController {
     this.model = model;
   }
   public void reset() {
-
+    ChangeTitle.setText("");
+    ProjectID.setText("");
+    CustomerID.setText("");
+    Day.setText("");
+    Month.setText("");
+    Year.setText("");
+    Comment.setText("");
   }
   @FXML private void cancelProjectButtonPressed() {
     viewHandler.openView("homeView");

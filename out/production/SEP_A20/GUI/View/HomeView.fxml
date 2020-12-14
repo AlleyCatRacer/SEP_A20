@@ -7,6 +7,8 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -62,7 +64,7 @@
                                     <Insets left="2.0" />
                                  </HBox.margin>
                               </Label>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                              <HBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="502.0" HBox.hgrow="ALWAYS">
                                  <children>
 
                                                 <Button fx:id="CreateProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#createButtonPressed" text="Create">
@@ -81,11 +83,16 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <ListView fx:id="ActiveProjectList">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </ListView>
+                        <TableView prefHeight="536.0" prefWidth="586.0">
+                          <columns>
+                            <TableColumn prefWidth="186.0" text="ID" />
+                            <TableColumn prefWidth="211.0" text="Title" />
+                              <TableColumn prefWidth="188.0" text="Deadline" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </TableView>
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

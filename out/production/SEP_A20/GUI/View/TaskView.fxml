@@ -10,14 +10,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
-
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.TaskController">
    <children>
-      <VBox prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
+            <HBox alignment="CENTER" fillHeight="false" maxHeight="50.0" prefHeight="49.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
                <children>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                      <children>
@@ -63,7 +61,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </HBox>
-            <VBox alignment="TOP_CENTER" maxWidth="1195.0" prefHeight="650.0">
+            <VBox alignment="CENTER" maxHeight="650.0" maxWidth="1200.0" prefHeight="649.0" VBox.vgrow="ALWAYS">
                <children>
                   <Separator minWidth="1190.0">
                      <padding>
@@ -140,7 +138,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <Separator prefWidth="200.0">
+                  <Separator minWidth="1190.0">
                      <padding>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </padding>
@@ -173,17 +171,17 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </VBox>
-                  <Separator minWidth="1190.0" prefWidth="200.0">
+                  <Separator minWidth="1190.0">
                      <padding>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </padding>
                   </Separator>
-                  <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                  <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <HBox alignment="BOTTOM_LEFT" spacing="10.0" VBox.vgrow="NEVER">
+                        <HBox alignment="BOTTOM_CENTER" spacing="10.0" VBox.vgrow="NEVER">
                            <children>
                               <VBox alignment="BOTTOM_LEFT" HBox.hgrow="NEVER">
                                  <children>
@@ -195,11 +193,7 @@
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextFlow prefHeight="205.0" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <TextArea fx:id="TaskDescription" editable="false" prefHeight="205.0" />
-                                       </children>
-                                    </TextFlow>
+                                    <TextArea fx:id="TaskDescription" editable="false" maxHeight="200.0" VBox.vgrow="ALWAYS" />
                                  </children>
                                  <HBox.margin>
                                     <Insets />
@@ -215,7 +209,7 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <ListView fx:id="TaskReqList" prefHeight="205.0" VBox.vgrow="NEVER">
+                                    <ListView fx:id="TaskReqList" maxHeight="200.0" maxWidth="700.0" VBox.vgrow="NEVER">
                                        <padding>
                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                        </padding>
@@ -226,6 +220,9 @@
                                  </HBox.margin>
                               </VBox>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="2.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
                      <padding>
@@ -233,11 +230,11 @@
                      </padding>
                   </VBox>
                </children>
-               <padding>
-                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-               </padding>
             </VBox>
          </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
       </VBox>
    </children>
 </AnchorPane>

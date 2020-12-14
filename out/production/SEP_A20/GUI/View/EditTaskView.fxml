@@ -11,14 +11,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.RequirementController">
    <children>
-      <Pane prefHeight="450.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox prefHeight="450.4" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" fillHeight="false" prefHeight="50.0" prefWidth="800.0">
                <children>
@@ -38,7 +36,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="47.0" prefHeight="400.0" prefWidth="795.0">
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="795.0">
                <children>
                   <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
                      <items>
@@ -46,11 +44,11 @@
                            <children>
                               <HBox VBox.vgrow="ALWAYS">
                                  <children>
-                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label text="Type">
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="7.0" />
+                                                <Insets />
                                              </VBox.margin>
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
@@ -58,7 +56,7 @@
                                           </Label>
                                           <Label text="Priority">
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="7.0" />
+                                                <Insets />
                                              </VBox.margin>
                                              <font>
                                                 <Font name="System Bold" size="16.0" />
@@ -69,7 +67,7 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                              <VBox.margin>
-                                                <Insets bottom="5.0" right="5.0" top="7.0" />
+                                                <Insets />
                                              </VBox.margin>
                                           </Label>
                                        </children>
@@ -77,24 +75,24 @@
                                           <Insets />
                                        </HBox.margin>
                                     </VBox>
-                                    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+                                    <VBox spacing="20.0" HBox.hgrow="ALWAYS">
                                        <children>
                                           <Label fx:id="ReqType" text="Functional" VBox.vgrow="ALWAYS">
                                              <VBox.margin>
-                                                <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                                                <Insets />
                                              </VBox.margin>
                                              <font>
                                                 <Font name="System Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="PriorityDropdown" minHeight="30.0" prefWidth="200.0">
+                                          <ChoiceBox fx:id="PriorityDropdown" prefWidth="200.0">
                                              <VBox.margin>
-                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                <Insets />
                                              </VBox.margin>
                                           </ChoiceBox>
-                                          <ChoiceBox fx:id="StatusDropdown" minHeight="30.0" prefWidth="200.0">
+                                          <ChoiceBox fx:id="StatusDropdown" prefWidth="200.0">
                                              <VBox.margin>
-                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                <Insets />
                                              </VBox.margin>
                                           </ChoiceBox>
                                        </children>
@@ -107,6 +105,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </HBox>
+                              <Separator prefWidth="200.0" />
                               <VBox VBox.vgrow="ALWAYS">
                                  <VBox.margin>
                                     <Insets />
@@ -124,7 +123,6 @@
                                                 <ChoiceBox fx:id="AssignResponsibleDropdown" minWidth="155.0" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -132,6 +130,7 @@
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </VBox>
+                              <Separator prefWidth="200.0" />
                               <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Description">
@@ -201,43 +200,45 @@
                                  <VBox.margin>
                                     <Insets />
                                  </VBox.margin>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER" fillHeight="false" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="HoursWorked" promptText="Hours" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="LogHoursButton" alignment="CENTER" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Log Hours">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
                                  <padding>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </padding>
                               </HBox>
-                              <VBox VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <HBox alignment="CENTER" VBox.vgrow="NEVER">
-                                       <children>
-                                          <HBox alignment="CENTER" fillHeight="false" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <TextField fx:id="HoursWorked" promptText="Hours" HBox.hgrow="ALWAYS">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </TextField>
-                                             </children>
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
-                                          </HBox>
-                                          <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                             <children>
-                                                <Button fx:id="LogHoursButton" alignment="CENTER" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Log Hours">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Button>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </HBox>
-                                 </children>
+                              <Separator>
                                  <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                  </padding>
-                              </VBox>
-                              <VBox alignment="CENTER">
+                              </Separator>
+                              <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
                                  <children>
                                     <Label alignment="CENTER" text="Belongs to requirements:">
                                        <VBox.margin>
@@ -277,7 +278,7 @@
                                     </HBox>
                                  </children>
                                  <VBox.margin>
-                                    <Insets top="15.0" />
+                                    <Insets />
                                  </VBox.margin>
                               </VBox>
                            </children>
@@ -327,6 +328,6 @@
                </padding>
             </VBox>
          </children>
-      </Pane>
+      </VBox>
    </children>
 </AnchorPane>
