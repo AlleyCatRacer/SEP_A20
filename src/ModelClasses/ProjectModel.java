@@ -10,15 +10,23 @@ public interface ProjectModel
 
     void addUserStory(String projectID, String requirementId, String description, MyDate deadline);
 
-    void addProjectRelated();
+    void addProjectRelated(String requirementId, String description, MyDate deadline);
 
-    void addNonFunctional();
+    void addNonFunctional(String requirementId, String description);
 
-    void addTask(Task task);
+    void addTask(String taskId, String description, double estimate);
 
     void addTeamMember(TeamMember teamMember);
 
-    void editProject(Project project);
+//    void editProject(Project project);
+
+    void editProjectTitle(String title);
+
+    void editProjectStatus(Status status);
+
+    void editProjectDeadline(MyDate deadline);
+
+    void editProjectComment(String comment);
 
     void editRequirement(Requirement requirement);
 
@@ -34,6 +42,6 @@ public interface ProjectModel
 
     void assignToRequirement(TeamMember teamMember);
 
-    void assignToTask(Task task);
+    void assignToTask(TeamMember teamMember);
 
 }

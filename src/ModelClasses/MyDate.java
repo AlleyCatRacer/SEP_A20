@@ -3,10 +3,10 @@ package ModelClasses;
 import java.time.LocalDate;
 
 /**
- * A class of MyDate objects, extending Object class.
+ * A class of MyDate objects.
  *
- * @author Allie
- * @version 4.0 - 10.12.20
+ * @author Allie, Lili, Luke & Yoana
+ * @version 1.0 - 14.12.20
  */
 public class MyDate
 {
@@ -42,6 +42,11 @@ public class MyDate
         return today;
     }
 
+    /**
+     * Getting current year.
+     *
+     * @return MyLocalDate  current year int value.
+     */
     public int getYearToday()
     {
         return LocalDate.now().getYear();
@@ -105,7 +110,16 @@ public class MyDate
         return day;
     }
 
-
+    /**
+     * Boolean validity check.
+     *
+     * @param deadline
+     *         object of type MyDate
+     *
+     * @return 'true' if day is greater than zero or exceeds the referenced month's number of days, if month is greater
+     * than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise it returns
+     * 'false'.
+     */
     public boolean isValidDate(MyDate deadline)
     {
         MyDate today = new MyDate(getToday().getDayOfMonth(), getToday().getMonthValue(), getToday().getYear());
@@ -125,13 +139,13 @@ public class MyDate
      * than zero or exceeds 12 and if year is greater than zero or is lesser than the current year, otherwise it returns
      * 'false'.
      */
-
     public boolean isValidDate(int day, int month, int year)
     {
-        if(day > 0 && day <= numberOfDaysInMonth(month) && month > 0 && month <= 12 && year > 0) {
-            if(year > LocalDate.now().getYear())
+        if (day > 0 && day <= numberOfDaysInMonth(month) && month > 0 && month <= 12 && year > 0)
+        {
+            if (year > LocalDate.now().getYear())
                 return true;
-            else if(year == LocalDate.now().getYear())
+            else if (year == LocalDate.now().getYear())
             {
                 if (month > LocalDate.now().getMonthValue())
                     return true;
@@ -257,9 +271,12 @@ public class MyDate
     }
 
     /**
-     * Boolean method to see if one MyDate object is the same as another.
+     * Boolean method to see if one MyDate object is before another.
      *
-     * @return 'true' if it is a leap year, 'false' if not.
+     * @param other
+     *          MyDate object
+     *
+     * @return 'true' if the argument object is before the object that the method is called on, 'false' if it is later.
      */
     public boolean isBefore(MyDate other)
     {
@@ -268,6 +285,18 @@ public class MyDate
         return theseDays < otherDays;
     }
 
+    /**
+     * Boolean method to see if one MyDate object is the same as another.
+     *
+     * @param day
+     *         int value of day
+     * @param month
+     *         int value of month
+     * @param year
+     *         int value of year
+     *
+     * @return 'true' if the argument object is before the object that the method is called on, 'false' if it is later.
+     */
     public boolean isBefore(int day, int month, int year)
     {
         int theseDays = LocalDate.now().getYear() * 365 + LocalDate.now().getMonthValue() * 31 + LocalDate.now().getDayOfMonth();
@@ -275,6 +304,14 @@ public class MyDate
         return theseDays < otherDays;
     }
 
+    /**
+     * Boolean method to see if one MyDate object the same as another.
+     *
+     * @param obj
+     *          Variable of type Object or subclasses
+     *
+     * @return 'true' if the argument object is the same as the one the method is called on, 'false' if not.
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -289,6 +326,11 @@ public class MyDate
         }
     }
 
+    /**
+     * Converting a MyDate object into a string.
+     *
+     * @return MyDate object's instance variables in a custom String format
+     */
     @Override
     public String toString()
     {
