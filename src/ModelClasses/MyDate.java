@@ -47,7 +47,6 @@ public class MyDate
      *
      * @return MyLocalDate  current year int value.
      */
-
     public int getYearToday()
     {
         return LocalDate.now().getYear();
