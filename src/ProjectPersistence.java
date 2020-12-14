@@ -1,14 +1,16 @@
-/*import ModelClasses.Project;
-import ModelClasses.ProjectManager;
-import ModelClasses.ProjectModel;
+import ModelClasses.*;
 
 public interface ProjectPersistence {
     ProjectManager projectManager = new ProjectManager();
 
-    public ProjectModel loadAll();
+    public ProjectList loadAllProjects();
+
+    public Team loadAllTeamMembers();
 
     public void saveAll();
 
-    public void save(Project project);
+    public void saveProject(Project project);
 
-}*/
+    public void saveTeamMember(TeamMember teamMember);
+
+}
