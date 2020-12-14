@@ -13,8 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
-
 
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.RequirementController">
    <children>
@@ -177,23 +175,23 @@
                               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                            </padding>
                         </Separator>
-                        <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                        <VBox alignment="BOTTOM_CENTER" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Description">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
+                              <VBox alignment="CENTER_LEFT">
                                  <VBox.margin>
                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                  </VBox.margin>
-                              </Label>
-                              <HBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <TextFlow minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="580.0" HBox.hgrow="ALWAYS">
-                                       <children>
-                                          <TextArea fx:id="ReqDescription" editable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="580.0" />
-                                       </children>
-                                    </TextFlow>
+                                    <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Description">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <TextArea fx:id="ReqDescription" editable="false" prefWidth="580.0" />
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" />

@@ -12,17 +12,15 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-
 <AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.ProjectController">
    <children>
-      <Pane userData="Project Details" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="0.6000000238418579" layoutY="0.6000000238418579" prefHeight="701.4000000238418" prefWidth="1200.6000000238419" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" fillHeight="false" layoutX="0.6000000238418579" layoutY="0.6000000238418579" prefWidth="1200.0">
+            <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
                <children>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
@@ -64,7 +62,7 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </HBox>
-            <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="47.0" prefHeight="650.0" prefWidth="1195.0">
+            <VBox alignment="TOP_CENTER" prefHeight="650.0" prefWidth="1195.0">
                <children>
                   <SplitPane dividerPositions="0.5" VBox.vgrow="SOMETIMES">
                      <items>
@@ -539,6 +537,6 @@
                </children>
             </VBox>
          </children>
-      </Pane>
+      </VBox>
    </children>
 </AnchorPane>
