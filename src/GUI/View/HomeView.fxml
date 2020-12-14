@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<Pane prefHeight="700.0" prefWidth="1200.0" userData="Well Of Tears" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.HomeController">
+<Pane prefHeight="700.0" prefWidth="1200.0" userData="HomeView" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.HomeController">
    <children>
       <SplitPane dividerPositions="0.5" prefHeight="700.0" prefWidth="1200.0">
          <items>
@@ -60,11 +60,9 @@
                               </Label>
                               <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                  <children>
-<<<<<<< Updated upstream
-                                    <Button onAction="#createButtonPressed" fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create">
-=======
-                                    <Button fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#addProjectButtonPressed" text="Create">
->>>>>>> Stashed changes
+
+                                    <Button onAction="#createButtonPressed"  alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create">
+
                                        <font>
                                           <Font size="14.0" />
                                        </font></Button>
