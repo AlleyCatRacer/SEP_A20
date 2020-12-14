@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" userData="Well Of Tears" fx:controller="GUI.View.HomeController">
+<Pane prefHeight="700.0" prefWidth="1200.0" userData="Well Of Tears" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.HomeController">
    <children>
       <SplitPane dividerPositions="0.5" prefHeight="700.0" prefWidth="1200.0">
          <items>
@@ -49,11 +49,26 @@
                   </HBox>
                   <VBox VBox.vgrow="ALWAYS">
                      <children>
-                        <Label text="Active">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                        <HBox alignment="CENTER_LEFT">
+                           <children>
+                              <Label contentDisplay="CENTER" text="Active">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Button fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create" />
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets bottom="2.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </HBox>
                         <ListView fx:id="ActiveProjectList">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
