@@ -49,6 +49,11 @@ public class TeamMember
         throw new IllegalArgumentException();
     }
 
+    public void addTasks(ArrayList<Task> tasks)
+    {
+        this.tasks.addAll(tasks);
+    }
+
     public String getTeamMemberId()
     {
         return teamMemberId;
@@ -74,14 +79,14 @@ public class TeamMember
         tasks.add(task);
     }
 
-    public void addNewTeamMember(String name, String teamMemberId)
+   /* public void addNewTeamMember(String name, String teamMemberId)
     {
         if (!(isExisting(teamMemberId)))
         {
             TeamMember newTeamMember = new TeamMember(name, teamMemberId);
         }
         throw new IllegalArgumentException();
-    }
+    }*/
 
     public boolean isExisting(String teamMemberId)
     {

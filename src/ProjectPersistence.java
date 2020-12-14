@@ -1,5 +1,7 @@
 import ModelClasses.*;
 
+import java.util.ArrayList;
+
 public interface ProjectPersistence {
     ProjectManager projectManager = new ProjectManager();
 
@@ -12,5 +14,9 @@ public interface ProjectPersistence {
     public void saveProject(Project project);
 
     public void saveTeamMember(TeamMember teamMember);
+
+    public ArrayList<Task> getAllTasks();
+
+    public ArrayList<Task> getAllTasksOfTeamMember(String[] ids);
 
 }
