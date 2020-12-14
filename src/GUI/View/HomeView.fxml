@@ -53,12 +53,18 @@
                            <children>
                               <Label contentDisplay="CENTER" text="Active">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="16.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets left="2.0" />
+                                 </HBox.margin>
                               </Label>
                               <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <Button fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create" />
+                                    <Button fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Button>
                                  </children>
                                  <HBox.margin>
                                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
@@ -83,8 +89,11 @@
                      <children>
                         <Label text="Ended">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="16.0" />
                            </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </Label>
                         <ListView fx:id="EndedProjectList" />
                      </children>
