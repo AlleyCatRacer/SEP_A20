@@ -4,234 +4,240 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
 
-<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.TaskController" userData="Task">
+<AnchorPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.TaskController">
    <children>
-      <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
+      <VBox prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
+            <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
                <children>
-                  <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="taskId" alignment="CENTER" contentDisplay="CENTER" text="TaskID" textAlignment="CENTER" HBox.hgrow="ALWAYS">
-                     <padding>
-                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                     </padding>
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT">
-               <children>
-                  <Button fx:id="EditTaskButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-               <padding>
-                  <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
-               </padding>
-            </HBox>
-         </children>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
-      </HBox>
-      <VBox alignment="TOP_CENTER" layoutX="3.0" layoutY="47.0" prefHeight="650.0" prefWidth="1195.0">
-         <children>
-            <VBox VBox.vgrow="ALWAYS">
-               <children>
-                  <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                      <children>
-                        <VBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label text="Status">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" right="5.0" top="7.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Label text="Estimate">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Time spent">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Label>
-                           </children>
+                        <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="taskId" alignment="CENTER" contentDisplay="CENTER" text="TaskID" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
                            <HBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              <Insets />
                            </HBox.margin>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <Button fx:id="EditTaskButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="TOP_CENTER" maxWidth="1195.0" prefHeight="650.0">
+               <children>
+                  <Separator minWidth="1190.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
+                  <VBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER" VBox.vgrow="NEVER">
                            <children>
-                              <Label fx:id="TaskStatus" text="Waiting">
-                                 <VBox.margin>
-                                    <Insets bottom="6.0" right="6.0" top="7.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="TaskEstimate" text="Hours">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <HBox spacing="200.0">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
+                              <VBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
                                  <children>
+                                    <Label text="Status">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" right="5.0" top="7.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Estimate">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Time spent">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="30.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="TaskStatus" text="Waiting">
+                                       <VBox.margin>
+                                          <Insets bottom="6.0" right="6.0" top="7.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="TaskEstimate" text="Hours">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
                                     <Label fx:id="TaskTimeSpent" text="Hours">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="LogHoursButton" alignment="CENTER" contentDisplay="CENTER" minWidth="100.0" mnemonicParsing="false" text="Log Hours">
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator prefWidth="200.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
+                  <VBox VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <children>
+                        <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                           <children>
+                              <HBox alignment="CENTER" spacing="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Responsible team member:">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="16.0" />
                                        </font>
-                                    </Button>
+                                    </Label>
+                                    <Label fx:id="Responsible" text="John Smith">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </HBox>
                            </children>
-                           <HBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </HBox.margin>
-                        </VBox>
+                        </HBox>
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+                  </VBox>
+                  <Separator minWidth="1190.0" prefWidth="200.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
+                  <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                      <children>
-                        <HBox alignment="CENTER" spacing="100.0" HBox.hgrow="ALWAYS">
+                        <HBox alignment="BOTTOM_LEFT" spacing="10.0" VBox.vgrow="NEVER">
                            <children>
-                              <Label text="Responsible team member:">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="Responsible" text="John Smith">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Button fx:id="AssignResponsibleButton" alignment="CENTER" mnemonicParsing="false" text="Assign">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
+                              <VBox alignment="BOTTOM_LEFT" HBox.hgrow="NEVER">
+                                 <children>
+                                    <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Description">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextFlow prefHeight="205.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextArea fx:id="TaskDescription" editable="false" prefHeight="205.0" />
+                                       </children>
+                                    </TextFlow>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" text="Belongs to requirements:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ListView fx:id="TaskReqList" prefHeight="205.0" VBox.vgrow="NEVER">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </ListView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </VBox>
                            </children>
                         </HBox>
                      </children>
-                  </HBox>
+                     <padding>
+                        <Insets left="2.0" />
+                     </padding>
+                  </VBox>
                </children>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </VBox>
-            <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <children>
-                  <HBox alignment="BOTTOM_LEFT" spacing="10.0" VBox.vgrow="NEVER">
-                     <children>
-                        <VBox alignment="BOTTOM_LEFT" HBox.hgrow="NEVER">
-                           <children>
-                              <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Description">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TextFlow prefHeight="205.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <TextArea fx:id="TaskDescription" editable="false" prefHeight="205.0" />
-                                 </children>
-                              </TextFlow>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </VBox>
-                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label alignment="CENTER" text="Belongs to requirements:">
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <ListView fx:id="TaskReqList" prefHeight="205.0" VBox.vgrow="NEVER">
-                                 <padding>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </padding>
-                              </ListView>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
          </children>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
       </VBox>
    </children>
-</Pane>
+</AnchorPane>

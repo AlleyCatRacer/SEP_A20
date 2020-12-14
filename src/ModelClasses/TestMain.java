@@ -47,9 +47,9 @@ public class TestMain {
     //Changing requirement's status
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").changeStatus(Status.STARTED);
     //Automatic change of requirement's status when all tasks are completed
-    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeStatus(Status.ENDED);
+//    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").setStatus(Status.ENDED);
     //Automatic update of an estimate and timeSpent when the task is updated
-    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeEstimate(50);
+//    wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").getTaskByID("taskID1").changeEstimate(50);
 
 
 

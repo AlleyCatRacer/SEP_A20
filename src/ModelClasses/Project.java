@@ -189,7 +189,7 @@ public class Project
                 if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
                 {
                     count++;
-                    projectTeam.get(i).setRole(role);
+                    projectTeam.get(i).setRole(role.getRoleString());
                 }
             }
             if (count == 0)
@@ -199,7 +199,7 @@ public class Project
         {
             for (int i = 0; i < projectTeam.size(); i++)
             {
-                if (projectTeam.get(i).getRole().equals(role))
+                if (projectTeam.get(i).getRole().equals(role.getRoleString()))
                     throw new IllegalArgumentException("There is a " + role + " already assigned to this project");
             }
             for (int i = 0; i < projectTeam.size(); i++)
@@ -207,7 +207,7 @@ public class Project
                 if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
                 {
                     count++;
-                    projectTeam.get(i).setRole(role);
+                    projectTeam.get(i).setRole(role.getRoleString());
                 }
             }
             if (count == 0)

@@ -14,7 +14,7 @@ public class TeamMember
         this.name = name;
         this.teamMemberId = teamMemberId;
         role = Role.TEAM_MEMBER.getRoleString();
-        tasks = new ArrayList<Task>();
+        tasks = new ArrayList<>();
     }
 
     public void logHours(double hours, String taskId)
