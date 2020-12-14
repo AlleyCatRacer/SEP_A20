@@ -65,9 +65,9 @@
                               <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                  <children>
 
-                                          <Button alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#createButtonPressed" text="Create">
+                                                <Button fx:id="CreateProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#createButtonPressed" text="Create">
 
-                                             <font>
+                                                   <font>
                                           <Font size="14.0" />
                                        </font>
                                     </Button>

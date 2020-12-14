@@ -17,11 +17,11 @@
    <children>
       <VBox prefHeight="700.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" fillHeight="false" maxHeight="50.0" prefHeight="49.0" prefWidth="1200.0">
+            <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
                <children>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                      <children>
-                        <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
+                        <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -48,7 +48,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
-                        <Button fx:id="EditTaskButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
+                        <Button fx:id="EditTaskButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -63,17 +63,13 @@
                   <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                </padding>
             </HBox>
-            <VBox alignment="TOP_CENTER" maxHeight="650.0" prefHeight="649.0" prefWidth="1200.0">
+            <VBox alignment="TOP_CENTER" maxWidth="1195.0" prefHeight="650.0">
                <children>
-                  <VBox>
-                     <children>
-                        <Separator prefWidth="1200.0">
-                           <padding>
-                              <Insets bottom="2.0" top="2.0" />
-                           </padding>
-                        </Separator>
-                     </children>
-                  </VBox>
+                  <Separator minWidth="1190.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
                   <VBox VBox.vgrow="ALWAYS">
                      <children>
                         <HBox alignment="CENTER" VBox.vgrow="NEVER">
@@ -144,23 +140,32 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                  <Separator prefWidth="200.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
+                  <VBox VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <HBox alignment="CENTER" spacing="100.0" VBox.vgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label text="Responsible team member:">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="Responsible" text="John Smith">
-                                 <font>
-                                    <Font size="16.0" />
-                                 </font>
-                              </Label>
+                              <HBox alignment="CENTER" spacing="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label text="Responsible team member:">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="Responsible" text="John Smith">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
                            </children>
                         </HBox>
                      </children>
@@ -168,6 +173,11 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </VBox>
+                  <Separator minWidth="1190.0" prefWidth="200.0">
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </Separator>
                   <VBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
@@ -218,6 +228,9 @@
                            </children>
                         </HBox>
                      </children>
+                     <padding>
+                        <Insets left="2.0" />
+                     </padding>
                   </VBox>
                </children>
                <padding>
