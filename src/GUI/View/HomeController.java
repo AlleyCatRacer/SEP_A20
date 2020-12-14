@@ -9,7 +9,6 @@ import java.awt.*;
 public class HomeController {
 
 
-//  @FXML Button AddProjectButton;
   private Region root;
   private ProjectModel model;
   private ViewHandler viewHandler;
@@ -20,7 +19,7 @@ public class HomeController {
   public Region getRoot() {
     return root;
   }
-  public void initiator(Region root, ViewHandler viewHandler, ProjectModel model) {
+  public void init(ViewHandler viewHandler, ProjectModel model, Region root) {
     this.root = root;
     this.viewHandler = viewHandler;
     this.model = model;
@@ -33,7 +32,7 @@ public class HomeController {
   //model.
 
   @FXML private void createButtonPressed() {
-    viewHandler.closeView();
+    viewHandler.openView("addProject");
 
   }
 

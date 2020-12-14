@@ -13,6 +13,7 @@ import javax.swing.text.View;
 public class ViewHandler
 {
     private HomeController homeController;
+    private AddProjectController addProjectController;
     private ProjectController projectController;
     private RequirementController requirementController;
     private TaskController taskController;
@@ -31,12 +32,24 @@ public class ViewHandler
     public void start(Stage primaryStage)
     {
         this.stage = primaryStage;
-        openView();
+        openView("homeView");
     }
 
-    public void openView()
+    public void openView(String id)
     {
-        Region root = loadHomeView("HomeView.fxml");
+        Region root = null;
+
+        switch(id) {
+
+            case"homeView":
+                root = loadHomeView("HomeView.fxml");
+                break;
+            case"addProject":
+                root = loadAddProject("AddProject.fxml");
+                break;
+        }
+
+
 
         currentScene.setRoot(root);
         String title = "";
@@ -66,7 +79,7 @@ public class ViewHandler
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 homeController = loader.getController();
-                homeController.init(root, this, model);
+                homeController.init(this, model, root);
 
             } catch (Exception e)
             {
@@ -101,11 +114,6 @@ public class ViewHandler
         return projectController.getRoot();
     }
 
-    @FXML
-    private void addProjectButtonPressed(ActionEvent e)
-    {
-        loadAddProject("AddProject.fxml");
-    }
 
     private Region loadAddProject(String fxmlFile)
     {
@@ -129,6 +137,8 @@ public class ViewHandler
         }
         return addProjectController.getRoot();
     }
+
+    /*
 
     private Region loadRequirementView(String fxmlFile)
     {
@@ -315,5 +325,5 @@ public class ViewHandler
         return editTaskController.getRoot();
 
     }
-    return editTaskController.getRoot();
+    return editTaskController.getRoot();*/
 }
