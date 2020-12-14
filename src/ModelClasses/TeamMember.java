@@ -7,13 +7,13 @@ public class TeamMember
     private String name;
     private String teamMemberId;
     private ArrayList<Task> tasks;
-    private Role role;
+    private String role;
 
     public TeamMember(String name, String teamMemberId)
     {
         this.name = name;
         this.teamMemberId = teamMemberId;
-        role = Role.TEAM_MEMBER;
+        role = Role.TEAM_MEMBER.getRoleString();
         tasks = new ArrayList<Task>();
     }
 
@@ -27,6 +27,8 @@ public class TeamMember
             }
         }
     }
+
+
 
     public Task getTaskById(String taskId)
     {
@@ -57,12 +59,12 @@ public class TeamMember
         return name;
     }
 
-    public Role getRole()
+    public String getRole()
     {
         return role;
     }
 
-    public void setRole(Role role)
+    public void setRole(String role)
     {
         this.role = role;
     }

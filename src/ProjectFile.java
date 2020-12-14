@@ -56,7 +56,9 @@ public class ProjectFile implements ProjectPersistence{
                 String line = in.nextLine();
                 String[] token = line.split("-");
                 TeamMember teamMember = new TeamMember(token[1], token[0]);
+                teamMember.setRole(token[2]);
                 team.addTeamMember(teamMember);
+                String[] taskID = token[3].substring(1, token.length-1).split(", ");
                 in.close();
             }
             catch (Exception e)

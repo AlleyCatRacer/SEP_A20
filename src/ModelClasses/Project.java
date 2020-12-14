@@ -8,8 +8,7 @@ import ModelClasses.Requirement.UserStory;
 import java.util.ArrayList;
 import java.util.IllegalFormatWidthException;
 
-public class Project
-{
+public class Project {
     private String title;
     private final String customerId;
     private final String projectId;
@@ -20,8 +19,7 @@ public class Project
     private ArrayList<Requirement> requirements;
     private ArrayList<TeamMember> projectTeam;
 
-    public Project(String title, String projectId, String customerId, MyDate deadline, String comment)
-    {
+    public Project(String title, String projectId, String customerId, MyDate deadline, String comment) {
         requirements = new ArrayList<>();
         isValidTitle(title);
         this.title = title;
@@ -40,74 +38,53 @@ public class Project
 
     //constructor for Project class sets title, projectId, customerId, deadline and comment and checks each argument
 
-    public ArrayList<Requirement> getRequirements()
-    {
+    public ArrayList<Requirement> getRequirements() {
         return requirements;
     }
 
-    public String getTitle()
-    {
+    public String getTitle() {
         return title;
     }
 
 
-    public String getProjectId()
-    {
+    public String getProjectId() {
         return projectId;
     }
 
-    public String getCustomerId()
-    {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public MyDate getDeadline()
-    {
+    public MyDate getDeadline() {
         return deadline;
     }
 
-    public String getComment()
-    {
+    public String getComment() {
         return comment;
     }
 
-    public double getTimeSpent()
-    {
+    public double getTimeSpent() {
         return timeSpent;
     }
 
-    public String getCurrentStatus()
-    {
+    public String getCurrentStatus() {
         return currentStatus;
     }
 
-    public ArrayList<TeamMember> getMembersOfTheProject()
-    {
+    public ArrayList<TeamMember> getMembersOfTheProject() {
         return projectTeam;
     }
 
 
     //This piece of a joy will not see daylight unless it starts behaving
 
-  /*public Requirement getRequirementByID(String requirementID) {
+ /* public Requirement getRequirementByID(String requirementID) {
     for(int i = 0; i < requirements.size(); i++) {
       if(requirements.get(i).getRequirementId().equals(requirementID)) {
-        if(requirements.get(i) instanceof UserStory)
-        {
-         return (UserStory) requirements.get(i);
-        }else if (requirements.get(i) instanceof ProjectRelated)
-        {
-          getProjectRelatedRequirement(i);
-          return null;
-        }else if (requirements.get(i) instanceof NonFunctional)
-        {
-          getNonFunctionalRequirement(i);
-          return null;
-        }
+        return (Requirement) requirements.get(i);
       }
-    }
-    return null;
-  }
+    throw new IllegalArgumentException();
+  }*/
 
   public UserStory getUserStoryRequirement(int index) {
     return (UserStory) requirements.get(index);
@@ -118,96 +95,74 @@ public class Project
   public NonFunctional getNonFunctionalRequirement(int index) {
     return (NonFunctional) requirements.get(index);
   }
-*/
 
 
-    public ProjectRelated getProjectRelatedRequirementByID(String requirementID)
-    {
-        for (Requirement requirement : requirements)
-        {
+
+    public ProjectRelated getProjectRelatedRequirementByID(String requirementID) {
+        for (Requirement requirement : requirements) {
             if (requirement.getRequirementId().equals(requirementID))
                 return (ProjectRelated) requirement;
         }
         throw new IllegalArgumentException("The Project Related requirement with such ID was not found");
     }
 
-    public UserStory getUserStoryRequirementByID(String requirementID)
-    {
-        for (Requirement requirement : requirements)
-        {
+    public UserStory getUserStoryRequirementByID(String requirementID) {
+        for (Requirement requirement : requirements) {
             if (requirement.getRequirementId().equalsIgnoreCase(requirementID))
                 return (UserStory) requirement;
         }
         throw new IllegalArgumentException("The User Story requirement with such ID was not found");
     }
 
-    public NonFunctional getNonFunctionalRequirementByID(String requirementID)
-    {
-        for (Requirement requirement : requirements)
-        {
+    public NonFunctional getNonFunctionalRequirementByID(String requirementID) {
+        for (Requirement requirement : requirements) {
             if (requirement.getRequirementId().equals(requirementID))
                 return (NonFunctional) requirement;
         }
         throw new IllegalArgumentException("The Non Functional requirement with such ID was not found");
     }
 
-    public void addTeamMemberToTheProject(String memberID)
-    {
-        for (int i = 0; i < Team.getTheRoster().size(); i++)
-        {
-            if (Team.getTheRoster().get(i).getTeamMemberId().equals(memberID))
-            {
-                if (!(isIDUniqueWithinTheProject(memberID)))
-                {
+    public void addTeamMemberToTheProject(String memberID) {
+        for (int i = 0; i < Team.getTheRoster().size(); i++) {
+            if (Team.getTheRoster().get(i).getTeamMemberId().equals(memberID)) {
+                if (!(isIDUniqueWithinTheProject(memberID))) {
                     throw new IllegalArgumentException(
                             "A team member with such ID already exists in the project");
-                }
-                else
+                } else
                     projectTeam.add(Team.getTheRoster().get(i));
             }
 
         }
     }
 
-    public boolean isIDUniqueWithinTheProject(String memberID)
-    {
-        for (int i = 0; i < projectTeam.size(); i++)
-        {
+    public boolean isIDUniqueWithinTheProject(String memberID) {
+        for (int i = 0; i < projectTeam.size(); i++) {
             if (projectTeam.get(i).getTeamMemberId().equals(memberID))
                 return false;
         }
         return true;
     }
 
-    public void editProjectMemberRole(String teamMemberId, Role role)
-    {
+    public void editProjectMemberRole(String teamMemberId, Role role) {
         int count = 0;
-        if (role.equals(Role.TEAM_MEMBER))
-        {
-            for (int i = 0; i < projectTeam.size(); i++)
-            {
-                if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
-                {
+        if (role.equals(Role.TEAM_MEMBER)) {
+            for (int i = 0; i < projectTeam.size(); i++) {
+                if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId)) {
                     count++;
-                    projectTeam.get(i).setRole(role);
+                    projectTeam.get(i).setRole(role.getRoleString());
                 }
             }
             if (count == 0)
                 throw new IllegalArgumentException("Person with such ID was not found within this project");
-        }
-        else
-        {
-            for (int i = 0; i < projectTeam.size(); i++)
-            {
-                if (projectTeam.get(i).getRole().equals(role))
+        } else {
+            for (int i = 0; i < projectTeam.size(); i++) {
+                if (projectTeam.get(i).getRole().equals(role.getRoleString()))
                     throw new IllegalArgumentException("There is a " + role + " already assigned to this project");
             }
-            for (int i = 0; i < projectTeam.size(); i++)
-            {
-                if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
-                {
+            for (int i = 0; i < projectTeam.size(); i++) {
+                if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId)) {
                     count++;
-                    projectTeam.get(i).setRole(role);
+                    projectTeam.get(i).setRole(role.getRoleString());
                 }
             }
             if (count == 0)
@@ -216,13 +171,10 @@ public class Project
     }
 
 
-    public void removeProjectTeamMember(String teamMemberId)
-    {
+    public void removeProjectTeamMember(String teamMemberId) {
         boolean doesExist = false;
-        for (int i = 0; i < projectTeam.size(); i++)
-        {
-            if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId))
-            {
+        for (int i = 0; i < projectTeam.size(); i++) {
+            if (projectTeam.get(i).getTeamMemberId().equals(teamMemberId)) {
                 doesExist = true;
                 projectTeam.remove(i);
             }
@@ -230,10 +182,8 @@ public class Project
         if (!doesExist) throw new IllegalArgumentException();
     }
 
-    public TeamMember getProjectTeamMemberByID(String memberID)
-    {
-        for (TeamMember teamMember : projectTeam)
-        {
+    public TeamMember getProjectTeamMemberByID(String memberID) {
+        for (TeamMember teamMember : projectTeam) {
             if (teamMember.getTeamMemberId().equalsIgnoreCase(memberID))
                 return teamMember;
         }
@@ -242,44 +192,37 @@ public class Project
 
     //i guess
 
-    public void changeTitle(String title)
-    {
+    public void changeTitle(String title) {
         this.title = title;
     }
 
     //Basically a setter for Title
 
-    public void setDeadline(MyDate deadline)
-    {
+    public void setDeadline(MyDate deadline) {
         this.deadline = deadline;
     }
 
     //Basically a setter for Deadline
 
-    public void editComment(String comment)
-    {
+    public void editComment(String comment) {
         this.comment = comment;
     }
 
     //Basically a setter for comment
 
-    public void editTimeSpent(double timeSpent)
-    {
+    public void editTimeSpent(double timeSpent) {
         this.timeSpent = timeSpent;
     }
 
-    public void editStatus(Status status)
-    {
+    public void editStatus(Status status) {
         this.currentStatus = status.getStatusString();
     }
 
 //sets the currentStatus to the String value of Status status
 
 
-    public void removeRequirement(String requirementId)
-    {
-        for (int i = 0; i < requirements.size(); i++)
-        {
+    public void removeRequirement(String requirementId) {
+        for (int i = 0; i < requirements.size(); i++) {
             if (requirements.get(i).getRequirementId().equals(requirementId))
                 requirements.remove(i);
 
@@ -288,13 +231,10 @@ public class Project
 
     //removes project by the given Id
 
-    public boolean isUniqueTaskIdWithinTheProject(String taskID)
-    {
-        for (int i = 0; i < requirements.size(); i++)
-        {
+    public boolean isUniqueTaskIdWithinTheProject(String taskID) {
+        for (int i = 0; i < requirements.size(); i++) {
             if (requirements.get(i) instanceof UserStory)
-                for (int k = 0; k < ((UserStory) requirements.get(i)).getRequirementTasks().size(); k++)
-                {
+                for (int k = 0; k < ((UserStory) requirements.get(i)).getRequirementTasks().size(); k++) {
                     if (((UserStory) requirements.get(i)).getRequirementTasks().get(k).getTaskId().equalsIgnoreCase(taskID))
                         return false;
                 }
@@ -304,24 +244,21 @@ public class Project
 
     //Checks whether the input taskID is valid across the entire project. But I am not sure does it have use because I can't find a way to pass the taskID to it
 
-    public void addNonFunctional(String requirementId, String description)
-    {
+    public void addNonFunctional(String requirementId, String description) {
         NonFunctional n = new NonFunctional(requirementId, description);
         String id = n.getRequirementId();
         isValidRequirementID(id);
         isValidComment(description);
         requirements.forEach((e) ->
         {
-            if (e.getRequirementId().equals(id))
-            {
+            if (e.getRequirementId().equals(id)) {
                 throw new IllegalArgumentException();
             }
         });
         requirements.add(n);
     }
 
-    public void addUserStory(String REQUIREMENTID, String description, MyDate deadline)
-    {
+    public void addUserStory(String REQUIREMENTID, String description, MyDate deadline) {
         UserStory u = new UserStory(REQUIREMENTID, description, deadline);
         String id = u.getRequirementId();
         isValidRequirementID(id);
@@ -329,8 +266,7 @@ public class Project
         isValidComment(description);
         requirements.forEach((e) ->
         {
-            if (e.getRequirementId().equals(id))
-            {
+            if (e.getRequirementId().equals(id)) {
                 throw new IllegalArgumentException();
             }
         });
@@ -338,8 +274,7 @@ public class Project
     }
 
 
-    public void addProjectRelatedRequirement(String requirementId, String description, MyDate deadline)
-    {
+    public void addProjectRelatedRequirement(String requirementId, String description, MyDate deadline) {
         ProjectRelated r = new ProjectRelated(requirementId, description, deadline);
         String id = r.getRequirementId();
         isValidRequirementID(id);
@@ -348,45 +283,32 @@ public class Project
         isValidComment(description);
         requirements.forEach((e) ->
         {
-            if (e.getRequirementId().equals(id))
-            {
+            if (e.getRequirementId().equals(id)) {
                 throw new IllegalArgumentException("Please enter a requirement ID containing 2 or more letters and/or numbers that is unique withing the project");
             }
         });
         requirements.add(r);
     }
 
-    public boolean isValidProjectId(String projectId)
-    {
-        if (!projectId.matches("[a-zA-Z0-9]*"))
-        {
+    public boolean isValidProjectId(String projectId) {
+        if (!projectId.matches("[a-zA-Z0-9]*")) {
             IllegalArgumentException e = new IllegalArgumentException("Please enter a unique project ID containing 2 or more letters and/or numbers");
             throw e;
-        }
-        else if (projectId.length() > 8)
-        {
+        } else if (projectId.length() > 8) {
             throw new IllegalFormatWidthException(projectId.length());
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
 
     //project id must not contain anything else then numbers and letters/capital letters and should be 8 digits/chars for now
 
-    public boolean isValidTitle(String title)
-    {
-        if (!title.matches("[a-zA-Z0-9]*"))
-        {
+    public boolean isValidTitle(String title) {
+        if (!title.matches("[a-zA-Z0-9]*")) {
             throw new IllegalArgumentException();
-        }
-        else if (title.length() > 25)
-        {
+        } else if (title.length() > 25) {
             throw new IllegalFormatWidthException(title.length());
-        }
-        else
-        {
+        } else {
             return true;
 
         }
@@ -394,73 +316,50 @@ public class Project
 
     //can only contain letters and max 25 chars for now
 
-    public boolean isValidCustomerId(String customerId)
-    {
-        if (!customerId.matches("[a-zA-Z0-9]*"))
-        {
+    public boolean isValidCustomerId(String customerId) {
+        if (!customerId.matches("[a-zA-Z0-9]*")) {
             throw new IllegalArgumentException();
-        }
-        else if (customerId.length() > 8)
-        {
+        } else if (customerId.length() > 8) {
             throw new IllegalFormatWidthException(customerId.length());
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
 
     //same as projectID for now
 
-    public boolean isValidComment(String comment)
-    {
-        if (!comment.matches("[a-zA-Z]*"))
-        {
+    public boolean isValidComment(String comment) {
+        if (!comment.matches("[a-zA-Z]*")) {
             throw new IllegalArgumentException();
-        }
-        else if (comment.length() > 250)
-        {
+        } else if (comment.length() > 250) {
             throw new IllegalFormatWidthException(comment.length());
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
 
     //can only contain letters and max 250 chars for now
 
-    public boolean isValidRequirementID(String requirementId)
-    {
-        if (!requirementId.matches("[a-zA-Z0-9]*"))
-        {
+    public boolean isValidRequirementID(String requirementId) {
+        if (!requirementId.matches("[a-zA-Z0-9]*")) {
             IllegalArgumentException e = new IllegalArgumentException("Please enter a requirement ID containing 2 or more letters and/or numbers that is unique within the project");
             throw e;
-        }
-        else if (requirementId.length() < 2)
-        {
+        } else if (requirementId.length() < 2) {
             throw new IllegalFormatWidthException(requirementId.length());
-        }
-        else
-        {
+        } else {
             return true;
         }
     }
 
-    public boolean isValidTime(double hours)
-    {
-        if (hours % 0.5 == 0)
-        {
+    public boolean isValidTime(double hours) {
+        if (hours % 0.5 == 0) {
             return true;
-        }
-        else
-        {
+        } else {
             IllegalArgumentException e = new IllegalArgumentException("Please enter only whole and/or half hours");
             throw e;
         }
     }
-
-
+    
     @Override
     public String toString()
     {
