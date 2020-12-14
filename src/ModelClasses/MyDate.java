@@ -3,10 +3,10 @@ package ModelClasses;
 import java.time.LocalDate;
 
 /**
- * A class of MyDate objects, extending Object class.
+ * A class of MyDate objects.
  *
- * @author Allie
- * @version 4.0 - 10.12.20
+ * @author Allie, Lili, Luke & Yoana
+ * @version 1.0 - 14.12.20
  */
 public class MyDate
 {

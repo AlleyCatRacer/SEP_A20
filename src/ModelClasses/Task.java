@@ -3,7 +3,14 @@ package ModelClasses;
 import ModelClasses.Requirement.UserStory;
 
 import java.util.ArrayList;
+import java.util.IllegalFormatWidthException;
 
+/**
+ * A class of Task objects.
+ *
+ * @author Allie, Lili, Luke & Yoana
+ * @version 1.0 - 14.12.20
+ */
 public class Task
 {
     private final String taskId;
@@ -13,7 +20,21 @@ public class Task
     private String status;
     private String requirementId;
 
-    public Task(String taskId, String description, double estimate,String requirementId)
+    /**
+     * Four-argument constructor. 'timeSpent' field is set to zero and 'status' is set to 'Waiting'.
+     *
+     * @param taskId
+     *         Needs to be a unique a permutation of no more than 24 letters and/or numbers.
+     * @param description
+     *         Needs to be unique ID consisting of a combination of no less than 2 letters and/or numbers.
+     * @param estimate
+     *         Needs to consist of a combination of no more than 24 letters and/or numbers.
+     * @param requirementId
+     *         The day needs to be greater than zero and does not exceeds the referenced month's number of days, the
+     *         month needs to be greater than zero and less than 12 and the year needs to be greater than zero and
+     *         lesser than the current year.
+     */
+    public Task(String taskId, String description, double estimate, String requirementId)
     {
         this.taskId = taskId;
         this.description = description;
@@ -102,16 +123,19 @@ public class Task
 
     public boolean isValidTaskId(String taskId, UserStory requirement)
     {
-        int bin=0;
-        for(int i=0; i<requirement.getRequirementTasks().size();i++)
+        if (!taskId.matches("[a-zA-Z0-9]*"))
         {
-            if (requirement.getRequirementTasks().get(i).getTaskId().equalsIgnoreCase(taskId))
-            {
-                bin+=1;
-                break;
-            }
+            IllegalArgumentException e = new IllegalArgumentException("Please enter an ID containing 2 or more letters and/or numbers that is unique within the project");
+            throw e;
         }
-        return (bin==0);
+        else if (taskId.length() > 25)
+        {
+            throw new IllegalFormatWidthException(taskId.length());
+        }
+        else
+        {
+            return true;
+        }
     }
 
     public void assignTaskToTeamMember(TeamMember teamMember)

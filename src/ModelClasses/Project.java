@@ -394,7 +394,7 @@ public class Project
     }
 
     /**
-     * Changing a project's title.
+     * Changing a project's deadline.
      *
      * @param deadline
      *         MyDate object of the project's new deadline
@@ -409,7 +409,7 @@ public class Project
     }
 
     /**
-     * Changing a project's title.
+     * Changing a project's comment.
      *
      * @param comment
      *         String of the new project comment
