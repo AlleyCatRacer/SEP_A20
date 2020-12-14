@@ -1,11 +1,15 @@
 package GUI.View;
 
 import ModelClasses.ProjectModel;
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
+
+import java.awt.*;
 
 public class HomeController {
 
 
+//  @FXML Button AddProjectButton;
   private Region root;
   private ProjectModel model;
   private ViewHandler viewHandler;
@@ -25,5 +29,12 @@ public class HomeController {
 
   }
 //  public void addProjectButtonPressed
+
+  //model.
+
+  @FXML private void createButtonPressed() {
+    viewHandler.closeView();
+
+  }
 
 }

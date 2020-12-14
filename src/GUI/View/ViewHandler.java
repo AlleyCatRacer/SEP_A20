@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
+import javax.swing.text.View;
+
 public class ViewHandler
 {
     private HomeController homeController;
@@ -15,11 +17,13 @@ public class ViewHandler
     private Scene currentScene;
     private Stage stage;
     private ProjectModel model;
+    private ViewState state;
 
     public ViewHandler(ProjectModel model)
     {
         this.model = model;
         this.currentScene = new Scene(new Region());
+        this.state = new ViewState();
     }
 
     public void start(Stage primaryStage)
