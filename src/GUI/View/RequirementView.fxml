@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.TextFlow?>
 
-<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.RequirementController" userData="Requirement">
+<Pane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.RequirementController">
    <children>
       <HBox alignment="CENTER" fillHeight="false" prefWidth="1200.0">
          <children>
@@ -47,7 +47,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                <children>
-                  <Button fx:id="EditReqButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
+                  <Button fx:id="EditReqButton" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#EditWindow" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER">
                      <font>
                         <Font size="14.0" />
                      </font></Button>
