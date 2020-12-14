@@ -15,6 +15,11 @@ public class Team
         return roster;
     }
 
+    public void addTeamMember(TeamMember teamMember)
+    {
+        roster.add(teamMember);
+    }
+
     public static TeamMember getTeamMemberById(String teamMemberId)
     {
         for (int i = 0; i < roster.size(); i++)
