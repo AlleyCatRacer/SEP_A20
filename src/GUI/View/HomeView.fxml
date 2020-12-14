@@ -60,7 +60,11 @@
                               </Label>
                               <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                  <children>
+<<<<<<< Updated upstream
                                     <Button onAction="#createButtonPressed" fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Create">
+=======
+                                    <Button fx:id="AddProjectButton" alignment="CENTER" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" onAction="#addProjectButtonPressed" text="Create">
+>>>>>>> Stashed changes
                                        <font>
                                           <Font size="14.0" />
                                        </font></Button>

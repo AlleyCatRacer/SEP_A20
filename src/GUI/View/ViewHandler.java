@@ -1,6 +1,8 @@
 package GUI.View;
 
 import ModelClasses.ProjectModel;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
@@ -64,10 +66,9 @@ public class ViewHandler
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 homeController = loader.getController();
-                homeController.initiator(root, this, model);
+                homeController.init(root, this, model);
 
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -88,8 +89,7 @@ public class ViewHandler
                 Region root = loader.load();
                 projectController = loader.getController();
                 projectController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -101,28 +101,33 @@ public class ViewHandler
         return projectController.getRoot();
     }
 
-    /*private Region loadDetailsView(String fxmlFile)
+    @FXML
+    private void addProjectButtonPressed(ActionEvent e)
     {
-        if (detailsViewController == null)
+        loadAddProject("AddProject.fxml");
+    }
+
+    private Region loadAddProject(String fxmlFile)
+    {
+        if (addProjectController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                detailsViewController = loader.getController();
-                detailsViewController.init(this, model, root);
-            }
-            catch (Exception e)
+                addProjectController = loader.getController();
+                addProjectController.init(this, model, root);
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
         }
         else
         {
-            detailsViewController.reset();
+            addProjectController.reset();
         }
-        return detailsViewController.getRoot();
+        return addProjectController.getRoot();
     }
 
     private Region loadRequirementView(String fxmlFile)
@@ -136,8 +141,7 @@ public class ViewHandler
                 Region root = loader.load();
                 requirementController = loader.getController();
                 requirementController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -160,8 +164,7 @@ public class ViewHandler
                 Region root = loader.load();
                 taskController = loader.getController();
                 taskController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -184,8 +187,7 @@ public class ViewHandler
                 Region root = loader.load();
                 editProjectController = loader.getController();
                 editProjectController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -208,8 +210,7 @@ public class ViewHandler
                 Region root = loader.load();
                 addTeamMemberController = loader.getController();
                 addTeamMemberController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -233,8 +234,7 @@ public class ViewHandler
 
                 removeTeamMemberController = loader.getController();
                 removeTeamMemberController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -257,8 +257,7 @@ public class ViewHandler
                 Region root = loader.load();
                 editRequirementController = loader.load();
                 editRequirementController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -281,8 +280,7 @@ public class ViewHandler
                 Region root = loader.load();
                 addTaskController = loader.getController();
                 addTaskController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -305,8 +303,7 @@ public class ViewHandler
                 Region root = loader.load();
                 editTaskController = loader.getController();
                 editTaskController.init(this, model, root);
-            }
-            catch (Exception e)
+            } catch (Exception e)
             {
                 e.printStackTrace();
             }
@@ -318,5 +315,5 @@ public class ViewHandler
         return editTaskController.getRoot();
 
     }
-    return editTaskController.getRoot();*/
+    return editTaskController.getRoot();
 }
