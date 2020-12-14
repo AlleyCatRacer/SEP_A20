@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.HomeController">
+<AnchorPane prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.AddProjectController">
    <children>
       <Pane prefHeight="450.0" prefWidth="800.0" userData="Project Overview" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -303,7 +303,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
+                                          <Button onAction="#cancelProjectButtonPressed" fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -312,7 +312,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Create">
+                                          <Button onAction="#createProjectButtonPressed" fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Create">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
