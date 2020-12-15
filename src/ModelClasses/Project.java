@@ -50,10 +50,13 @@ public class Project
         this.title = title;
         isValidProjectId(projectId);
         this.projectId = projectId;
-        isValidCustomerId(customerId);
+
+        if(isValidCustomerId(customerId))
         this.customerId = customerId;
-        setDeadline(deadline);
+        else
+        throw new IllegalArgumentException("Illegal customer ID");
         this.deadline = deadline;
+
         isValidComment(comment);
         this.comment = comment;
         this.timeSpent = 0;
@@ -586,7 +589,7 @@ public class Project
             IllegalArgumentException e = new IllegalArgumentException("Please enter a unique project ID containing 2 or more letters and/or numbers");
             throw e;
         }
-        else if (projectId.length() > 8)
+        else if (projectId.length() > 8 || projectId.length() < 2)
         {
             throw new IllegalFormatWidthException(projectId.length());
         }

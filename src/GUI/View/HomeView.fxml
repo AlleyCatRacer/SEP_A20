@@ -83,7 +83,7 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <TableView fx:id="tableView" prefHeight="536.0" prefWidth="586.0">
+                        <TableView fx:id="tableView" onMouseClicked="#tableHomeController" prefHeight="536.0" prefWidth="586.0">
                           <columns>
                             <TableColumn fx:id="idColumn" prefWidth="186.0" text="ID" />
                             <TableColumn fx:id="titleColumn" prefWidth="211.0" text="Title" />

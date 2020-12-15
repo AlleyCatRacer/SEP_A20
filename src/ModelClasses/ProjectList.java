@@ -43,6 +43,13 @@ public class ProjectList
         }
         return projects.get(index);
     }
+    public Project getProjectByID(String projectID) {
+        for(int i = 0; i < projects.size(); i++) {
+            if(projects.get(i).getProjectId().equals(projectID))
+                return projects.get(i);
+        }
+        throw new IllegalArgumentException("Project with such ID was not found");
+    }
 
     /**
      * Getting an ended project by it's title.

@@ -2,40 +2,40 @@ package GUI.View;
 
 public class ViewState {
 
-  private int selectedProject;
-  private int selectedRequirement;
-  private int selectedTask;
+  private String selectedProject;
+  private String selectedRequirement;
+  private String selectedTask;
 
   public ViewState() {
-  selectedProject = -1;
-  selectedRequirement = -1;
-  selectedTask = -1;
+  selectedProject = "";
+  selectedRequirement = "";
+  selectedTask = "";
   }
-  public int getSelectedProject() {
+  public String getSelectedProject() {
     return selectedProject;
   }
 
-  public int getSelectedRequirement()
+  public String getSelectedRequirement()
   {
     return selectedRequirement;
   }
 
-  public int getSelectedTask()
+  public String getSelectedTask()
   {
     return selectedTask;
   }
 
-  public void setSelectedProject(int selectedProject)
+  public void setSelectedProject(String selectedProject)
   {
     this.selectedProject = selectedProject;
   }
 
-  public void setSelectedRequirement(int selectedRequirement)
+  public void setSelectedRequirement(String selectedRequirement)
   {
     this.selectedRequirement = selectedRequirement;
   }
 
-  public void setSelectedTask(int selectedTask)
+  public void setSelectedTask(String selectedTask)
   {
     this.selectedTask = selectedTask;
   }

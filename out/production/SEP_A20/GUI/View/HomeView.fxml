@@ -83,7 +83,7 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <TableView fx:id="tableView" prefHeight="536.0" prefWidth="586.0">
+                        <TableView fx:id="tableView" onMouseClicked="#tableHomeController" prefHeight="536.0" prefWidth="586.0">
                           <columns>
                             <TableColumn fx:id="idColumn" prefWidth="186.0" text="ID" />
                             <TableColumn fx:id="titleColumn" prefWidth="211.0" text="Title" />
@@ -108,7 +108,13 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <ListView fx:id="EndedProjectList" />
+                        <TableView prefHeight="412.0" prefWidth="586.0">
+                          <columns>
+                            <TableColumn prefWidth="186.0" text="ID" />
+                            <TableColumn minWidth="0.0" prefWidth="211.0" text="Title" />
+                              <TableColumn prefWidth="188.0" text="Deadline" />
+                          </columns>
+                        </TableView>
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

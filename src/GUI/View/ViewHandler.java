@@ -28,6 +28,9 @@ public class ViewHandler
         this.currentScene = new Scene(new Region());
         this.state = new ViewState();
     }
+    public void setState(ViewState state) {
+        this.state = state;
+    }
 
     public void start(Stage primaryStage)
     {
@@ -46,6 +49,9 @@ public class ViewHandler
                 break;
             case"addProject":
                 root = loadAddProject("AddProject.fxml");
+                break;
+            case"projectView":
+                root = loadProjectView("ProjectView.fxml", state);
                 break;
         }
 
@@ -91,7 +97,7 @@ public class ViewHandler
         return homeController.getRoot();
     }
 
-    private Region loadProjectView(String fxmlFile)
+    private Region loadProjectView(String fxmlFile, ViewState state)
     {
         if (projectController == null)
         {
@@ -101,8 +107,9 @@ public class ViewHandler
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 projectController = loader.getController();
-                projectController.init(this, model, root);
-            } catch (Exception e)
+                projectController.init(this, model, root, state);
+            }
+            catch (Exception e)
             {
                 e.printStackTrace();
             }

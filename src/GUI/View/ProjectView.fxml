@@ -24,7 +24,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT">
                      <children>
-                        <Button fx:id="HomeButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
+                        <Button onAction="#homeButtonClicked" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" text="Home" textAlignment="CENTER" HBox.hgrow="NEVER">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -36,7 +36,7 @@
                   </HBox>
                   <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label fx:id="ProjectTitle" alignment="CENTER" contentDisplay="CENTER" text="Title" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                        <Label fx:id="projectTitle" alignment="CENTER" contentDisplay="CENTER" text="Title" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                            <padding>
                               <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                            </padding>
