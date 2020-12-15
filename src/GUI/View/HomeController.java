@@ -1,10 +1,11 @@
 package GUI.View;
 
 import ModelClasses.MyDate;
-import ModelClasses.Project;
 import ModelClasses.ProjectModel;
+import ModelClasses.Project;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -14,7 +15,8 @@ import javafx.scene.layout.Region;
 
 import java.awt.*;
 
-public class HomeController {
+public class HomeController
+{
 
   @FXML private TableView<Project> tableView;
   @FXML private TableColumn <Project, String> idColumn;
@@ -39,27 +41,22 @@ public class HomeController {
     this.model = model;
 
 
-    idColumn.setCellValueFactory(new PropertyValueFactory<>("projectId"));
+    idColumn.setCellValueFactory(new PropertyValueFactory<Project, String>("projectId"));
     titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
     tableView.setItems(getProjects());
-    tableView.getColumns().addAll(idColumn, titleColumn, deadlineColumn);
 
   }
-  public ObservableList<Project> getProjects() {
+  private ObservableList<Project> getProjects() {
     ObservableList<Project> projects = FXCollections.observableArrayList();
-    if(model.getProjectList().getAllProjects().size() == 0) {
-      MyDate deadline = new MyDate(20, 10, 2025);
-      projects.add(new Project("John", "Wick", "Colour", deadline, "Iterative"));
-    }
-      else{
       projects.addAll(model.getProjectList().getAllProjects());
-    }
+
     return projects;
   }
   public void reset() {
 
+    tableView.setItems(getProjects());
   }
 //  public void addProjectButtonPressed
 
@@ -67,7 +64,6 @@ public class HomeController {
 
   @FXML private void createButtonPressed() {
     viewHandler.openView("addProject");
-
   }
 
 }
