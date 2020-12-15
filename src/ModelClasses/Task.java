@@ -59,7 +59,7 @@ public class Task
 
    /* public void changeStatus(Status status)
     {
-        if(status.getStatusString().equals(Status.ENDED.getStatusString()) )
+        if(status.getStatusString().equals(Status.ENDED.getStatusString()))
         {
             for (int i = 0; i< belongsToRequirement.size(); i++)
             {
