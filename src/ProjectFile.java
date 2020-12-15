@@ -3,6 +3,7 @@ import ModelClasses.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,14 +75,68 @@ public class ProjectFile implements ProjectPersistence {
 
     }
 
+    //this probably saves in file
     @Override
     public void saveProject(Project project) {
-
+        boolean saved = false;
+        try {
+            String path = ".\\Projects\\Started";
+            File[] directories = new File(path).listFiles(File::isDirectory);
+            for (int i = 0; i < directories.length; i++) {
+                if (directories[i].getName().equals(project.getProjectId())) {
+                    String filePath = directories[i].getPath() + "\\" + directories[i].getPath() + ".txt";
+                    File file = new File(filePath);
+                    PrintWriter out = new PrintWriter(file);
+                    out.println(project.toString());
+                    out.flush();
+                    out.close();
+                    saved = true;
+                }
+            }
+            if (!saved) {
+                File file = new File(project.getProjectId());
+                PrintWriter out = new PrintWriter(file);
+                out.println(project.toString());
+                out.flush();
+                out.close();
+            }
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+        }
     }
 
     @Override
     public void saveTeamMember(TeamMember teamMember) {
-
+        boolean saved = false;
+        try {
+            String path = ".\\Teams";
+            File[] files = new File(path).listFiles();
+            File[] directories = new File(path).listFiles(File::isDirectory);
+            for (int i = 0; i < files.length; i++) {
+                if (files[i].getName().equals(teamMember.getTeamMemberId())) {
+                    String filePath = files[i].getPath();
+                    File file = new File(filePath);
+                    PrintWriter out = new PrintWriter(file);
+                    out.println(teamMember.toString());
+                    out.flush();
+                    out.close();
+                    saved = true;
+                }
+            }
+            if (!saved) {
+                File file = new File(teamMember.getTeamMemberId());
+                PrintWriter out = new PrintWriter(file);
+                out.println(teamMember.toString());
+                out.flush();
+                out.close();
+            }
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+        }
     }
 
     @Override
