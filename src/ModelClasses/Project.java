@@ -417,7 +417,7 @@ public class Project
      *         object's month isn't greater than zero or exceeds 12. If the object's year isn't greater than zero or is
      *         lesser than the current year.
      */
-    public void setDeadline(MyDate deadline)
+        public void setDeadline(MyDate deadline)
     {
         this.deadline = deadline;
     }

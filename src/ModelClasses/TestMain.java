@@ -60,6 +60,7 @@ public class TestMain {
     wick.getProjectByTitle("Title").addTeamMemberToTheProject("124");
     wick.getProjectByTitle("Title").addTeamMemberToTheProject("125");
     wick.getProjectByTitle("Title").editProjectMemberRole("125", Role.SCRUM_MASTER);
+    wick.getProjectByTitle("Title").editProjectMemberRole("124", Role.SCRUM_MASTER);
     System.out.println(wick.getProjectByTitle("Title").getMembersOfTheProject());
 
 

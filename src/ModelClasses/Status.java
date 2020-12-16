@@ -18,7 +18,7 @@ public enum Status
      * @param statusString
      *         String value of enum constant
      */
-    Status(final String statusString)
+    Status(String statusString)
     {
         this.statusString = statusString;
     }

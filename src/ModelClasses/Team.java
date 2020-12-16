@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Team
 {
-    private static ArrayList<TeamMember> roster = new ArrayList<>();
+    private static ArrayList<TeamMember> roster;
 
     public Team()
     {
