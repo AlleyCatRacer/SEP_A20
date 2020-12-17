@@ -43,12 +43,6 @@ public class TeamMember
         throw e;
     }
 
-    public double getTimeSpent()
-    {
-        //TODO
-        throw new IllegalArgumentException();
-    }
-
     public void addTasks(ArrayList<Task> tasks)
     {
         this.tasks.addAll(tasks);

@@ -77,10 +77,6 @@ public class UserStory extends Requirement
         return deadline;
     }
 
-    public void updateTimeSpent(double timeSpent)
-    {
-        this.timeSpent = timeSpent;
-    }
 
     public void changePriority(Priority priority)
     {

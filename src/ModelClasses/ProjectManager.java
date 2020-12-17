@@ -10,7 +10,6 @@ import ModelClasses.Requirement.Requirement;
  */
 public class ProjectManager implements ProjectModel
 {
-    private Team team;
     private ProjectList projectList;
 
     /**
@@ -18,7 +17,6 @@ public class ProjectManager implements ProjectModel
      */
     public ProjectManager()
     {
-        this.team = new Team();
         this.projectList = new ProjectList();
     }
 
