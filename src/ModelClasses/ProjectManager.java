@@ -5,7 +5,7 @@ import ModelClasses.Requirement.Requirement;
 /**
  * A ProjectManager class that implements the ProjectModel interface.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 public class ProjectManager implements ProjectModel

@@ -11,7 +11,7 @@ import java.util.IllegalFormatWidthException;
 /**
  * A class of Project objects.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 public class Project
@@ -78,7 +78,7 @@ public class Project
     /**
      * Getting an ArrayList of Requirement subclass objects belonging to the project.
      *
-     * @return ArrayList<Requirement> project's requirements.
+     * @return ArrayList of project's requirements.
      */
     public ArrayList<Requirement> getRequirements()
     {
@@ -589,6 +589,8 @@ public class Project
      *
      * @param projectId
      *         Needs to be unique ID consisting of a combination of no less than 2 letters and/or numbers
+     * @return 'true' if the string is over 2 characters and no more than 7 characters long and contains only
+     * letters and/or numbers
      * @throws IllegalArgumentException
      *         If the given ID consists of a combination of less than 2 or more than 7 characters or contains other
      *         than letters and/or numbers
@@ -615,6 +617,7 @@ public class Project
      *
      * @param title
      *         Needs to consist of a combination of no more than 24 letters and/or numbers
+     * @return 'true' if the string is less than 25 characters long and contains only letters and/or numbers
      * @throws IllegalArgumentException
      *         If the given title consists of a combination of more than 24 characters or contains other than letters
      *         and/or numbers
@@ -641,6 +644,8 @@ public class Project
      *
      * @param customerId
      *         Needs to consist of a combination of no more than 24 letters and/or numbers
+     * @return 'true' if the string is over 8 characters and no more than 24 characters long and contains only
+     * letters and/or numbers
      * @throws IllegalArgumentException
      *         If the given ID consists of a combination of more than 7 characters or contains other than letters
      *         and/or numbers
@@ -666,6 +671,7 @@ public class Project
      *
      * @param comment
      *         Needs to consist of less than 250 letters
+     * @return 'true' if the string is under 250 characters in length and contains only letters, otherwise 'false'
      * @throws IllegalArgumentException
      *         If the string consist of more than 249 characters or contains other than letters and/or numbers
      */
@@ -690,6 +696,8 @@ public class Project
      *
      * @param requirementId
      *         Needs to consist of a combination of 2 or more letters and/or numbers
+     * @return 'true' if the string is at least 2 characters long, is unique within the project and contains only
+     * letters and/or numbers, otherwise 'false'
      * @throws IllegalArgumentException
      *         If the string consist of less than 2 characters or contains other than letters and/or numbers
      */
@@ -715,6 +723,7 @@ public class Project
      *
      * @param hours
      *         Double of whole or half hours
+     * @return 'true' if the inputs remainder is zero (mod 0.5), otherwise 'false'
      * @throws IllegalArgumentException
      *         If the double does not have a remainder of 0 (mod 0.5)
      */

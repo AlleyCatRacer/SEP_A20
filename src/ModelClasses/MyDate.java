@@ -5,7 +5,7 @@ import java.time.LocalDate;
 /**
  * A class of MyDate objects.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 public class MyDate
@@ -237,6 +237,8 @@ public class MyDate
     /**
      * Converting a month's Gregorian name into an int value.
      *
+     * @param monthName
+     *         String of the month's name
      * @return Integer ranging from '1' to '12' with a default of '1'.
      */
     public int convertToMonthNumber(String monthName)

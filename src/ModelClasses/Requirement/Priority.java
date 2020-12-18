@@ -3,7 +3,7 @@ package ModelClasses.Requirement;
 /**
  * An enum of Priority constants.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 

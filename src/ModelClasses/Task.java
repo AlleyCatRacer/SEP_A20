@@ -8,7 +8,7 @@ import java.util.IllegalFormatWidthException;
 /**
  * A class of Task objects.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 public class Task
@@ -151,6 +151,10 @@ public class Task
      *
      * @param taskId
      *         Needs to be unique ID consisting of a combination of no less than 2 letters and/or numbers
+     * @param requirement
+     *         Object of type UserStory
+     * @return 'true' if the argument string is unique within the project, does not contain characters other than
+     * letters or numbers, no less than 2 characters and no more than 24 characters long, otherwise 'false'
      * @throws IllegalArgumentException
      *         If the given ID has already been used within the project or contains other characters than letters and/or numbers
      * @throws IllegalFormatWidthException

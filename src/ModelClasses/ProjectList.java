@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * A class of Project ArrayLists.
  *
- * @author Allie, Lili, Luke & Yoana
+ * @author Group 1
  * @version 1.0 - 14.12.20
  */
 public class ProjectList
@@ -22,6 +22,9 @@ public class ProjectList
 
     /**
      * Getting a project by it's title.
+     *
+     * @param title
+     *         String of projects title
      *
      * @return Project object
      * @throws IllegalArgumentException
@@ -53,6 +56,9 @@ public class ProjectList
 
     /**
      * Getting an ended project by it's title.
+     *
+     * @param title
+     *         String of projects title
      *
      * @return Project object
      * @throws IllegalArgumentException
@@ -107,6 +113,9 @@ public class ProjectList
 
     /**
      * Removing a project by it's title.
+     *
+     * @param title
+     *         String of projects title
      *
      * @throws IllegalArgumentException
      *         If no project was found with the given title
