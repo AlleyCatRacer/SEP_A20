@@ -1,5 +1,6 @@
 package GUI.View;
 
+import ModelClasses.Project;
 import ModelClasses.ProjectModel;
 import javafx.scene.layout.Region;
 import javafx.fxml.FXML;
@@ -13,6 +14,15 @@ import javafx.scene.control.TitledPane;
 public class ProjectController
 {
     @FXML Label projectTitle;
+    @FXML Label projectId;
+    @FXML Label customerId;
+    @FXML Label projectStatus;
+    //Unused id - project does not have a description
+    @FXML TextArea projectDescription;
+    @FXML TextArea comment;
+    @FXML Label projectDeadline;
+    @FXML Label projectEstimate;
+    @FXML Label projectTimeSpent;
 
     private Region root;
     private ViewHandler viewHandler;
@@ -29,7 +39,18 @@ public class ProjectController
         this.root = root;
         this.state = state;
 
-        projectTitle.setText(model.getProjectList().getProjectByID(state.getSelectedProject()).getTitle());
+        Project temp = model.getProjectList().getProjectByID(state.getSelectedProject());
+
+        projectTitle.setText(temp.getTitle());
+        projectId.setText(temp.getProjectId());
+        customerId.setText(temp.getCustomerId());
+        comment.setText(temp.getComment());
+        projectDescription.setText(temp.getDescription());
+
+        projectEstimate.setText(String.valueOf(temp.getEstimate()));
+        projectTimeSpent.setText(String.valueOf(temp.getTimeSpent()));
+        projectDeadline.setText(temp.getDeadline().toString());
+
 
     }
 

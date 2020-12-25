@@ -100,7 +100,7 @@
                                     </VBox>
                                     <VBox spacing="30.0">
                                        <children>
-                                          <Label fx:id="ProjectId" text="ID">
+                                          <Label fx:id="projectId" text="ID">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -108,7 +108,7 @@
                                                 <Font name="System Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="CustomerId" text="ID">
+                                          <Label fx:id="customerId" text="ID">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -116,7 +116,7 @@
                                                 <Font name="System Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="ProjectStatus" text="Waiting">
+                                          <Label fx:id="projectStatus" text="Waiting">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -146,7 +146,7 @@
                                     </Label>
                                     <HBox alignment="BOTTOM_LEFT" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <TextArea fx:id="ProjectDescription" editable="false" prefHeight="191.0" prefWidth="587.0" />
+                                          <TextArea fx:id="projectDescription" editable="false" prefHeight="191.0" prefWidth="587.0" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -167,7 +167,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="Comment" editable="false" />
+                                    <TextArea fx:id="comment" editable="false" />
                                  </children>
                               </VBox>
                            </children>
@@ -209,7 +209,7 @@
                                     </VBox>
                                     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
                                        <children>
-                                          <Label fx:id="ProjectDeadline" text="MyDate">
+                                          <Label fx:id="projectDeadline" text="MyDate">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -217,7 +217,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="ProjectEstimate" text="Hours">
+                                          <Label fx:id="projectEstimate" text="Hours">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -225,7 +225,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="ProjectTimeSpent" text="Hours">
+                                          <Label fx:id="projectTimeSpent" text="Hours">
                                              <VBox.margin>
                                                 <Insets bottom="6.0" right="6.0" top="7.0" />
                                              </VBox.margin>

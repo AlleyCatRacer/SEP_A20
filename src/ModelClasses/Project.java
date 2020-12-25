@@ -22,9 +22,11 @@ public class Project
     private MyDate deadline;
     private String comment;
     private double timeSpent;
+    private double estimate;
     private String currentStatus;
     private ArrayList<Requirement> requirements;
     private ArrayList<TeamMember> projectTeam;
+    private String description;
 
     /**
      * Five-argument constructor. 'timeSpent' field is set to zero, 'status' is set to 'Waiting', a new ArrayList of
@@ -62,17 +64,18 @@ public class Project
         isValidProjectId(projectId);
         this.projectId = projectId;
 
-        if(isValidCustomerId(customerId))
+        isValidCustomerId(customerId);
         this.customerId = customerId;
-        else
-        throw new IllegalArgumentException("Illegal customer ID");
+
         this.deadline = deadline;
 
         isValidComment(comment);
         this.comment = comment;
         this.timeSpent = 0;
+        this.estimate = 0;
         this.currentStatus = Status.WAITING.getStatusString();
         projectTeam = new ArrayList<>();
+        this.description = "";
     }
 
     /**
@@ -144,6 +147,9 @@ public class Project
     {
         return timeSpent;
     }
+    public double getEstimate() {
+        return estimate;
+    }
 
     /**
      * Getting project's status.
@@ -163,6 +169,9 @@ public class Project
     public ArrayList<TeamMember> getMembersOfTheProject()
     {
         return projectTeam;
+    }
+    public String getDescription() {
+        return description;
     }
 
 
@@ -444,6 +453,29 @@ public class Project
     public void editStatus(Status status)
     {
         this.currentStatus = status.getStatusString();
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void calculateEstimate() {
+        double sum = 0;
+        for(Requirement requirement : requirements) {
+            if(requirement instanceof UserStory)
+                sum += ((UserStory) requirement).calculateEstimate();
+            if(requirement instanceof ProjectRelated)
+                sum += ((ProjectRelated) requirement).getEstimate();
+        }
+        this.estimate = sum;
+    }
+    public void calculateTimeSpent() {
+        double sum = 0;
+        for(Requirement requirement : requirements) {
+            if(requirement instanceof UserStory)
+                sum += ((UserStory) requirement).calculateTimeSpent();
+            if(requirement instanceof ProjectRelated)
+                sum += ((ProjectRelated) requirement).getTimeSpent();
+        }
+        this.timeSpent = sum;
     }
 
     /**
