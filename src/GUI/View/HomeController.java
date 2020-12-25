@@ -41,13 +41,12 @@ public class HomeController
     this.state = new ViewState();
 
 
-
+    tableView.setItems(getProjects());
 
     idColumn.setCellValueFactory(new PropertyValueFactory<>("projectId"));
     titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-    tableView.setItems(getProjects());
 
   }
   private ObservableList<Project> getProjects() {
@@ -57,7 +56,8 @@ public class HomeController
   }
   public void reset() {
 
-    tableView.setItems(getProjects());
+    init(viewHandler, model, root);
+
   }
 
   @FXML private void createButtonPressed() {

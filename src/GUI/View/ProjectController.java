@@ -54,14 +54,16 @@ public class ProjectController
 
     }
 
-    public void reset()
-    {
-
+    public void reset() {
+        init(viewHandler, model, root, state);
     }
 
 
     @FXML private void homeButtonClicked() {
         viewHandler.openView("homeView");
+    }
+    @FXML private void editButtonClicked() {
+        viewHandler.openView("editProject");
     }
 
 

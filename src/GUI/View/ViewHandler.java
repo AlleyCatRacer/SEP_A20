@@ -14,6 +14,7 @@ public class ViewHandler
 {
     private HomeController homeController;
     private AddProjectController addProjectController;
+    private EditProjectController editProjectController;
     private ProjectController projectController;
     private RequirementController requirementController;
     private TaskController taskController;
@@ -53,6 +54,8 @@ public class ViewHandler
             case"projectView":
                 root = loadProjectView("ProjectView.fxml", state);
                 break;
+            case"editProject":
+                root = loadEditProject("EditProject.fxml", state);
         }
 
 
@@ -97,6 +100,29 @@ public class ViewHandler
         return homeController.getRoot();
     }
 
+    private Region loadAddProject(String fxmlFile)
+    {
+        if (addProjectController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                addProjectController = loader.getController();
+                addProjectController.init(this, model, root);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            addProjectController.reset();
+        }
+        return addProjectController.getRoot();
+    }
+
     private Region loadProjectView(String fxmlFile, ViewState state)
     {
         if (projectController == null)
@@ -121,18 +147,16 @@ public class ViewHandler
         return projectController.getRoot();
     }
 
-
-    private Region loadAddProject(String fxmlFile)
-    {
-        if (addProjectController == null)
+    private Region loadEditProject(String fxmlFile, ViewState state) {
+        if (editProjectController == null)
         {
             try
             {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
-                addProjectController = loader.getController();
-                addProjectController.init(this, model, root);
+                editProjectController = loader.getController();
+                editProjectController.init(this, model, root, state);
             } catch (Exception e)
             {
                 e.printStackTrace();
@@ -140,9 +164,9 @@ public class ViewHandler
         }
         else
         {
-            addProjectController.reset();
+            editProjectController.reset();
         }
-        return addProjectController.getRoot();
+        return editProjectController.getRoot();
     }
 
     /*
@@ -193,28 +217,6 @@ public class ViewHandler
         return taskController.getRoot();
     }
 
-    private Region loadEditProject(String fxmlFile)
-    {
-        if (editProjectController == null)
-        {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource(fxmlFile));
-                Region root = loader.load();
-                editProjectController = loader.getController();
-                editProjectController.init(this, model, root);
-            } catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            editProjectController.reset();
-        }
-        return editProjectController.getRoot();
-    }
 
     private Region loadAddTeamMember(String fxmlFile)
     {

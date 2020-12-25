@@ -24,7 +24,7 @@
          <children>
             <HBox alignment="CENTER" prefWidth="1200.0">
                <children>
-                  <TextField fx:id="ChangeTitle" alignment="CENTER" text="Title">
+                  <TextField fx:id="changeTitle" alignment="CENTER" text="Title">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -588,7 +588,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
+                                          <Button onAction="#cancelButtonClicked" fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -597,7 +597,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                        <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Save">
+                                        <Button onAction="#saveButtonClicked" fx:id="saveButton" minWidth="70.0" mnemonicParsing="false" text="Save">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
