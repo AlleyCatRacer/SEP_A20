@@ -40,9 +40,8 @@ public class EditProjectController {
 
   }
   @FXML private void saveButtonClicked() {
-    Project temp = model.getProjectList().getProjectByID(state.getSelectedProject());
 
-    temp.changeTitle(changeTitle.getText());
+    model.getProjectList().getProjectByID(state.getSelectedProject()).changeTitle(changeTitle.getText());
 
     viewHandler.openView("projectView");
   }

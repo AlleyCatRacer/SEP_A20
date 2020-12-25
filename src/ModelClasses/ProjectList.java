@@ -51,7 +51,7 @@ public class ProjectList
             if(projects.get(i).getProjectId().equals(projectID))
                 return projects.get(i);
         }
-        throw new IllegalArgumentException("Project with such ID was not found");
+        throw new IllegalArgumentException("Project with such ID was not found " + ".The project ID: " + projectID);
     }
 
     /**
