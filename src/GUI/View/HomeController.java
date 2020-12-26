@@ -56,7 +56,8 @@ public class HomeController
   }
   public void reset() {
 
-    init(viewHandler, model, root);
+    tableView.setItems(getProjects());
+    tableView.refresh();
 
   }
 

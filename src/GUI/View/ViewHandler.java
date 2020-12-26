@@ -142,7 +142,7 @@ public class ViewHandler
         }
         else
         {
-            projectController.reset();
+            projectController.reset(state);
         }
         return projectController.getRoot();
     }
@@ -164,7 +164,7 @@ public class ViewHandler
         }
         else
         {
-            editProjectController.reset();
+            editProjectController.reset(state);
         }
         return editProjectController.getRoot();
     }

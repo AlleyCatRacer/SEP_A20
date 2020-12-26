@@ -44,6 +44,7 @@ public class ProjectController
         projectTitle.setText(temp.getTitle());
         projectId.setText(temp.getProjectId());
         customerId.setText(temp.getCustomerId());
+        projectStatus.setText(temp.getCurrentStatus());
         comment.setText(temp.getComment());
         projectDescription.setText(temp.getDescription());
 
@@ -54,7 +55,9 @@ public class ProjectController
 
     }
 
-    public void reset() {
+    public void reset(ViewState state) {
+        this.state = state;
+        System.out.println(model.getProjectList().getProjectByID(state.getSelectedProject()).toString());
         init(viewHandler, model, root, state);
     }
 

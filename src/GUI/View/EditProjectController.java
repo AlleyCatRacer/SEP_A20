@@ -1,7 +1,11 @@
 package GUI.View;
 
+import ModelClasses.MyDate;
 import ModelClasses.Project;
 import ModelClasses.ProjectModel;
+import ModelClasses.Status;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.fxml.FXML;
@@ -12,6 +16,17 @@ import java.util.ResourceBundle;
 public class EditProjectController {
 
   @FXML TextField changeTitle;
+  @FXML Label projectId;
+  @FXML Label customerId;
+  @FXML ChoiceBox status;
+  @FXML TextField day;
+  @FXML TextField month;
+  @FXML TextField year;
+  @FXML Label estimate;
+  @FXML Label timeSpent;
+  @FXML TextArea editDescription;
+  @FXML TextArea editComment;
+
 
 
 
@@ -33,15 +48,35 @@ public class EditProjectController {
     Project temp = model.getProjectList().getProjectByID(state.getSelectedProject());
 
     changeTitle.setText(temp.getTitle());
+    projectId.setText(temp.getProjectId());
+    customerId.setText(temp.getCustomerId());
 
+    ObservableList<Status> statuses = FXCollections.observableArrayList(Status.WAITING, Status.STARTED, Status.ENDED);
+    status.setItems(statuses);
+    System.out.println(statuses);
 
+    day.setText(String.valueOf(temp.getDeadline().getDay()));
+    month.setText(String.valueOf(temp.getDeadline().getMonth()));
+    year.setText(String.valueOf(temp.getDeadline().getYear()));
+    estimate.setText(String.valueOf(temp.getEstimate()));
+    timeSpent.setText(String.valueOf(temp.getTimeSpent()));
+    editComment.setText(temp.getComment());
   }
-  public void reset() {
-
+  public void reset(ViewState state) {
+    this.state = state;
+    init(viewHandler, model, root, state);
   }
   @FXML private void saveButtonClicked() {
 
     model.getProjectList().getProjectByID(state.getSelectedProject()).changeTitle(changeTitle.getText());
+    model.getProjectList().getProjectByID(state.getSelectedProject()).editStatus((Status)status.getValue());
+
+    MyDate deadline = new MyDate(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+    model.getProjectList().getProjectByID(state.getSelectedProject()).setDeadline(deadline);
+
+    model.getProjectList().getProjectByID(state.getSelectedProject()).setDescription(editDescription.getText());
+    model.getProjectList().getProjectByID(state.getSelectedProject()).editComment(editComment.getText());
+
 
     viewHandler.openView("projectView");
   }

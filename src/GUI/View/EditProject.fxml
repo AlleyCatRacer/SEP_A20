@@ -72,7 +72,7 @@
                                     </VBox>
                                     <VBox>
                                        <children>
-                                          <Label fx:id="ProjectId" text="ID">
+                                          <Label fx:id="projectId" text="ID">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -80,7 +80,7 @@
                                                 <Font name="System Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="CustomerId" text="ID">
+                                          <Label fx:id="customerId" text="ID">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -88,7 +88,7 @@
                                                 <Font name="System Italic" size="16.0" />
                                              </font>
                                           </Label>
-                                          <ChoiceBox fx:id="StatusDropdown" prefWidth="150.0" VBox.vgrow="NEVER" />
+                                          <ChoiceBox fx:id="status" prefWidth="150.0" VBox.vgrow="NEVER" />
                                        </children>
                                        <HBox.margin>
                                           <Insets />
@@ -110,7 +110,7 @@
                                        <children>
                                           <TextFlow maxHeight="100.0" maxWidth="400.0">
                                              <children>
-                                                <TextArea fx:id="EditProjectDescription" maxHeight="100.0" maxWidth="400.0" text="&#10;" />
+                                                <TextArea fx:id="editDescription" maxHeight="100.0" maxWidth="400.0" text="&#10;" />
                                              </children>
                                           </TextFlow>
                                        </children>
@@ -139,7 +139,7 @@
                                                 <Font name="System Bold" size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label text="Estimate">
+                                          <Label  text="Estimate">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -161,24 +161,24 @@
                                        <children>
                                           <HBox spacing="5.0">
                                              <children>
-                                                <TextField fx:id="Day" maxWidth="50.0" promptText="DD">
+                                                <TextField fx:id="day" maxWidth="50.0" promptText="DD">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField fx:id="Month" maxWidth="50.0" promptText="MM">
+                                                <TextField fx:id="month" maxWidth="50.0" promptText="MM">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField fx:id="Year" maxWidth="100.0" promptText="YYYY">
+                                                <TextField fx:id="year" maxWidth="100.0" promptText="YYYY">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
                                              </children>
                                           </HBox>
-                                          <Label fx:id="ProjectEstimate" text="Hours">
+                                          <Label fx:id="estimate" text="Hours">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" right="5.0" top="7.0" />
                                              </VBox.margin>
@@ -186,7 +186,7 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="ProjectTimeSpent" text="Hours">
+                                          <Label fx:id="timeSpent" text="Hours">
                                              <VBox.margin>
                                                 <Insets bottom="6.0" right="6.0" top="7.0" />
                                              </VBox.margin>
@@ -216,7 +216,7 @@
                                     </Label>
                                     <TextFlow maxHeight="100.0" maxWidth="400.0">
                                        <children>
-                                          <TextArea fx:id="EditComment" maxHeight="100.0" maxWidth="400.0" />
+                                          <TextArea fx:id="editComment" maxHeight="100.0" maxWidth="400.0" />
                                        </children>
                                     </TextFlow>
                                  </children>
