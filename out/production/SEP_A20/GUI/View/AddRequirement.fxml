@@ -277,7 +277,7 @@
                                     </HBox>
                                     <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Save">
+                                          <Button onAction="#saveButtonClicked" fx:id="saveButton" minWidth="70.0" mnemonicParsing="false" text="Save">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>

@@ -54,10 +54,10 @@ public class ViewHandler
                 root = loadAddProject("AddProject.fxml");
                 break;
             case"projectView":
-                root = loadProjectView("ProjectView.fxml", state);
+                root = loadProjectView("ProjectView.fxml");
                 break;
             case"editProject":
-                root = loadEditProject("EditProject.fxml", state);
+                root = loadEditProject("EditProject.fxml");
                 break;
             case"addRequirement":
                 root = loadAddRequirement("AddRequirement.fxml");
@@ -129,7 +129,7 @@ public class ViewHandler
         return addProjectController.getRoot();
     }
 
-    private Region loadProjectView(String fxmlFile, ViewState state)
+    private Region loadProjectView(String fxmlFile)
     {
         if (projectController == null)
         {
@@ -153,7 +153,7 @@ public class ViewHandler
         return projectController.getRoot();
     }
 
-    private Region loadEditProject(String fxmlFile, ViewState state) {
+    private Region loadEditProject(String fxmlFile) {
         if (editProjectController == null)
         {
             try
@@ -183,7 +183,7 @@ public class ViewHandler
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addRequirementController = loader.getController();
-                addRequirementController.init(this, model, root);
+                addRequirementController.init(this, model, root, state);
             } catch (Exception e)
             {
                 e.printStackTrace();

@@ -1,9 +1,6 @@
 package ModelClasses;
 
-import ModelClasses.Requirement.NonFunctional;
-import ModelClasses.Requirement.ProjectRelated;
-import ModelClasses.Requirement.Requirement;
-import ModelClasses.Requirement.UserStory;
+import ModelClasses.Requirement.*;
 
 import java.util.ArrayList;
 import java.util.IllegalFormatWidthException;
@@ -566,20 +563,18 @@ public class Project
      *         deadline's month isn't greater than zero or exceeds 12, if the deadline's year isn't greater than zero or
      *         is lesser than the current year.
      */
-    public void addUserStory(String requirementId, String description, MyDate deadline)
+    public void addUserStory(String requirementId, String description, MyDate deadline, Priority priority)
     {
-        UserStory u = new UserStory(requirementId, description, deadline);
+        UserStory u = new UserStory(requirementId, description, deadline, priority);
         String id = u.getRequirementId();
         isValidRequirementID(id);
         setDeadline(deadline);
         isValidComment(description);
-        requirements.forEach((e) ->
-        {
-            if (e.getRequirementId().equals(id))
-            {
-                throw new IllegalArgumentException();
-            }
-        });
+        for (Requirement requirement : requirements) {
+            if (requirement.getRequirementId().equals(id))
+                throw new IllegalArgumentException("The iD is already used");
+        }
+
         requirements.add(u);
     }
 

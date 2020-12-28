@@ -22,8 +22,8 @@ public class TestMain {
     //Adding a project
     wick.addProject("Title","id","cid",l,"comment");
     //Adding requirements to the project
-    wick.getProjectByTitle("Title").addUserStory("ID", "Description", l);
-    wick.getProjectByTitle("Title").addUserStory("ID2", "Description", l2);
+    wick.getProjectByTitle("Title").addUserStory("ID", "Description", l, Priority.HIGH);
+    wick.getProjectByTitle("Title").addUserStory("ID2", "Description", l2, Priority.UNDEFINED);
     //Removing a requirement
     wick.getProjectByTitle("Title").removeRequirement("ID2");
     //Adding tasks to the requirements and getting all the information about the tasks

@@ -1,5 +1,6 @@
 package ModelClasses;
 
+import ModelClasses.Requirement.Priority;
 import ModelClasses.Requirement.Requirement;
 
 /**
@@ -58,7 +59,7 @@ public class ProjectManager implements ProjectModel
      *         referenced month's number of days, the deadline's month isn't greater than zero or exceeds 12, if the
      *         deadline's year isn't greater than zero or is lesser than the current year
      */
-    public void addUserStory(String projectID, String requirementId, String description, MyDate deadline)
+    public void addUserStory(String projectID, String requirementId, String description, MyDate deadline, Priority priority)
     {
         //ProjectList.getProjectByID("123")
         boolean success = false;
@@ -66,12 +67,12 @@ public class ProjectManager implements ProjectModel
         {
             if (projectList.getAllProjects().get(i).getProjectId().equals(projectID))
             {
-                projectList.getAllProjects().get(i).addUserStory(requirementId, description, deadline);
+                projectList.getAllProjects().get(i).addUserStory(requirementId, description, deadline, priority);
                 success = true;
             }
-            if (!success)
-                throw new IllegalArgumentException("Project with such ID not found");
         }
+        if (!success)
+            throw new IllegalArgumentException("Project with such ID not found");
     }
 
     /**

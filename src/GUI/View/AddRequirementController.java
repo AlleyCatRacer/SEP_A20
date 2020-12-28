@@ -1,7 +1,9 @@
 package GUI.View;
 
+import ModelClasses.MyDate;
 import ModelClasses.ProjectModel;
 import ModelClasses.Requirement.Priority;
+import ModelClasses.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -26,21 +28,23 @@ public class AddRequirementController {
   private Region root;
   private ProjectModel model;
   private ViewHandler viewHandler;
+  private ViewState state;
 
   public Region getRoot() {
     return root;
   }
 
-  public void init(ViewHandler viewHandler, ProjectModel model, Region root) {
+  public void init(ViewHandler viewHandler, ProjectModel model, Region root, ViewState state) {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    this.state = state;
 
     ObservableList<String> types = FXCollections.observableArrayList("User Story", "Project Related", "Non Functional");
     typeDropdown.setItems(types);
     ObservableList<Priority> priorities = FXCollections.observableArrayList(Priority.CRITICAL, Priority.HIGH, Priority.MEDIUM, Priority.LOW, Priority.UNDEFINED);
     priorityDropdown.setItems(priorities);
-    assignResponsibleDropdown.setValue("None");
+    priorityDropdown.setValue(Priority.UNDEFINED);
   }
   public void reset() {
     requirementIdInput.setText("");
@@ -54,4 +58,14 @@ public class AddRequirementController {
   @FXML private void cancelButtonClicked() {
     viewHandler.openView("editProject");
   }
+
+  @FXML private void saveButtonClicked() {
+    if(typeDropdown.getValue().equals("User Story")) {
+      MyDate deadline = new MyDate(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
+      model.addUserStory(state.getSelectedProject(), requirementIdInput.getText(), reqDescription.getText(), deadline, (Priority)priorityDropdown.getValue());
+      System.out.println(model.getProjectList().getProjectByID(state.getSelectedProject()).getRequirements());
+    }
+    viewHandler.openView("projectView");
+  }
+
 }

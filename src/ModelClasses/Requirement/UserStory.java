@@ -20,13 +20,13 @@ public class UserStory extends Requirement
     //Deadline as an instance variable of a sub class, not super class
     private MyDate deadline;
 
-    public UserStory(String requirementId, String description, MyDate deadline)
+    public UserStory(String requirementId, String description, MyDate deadline, Priority priority)
     {
         super(requirementId, description);
         this.type = "User Story";
         this.timeSpent = 0;
         this.estimate = 0;
-        this.priority = Priority.UNDEFINED;
+        this.priority = priority;
         this.requirementTasks = new ArrayList<>();
         this.deadline = deadline;
     }

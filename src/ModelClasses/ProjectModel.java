@@ -8,7 +8,7 @@ public interface ProjectModel
 
     ProjectList getProjectList();
 
-    void addUserStory(String projectID, String requirementId, String description, MyDate deadline);
+    void addUserStory(String projectID, String requirementId, String description, MyDate deadline, Priority priority);
 
     void addProjectRelated(String requirementId, String description, MyDate deadline);
 
