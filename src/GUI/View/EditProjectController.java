@@ -46,14 +46,14 @@ public class EditProjectController {
     this.state = state;
 
     Project temp = model.getProjectList().getProjectByID(state.getSelectedProject());
-
+    System.out.println(temp);
     changeTitle.setText(temp.getTitle());
     projectId.setText(temp.getProjectId());
     customerId.setText(temp.getCustomerId());
 
-    ObservableList<Status> statuses = FXCollections.observableArrayList(Status.WAITING, Status.STARTED, Status.ENDED);
+    ObservableList<String> statuses = FXCollections.observableArrayList(Status.WAITING.toString(), Status.STARTED.toString(), Status.ENDED.toString());
     status.setItems(statuses);
-    System.out.println(statuses);
+    status.setValue(temp.getCurrentStatus());
 
     day.setText(String.valueOf(temp.getDeadline().getDay()));
     month.setText(String.valueOf(temp.getDeadline().getMonth()));
@@ -69,7 +69,7 @@ public class EditProjectController {
   @FXML private void saveButtonClicked() {
 
     model.getProjectList().getProjectByID(state.getSelectedProject()).changeTitle(changeTitle.getText());
-    model.getProjectList().getProjectByID(state.getSelectedProject()).editStatus((Status)status.getValue());
+    model.getProjectList().getProjectByID(state.getSelectedProject()).editStatus((String)status.getValue());
 
     MyDate deadline = new MyDate(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
     model.getProjectList().getProjectByID(state.getSelectedProject()).setDeadline(deadline);

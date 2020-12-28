@@ -450,9 +450,9 @@ public class Project
      * @param status
      *         Status enum constant
      */
-    public void editStatus(Status status)
+    public void editStatus(String status)
     {
-        this.currentStatus = status.getStatusString();
+        this.currentStatus = status;
     }
     public void setDescription(String description) {
         this.description = description;
@@ -709,7 +709,7 @@ public class Project
      */
     public boolean isValidComment(String comment)
     {
-        if (!comment.matches("[a-zA-Z]*"))
+        if (!comment.matches("[a-zA-Z_ ]*"))
         {
             throw new IllegalArgumentException();
         }

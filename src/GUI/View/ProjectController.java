@@ -57,7 +57,6 @@ public class ProjectController
 
     public void reset(ViewState state) {
         this.state = state;
-        System.out.println(model.getProjectList().getProjectByID(state.getSelectedProject()).toString());
         init(viewHandler, model, root, state);
     }
 

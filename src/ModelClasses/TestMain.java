@@ -41,7 +41,7 @@ public class TestMain {
     wick.getProjectByTitle("Title").getUserStoryRequirementByID("ID").changePriority(Priority.CRITICAL);
     //Changing designated methodology i.e. comment
     wick.getProjectByTitle("Title").editComment("From now on iterative approach will be applied in this Kingdom!");
-    wick.getProjectByTitle("Title").editStatus(Status.ACCEPTED);
+    wick.getProjectByTitle("Title").editStatus(Status.ACCEPTED.toString());
     //Changing team member's role
 //    wick.getProjectByTitle("Title").getProjectTeamMemberByID("TheBuilder123").setRole(Role.SCRUM_MASTER);
     //Changing requirement's status
