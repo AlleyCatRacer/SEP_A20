@@ -73,7 +73,7 @@ public class Project
         this.comment = comment;
         this.timeSpent = 0;
         this.estimate = 0;
-        this.currentStatus = Status.WAITING.getStatusString();
+        this.currentStatus = Status.WAITING.toString();
         projectTeam = new ArrayList<>();
         this.description = "";
     }

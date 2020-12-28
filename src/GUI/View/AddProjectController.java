@@ -23,9 +23,7 @@ public class AddProjectController {
   private ProjectModel model;
   private ViewHandler viewHandler;
 
-  public AddProjectController() {
 
-  }
   public Region getRoot() {
     return root;
   }

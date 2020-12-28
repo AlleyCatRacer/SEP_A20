@@ -324,7 +324,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT">
                            <children>
-                              <Button fx:id="AddTeamMemberToProject1" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="70.0" text="Add" HBox.hgrow="NEVER" />
+                              <Button onAction="#addRequirementClicked" fx:id="addRequirement" alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefWidth="70.0" text="Add" HBox.hgrow="NEVER" />
                            </children>
                         </HBox>
                      </children>

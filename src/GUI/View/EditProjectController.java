@@ -46,7 +46,6 @@ public class EditProjectController {
     this.state = state;
 
     Project temp = model.getProjectList().getProjectByID(state.getSelectedProject());
-    System.out.println(temp);
     changeTitle.setText(temp.getTitle());
     projectId.setText(temp.getProjectId());
     customerId.setText(temp.getCustomerId());
@@ -82,6 +81,10 @@ public class EditProjectController {
   }
   @FXML private void cancelButtonClicked() {
     viewHandler.openView("projectView");
+  }
+
+  @FXML private void addRequirementClicked() {
+    viewHandler.openView("addRequirement");
   }
 
 

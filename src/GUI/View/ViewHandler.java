@@ -14,10 +14,12 @@ public class ViewHandler
 {
     private HomeController homeController;
     private AddProjectController addProjectController;
+    private AddRequirementController addRequirementController;
     private EditProjectController editProjectController;
     private ProjectController projectController;
     private RequirementController requirementController;
     private TaskController taskController;
+
     private Scene currentScene;
     private Stage stage;
     private ProjectModel model;
@@ -56,6 +58,10 @@ public class ViewHandler
                 break;
             case"editProject":
                 root = loadEditProject("EditProject.fxml", state);
+                break;
+            case"addRequirement":
+                root = loadAddRequirement("AddRequirement.fxml");
+                break;
         }
 
 
@@ -167,6 +173,27 @@ public class ViewHandler
             editProjectController.reset(state);
         }
         return editProjectController.getRoot();
+    }
+    private Region loadAddRequirement(String fxmlFile) {
+        if (addRequirementController == null)
+        {
+            try
+            {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource(fxmlFile));
+                Region root = loader.load();
+                addRequirementController = loader.getController();
+                addRequirementController.init(this, model, root);
+            } catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            addRequirementController.reset();
+        }
+        return addRequirementController.getRoot();
     }
 
     /*

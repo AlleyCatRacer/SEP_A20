@@ -69,8 +69,8 @@
                                     </VBox>
                                     <VBox spacing="30.0" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <ChoiceBox fx:id="TypeDropdown" prefWidth="200.0" />
-                                          <ChoiceBox fx:id="PriorityDropdown" prefWidth="200.0">
+                                          <ChoiceBox fx:id="typeDropdown" prefWidth="200.0" />
+                                          <ChoiceBox fx:id="priorityDropdown" prefWidth="200.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>
@@ -105,7 +105,7 @@
                                           </HBox>
                                           <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                                              <children>
-                                                <ChoiceBox fx:id="AssignResponsibleDropdown" minWidth="155.0" />
+                                                <ChoiceBox fx:id="assignResponsibleDropdown" minWidth="155.0" />
                                              </children>
                                           </HBox>
                                        </children>
@@ -127,7 +127,7 @@
                                     </Label>
                                     <HBox alignment="BOTTOM_CENTER" fillHeight="false" maxHeight="100.0" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <TextArea fx:id="ReqDescription" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="380.0" promptText="Enter a description..." HBox.hgrow="ALWAYS">
+                                          <TextArea fx:id="reqDescription" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="380.0" promptText="Enter a description..." HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -183,24 +183,24 @@
                                        <children>
                                           <HBox spacing="5.0">
                                              <children>
-                                                <TextField fx:id="Day" maxWidth="50.0" promptText="DD">
+                                                <TextField fx:id="day" maxWidth="50.0" promptText="DD">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField fx:id="Month" maxWidth="50.0" promptText="MM">
+                                                <TextField fx:id="month" maxWidth="50.0" promptText="MM">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
-                                                <TextField fx:id="Year" maxWidth="100.0" promptText="YYYY">
+                                                <TextField fx:id="year" maxWidth="100.0" promptText="YYYY">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
                                                 </TextField>
                                              </children>
                                           </HBox>
-                                          <TextField fx:id="changeEstimate" maxWidth="-Infinity" prefWidth="210.0" promptText="Hours">
+                                          <TextField fx:id="estimate" maxWidth="-Infinity" prefWidth="210.0" promptText="Hours">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -268,7 +268,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                                        <children>
-                                          <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
+                                          <Button onAction="#cancelButtonClicked" fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
