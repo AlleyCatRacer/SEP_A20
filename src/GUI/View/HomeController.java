@@ -4,17 +4,22 @@ import ModelClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 
-public class HomeController
+public class HomeController implements Initializable
 {
 
   @FXML private TableView<Project> tableViewActive;
@@ -30,13 +35,6 @@ public class HomeController
   @FXML private TextField searchProjectTitle;
 
   @FXML private Accordion teamAccordion;
-  @FXML private TitledPane teamMember;
-  @FXML private Label teamMemberId;
-  @FXML private Label teamMemberName;
-  @FXML private TableView<Project> teamMemberProjects;
-  @FXML private TableColumn <Project, String> tMPId;
-  @FXML private TableColumn <Project, String> tMPTitle;
-  @FXML private TableColumn <Project, MyDate> tMPDeadline;
 
   private Region root;
   private ProjectModel model;
@@ -46,7 +44,12 @@ public class HomeController
   public Region getRoot() {
     return root;
   }
+  
+  @Override
+  public void initialize(URL url, ResourceBundle resourceBundle)
+  {
 
+  }
   public void init(ViewHandler viewHandler, ProjectModel model, Region root)
   {
     this.root = root;
@@ -67,26 +70,13 @@ public class HomeController
     titleColumnEnded.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumnEnded.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-
-    ObservableList<Project> tmProjects=FXCollections.observableArrayList();
-    this.teamMemberProjects=new TableView<>();
-    for (int i = 0; i < getTeam().size(); i++)
+    if (!(getTeam().isEmpty()))
     {
-      TeamMember human= new TeamMember(getTeam().get(i).getName(),getTeam().get(i).getTeamMemberId());
-      this.teamMember=new TitledPane();
-      teamMember.setText(human.getTeamMemberId());
-      teamMemberId.setText(human.getTeamMemberId());
-      teamMemberName.setText(human.getName());
-
-      if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(human.getName()))
+      for (TeamMember teamMember : getTeam())
       {
-        tmProjects.add(model.getProjectList().getAllProjects().get(i));
+        addTeamMember(teamMember);
       }
     }
-    teamMemberProjects.setItems(tmProjects);
-    tMPId.setCellValueFactory(new PropertyValueFactory<>("projectId"));
-    tMPTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-    tMPDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
   }
 
   private ObservableList<Project> getActiveProjects() {
@@ -106,24 +96,62 @@ public class HomeController
     return endedProjects;
   }
 
-  private ObservableList<TeamMember> getTeam()
+  private ArrayList<TeamMember> getTeam()
   {
-    ObservableList<TeamMember> team=FXCollections.observableArrayList();
-    team.addAll(model.getTeam().getTheRoster());
-    return team;
+    return new ArrayList<>(Team.getRoster());
   }
 
-  public void reset() {
-
+  public void reset()
+  {
     tableViewActive.setItems(getActiveProjects());
     tableViewActive.refresh();
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
-
   }
 
   @FXML private void createButtonPressed() {
     viewHandler.openView("addProject");
+  }
+
+  public void addTeamMember(TeamMember teamMember)
+  {
+    TitledPane tp=new TitledPane();
+    GridPane grid =new GridPane();
+    Insets five= new Insets(5,5,5,5);
+    grid.setPadding(five);
+    Label Name = new Label("Name:");
+    Name.setPadding(five);
+    Label name = new Label(teamMember.getName());
+    name.setPadding(five);
+    grid.add(new Label("Name:"),0,0);
+    grid.add(new Label(teamMember.getName()),1,0);
+    grid.add(new Label("ID:"),0,1);
+    grid.add(new Label(teamMember.getTeamMemberId()),1,1);
+    tp.setText(teamMember.getTeamMemberId());
+    tp.setContent(grid);
+
+    if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
+    {
+      for (int i = 0; i < model.getProjectList().getAllProjects().size(); i++)
+      {
+        if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(teamMember))
+        {
+          ObservableList<Project> tmProjects=FXCollections.observableArrayList();
+          TableView projects = new TableView(tmProjects);
+          TableColumn<Project,String> title=new TableColumn<>("Title");
+          TableColumn<Project,String> id=new TableColumn<>("ID");
+          TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
+          title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
+          id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
+          deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
+          tp.setContent(projects);
+        }
+      }
+    }
+
+    teamAccordion.getPanes().add(tp);
+    Team.hire(teamMember.getName(), teamMember.getTeamMemberId());
+    model.addTeamMember(teamMember);
   }
 
   @FXML private void addTeamMemberPressed()
@@ -141,17 +169,11 @@ public class HomeController
     ButtonType button =result.orElse(ButtonType.CANCEL);
     if (button==ButtonType.OK)
     {
+      Team.fire(state.getSelectedTeamMember());
       model.removeTeamMember(state.getSelectedTeamMember());
+      reset();
     }
-    //Optional<ButtonType> result = alert.showAndWait();
-    //ButtonType button = result.orElse(ButtonType.CANCEL);
-    //
-    //if (button == ButtonType.OK) {
-    //    System.out.println("Ok pressed");
-    //} else {
-    //    System.out.println("canceled");
-    //}
-  }
+ }
 
   @FXML private void tableActiveProjects(MouseEvent event) {
     if(event.getClickCount() == 2) {

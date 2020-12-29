@@ -15,6 +15,7 @@ public class AddTeamMemberController
     private ViewHandler viewHandler;
     private Region root;
     private ProjectModel model;
+    private ViewState state;
 
     public Region getRoot()
     {
@@ -37,14 +38,15 @@ public class AddTeamMemberController
     @FXML
     private void cancelButtonClicked()
     {
+        reset();
         viewHandler.openView("homeView");
     }
 
     @FXML
     private void saveButtonClicked()
     {
-        TeamMember tm=new TeamMember(nameField.getText(), idField.getText());
-        model.addTeamMember(tm);
+        Team.hire(nameField.getText(), idField.getText());
+        model.addTeamMember(new TeamMember(nameField.getText(), idField.getText()));
         viewHandler.openView("homeView");
     }
 }
