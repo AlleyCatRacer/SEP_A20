@@ -11,8 +11,14 @@ public class Team
         roster = new ArrayList<>();
     }
 
-    public static ArrayList<TeamMember> getTheRoster() {
-        return roster;
+    public Team getTheRoster()
+    {
+        Team tmList=new Team();
+        for (int i = 0; i < roster.size(); i++)
+        {
+            tmList.addTeamMember(roster.get(i));
+        }
+        return tmList;
     }
 
     public void addTeamMember(TeamMember teamMember)
@@ -66,7 +72,13 @@ public class Team
             return false;
         }
         return true;
-
     }
 
+    public void addTeamMembers(ArrayList<TeamMember> teamMembers)
+    {
+        for (int i = 0; i < teamMembers.size(); i++)
+        {
+            roster.add(teamMembers.get(i));
+        }
+    }
 }

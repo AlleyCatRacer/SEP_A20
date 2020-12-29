@@ -51,7 +51,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="NEVER">
                      <children>
-                      <Button onAction="#editButtonClicked" fx:id="EditProjectButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER" />
+                      <Button fx:id="EditProjectButton" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" minWidth="70.0" mnemonicParsing="false" onAction="#editButtonClicked" text="Edit" textAlignment="CENTER" HBox.hgrow="NEVER" />
                      </children>
                      <padding>
                         <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
@@ -274,7 +274,7 @@
                                           <Font name="System Italic" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Accordion fx:id="ProjectReqAccordion" VBox.vgrow="NEVER">
+                                    <Accordion fx:id="projectReqAccordion" VBox.vgrow="NEVER">
                                       <panes>
                                           <TitledPane fx:id="requirementId1" expanded="false" text="requirementId">
                                              <content>
@@ -292,7 +292,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqType1" alignment="CENTER" contentDisplay="CENTER" text="Functional">
+                                                                  <Label fx:id="reqType1" alignment="CENTER" contentDisplay="CENTER" text="Functional">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -315,7 +315,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqStatus1" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
+                                                                  <Label fx:id="reqStatus1" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -341,7 +341,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="ReqPriority1" alignment="CENTER" contentDisplay="CENTER" text="Undefined">
+                                                                  <Label fx:id="reqPriority1" alignment="CENTER" contentDisplay="CENTER" text="Undefined">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -364,7 +364,7 @@
                                                                         <Insets />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <Label fx:id="ReqDeadline1" alignment="CENTER" contentDisplay="CENTER" text="MyDate">
+                                                                  <Label fx:id="reqDeadline1" alignment="CENTER" contentDisplay="CENTER" text="MyDate">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -386,127 +386,6 @@
                                                          <HBox.margin>
                                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                          </HBox.margin>
-                                                      </ButtonBar>
-                                                   </children>
-                                                   <padding>
-                                                      <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                                                   </padding>
-                                                </HBox>
-                                             </content>
-                                             <font>
-                                                <Font size="15.0" />
-                                             </font>
-                                          </TitledPane>
-                                        <TitledPane fx:id="requirementId2" expanded="false" text="requirementId">
-                                             <content>
-                                                <HBox alignment="CENTER_LEFT">
-                                                   <children>
-                                                      <HBox alignment="CENTER_LEFT" spacing="80.0" HBox.hgrow="ALWAYS">
-                                                         <children>
-                                                            <HBox alignment="CENTER" spacing="20.0">
-                                                               <children>
-                                                                  <Label text="Type:">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font name="System Bold" size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label fx:id="ReqType2" alignment="CENTER" contentDisplay="CENTER" text="Functional">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER" spacing="20.0">
-                                                               <children>
-                                                                  <Label text="Status:">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font name="System Bold" size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label fx:id="ReqStatus2" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                               </padding>
-                                                               <HBox.margin>
-                                                                  <Insets />
-                                                               </HBox.margin>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER" spacing="20.0">
-                                                               <children>
-                                                                  <Label text="Priority:">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font name="System Bold" size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                                  <Label fx:id="ReqPriority2" alignment="CENTER" contentDisplay="CENTER" text="Undefined">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                            <HBox alignment="CENTER" spacing="20.0">
-                                                               <children>
-                                                                  <Label alignment="CENTER" contentDisplay="CENTER" text="Deadline:">
-                                                                     <font>
-                                                                        <Font name="System Bold" size="14.0" />
-                                                                     </font>
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                  </Label>
-                                                                  <Label fx:id="ReqDeadline2" alignment="CENTER" contentDisplay="CENTER" text="MyDate">
-                                                                     <HBox.margin>
-                                                                        <Insets />
-                                                                     </HBox.margin>
-                                                                     <font>
-                                                                        <Font size="14.0" />
-                                                                     </font>
-                                                                  </Label>
-                                                               </children>
-                                                               <padding>
-                                                                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                               </padding>
-                                                            </HBox>
-                                                         </children>
-                                                      </HBox>
-                                                      <ButtonBar HBox.hgrow="NEVER">
-                                                         <HBox.margin>
-                                                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                         </HBox.margin>
-                                                         <buttons>
-                                                            <Button fx:id="ReqDetailsButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Details" textAlignment="CENTER" />
-                                                         </buttons>
                                                       </ButtonBar>
                                                    </children>
                                                    <padding>

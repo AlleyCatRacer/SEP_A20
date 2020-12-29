@@ -2,6 +2,10 @@ package GUI.View;
 
 import ModelClasses.Project;
 import ModelClasses.ProjectModel;
+import ModelClasses.Requirement.UserStory;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.layout.Region;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
@@ -10,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 
+import java.util.ArrayList;
 
 public class ProjectController
 {
@@ -17,12 +22,18 @@ public class ProjectController
     @FXML Label projectId;
     @FXML Label customerId;
     @FXML Label projectStatus;
-    //Unused id - project does not have a description
     @FXML TextArea projectDescription;
     @FXML TextArea comment;
     @FXML Label projectDeadline;
     @FXML Label projectEstimate;
     @FXML Label projectTimeSpent;
+
+    @FXML Accordion projectReqAccordion;
+    @FXML TitledPane requirementId1;
+    @FXML Label reqType1;
+    @FXML Label reqStatus1;
+    @FXML Label reqPriority1;
+    @FXML Label reqDeadline1;
 
     private Region root;
     private ViewHandler viewHandler;
@@ -51,6 +62,17 @@ public class ProjectController
         projectEstimate.setText(String.valueOf(temp.getEstimate()));
         projectTimeSpent.setText(String.valueOf(temp.getTimeSpent()));
         projectDeadline.setText(temp.getDeadline().toString());
+
+
+        if(temp.getRequirements().size() != 0) {
+            ArrayList<TitledPane> panes = new ArrayList<>();
+            for(int i = 0; i < temp.getRequirements().size(); i++) {
+                TitledPane t1 = new TitledPane(temp.getRequirements().get(i).getRequirementId(), requirementId1.getContent());
+                panes.add(t1);
+            }
+            ObservableList<TitledPane> obs = FXCollections.observableArrayList(panes);
+            projectReqAccordion.getPanes().addAll(obs);
+        }
 
 
     }

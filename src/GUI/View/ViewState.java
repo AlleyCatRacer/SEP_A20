@@ -5,11 +5,14 @@ public class ViewState {
   private String selectedProject;
   private String selectedRequirement;
   private String selectedTask;
+  private String selectedTeamMember;
 
-  public ViewState() {
-  selectedProject = "";
-  selectedRequirement = "";
-  selectedTask = "";
+  public ViewState()
+  {
+    selectedProject = "";
+    selectedRequirement = "";
+    selectedTask = "";
+    selectedTeamMember = "";
   }
   public String getSelectedProject() {
     return selectedProject;
@@ -25,6 +28,11 @@ public class ViewState {
     return selectedTask;
   }
 
+  public String getSelectedTeamMember()
+  {
+    return selectedTeamMember;
+  }
+
   public void setSelectedProject(String selectedProject)
   {
     this.selectedProject = selectedProject;
@@ -38,6 +46,11 @@ public class ViewState {
   public void setSelectedTask(String selectedTask)
   {
     this.selectedTask = selectedTask;
+  }
+
+  public void setSelectedTeamMember(String selectedTeamMember)
+  {
+    this.selectedTeamMember = selectedTeamMember;
   }
 }
 

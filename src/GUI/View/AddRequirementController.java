@@ -63,7 +63,6 @@ public class AddRequirementController {
     if(typeDropdown.getValue().equals("User Story")) {
       MyDate deadline = new MyDate(Integer.parseInt(day.getText()), Integer.parseInt(month.getText()), Integer.parseInt(year.getText()));
       model.addUserStory(state.getSelectedProject(), requirementIdInput.getText(), reqDescription.getText(), deadline, (Priority)priorityDropdown.getValue());
-      System.out.println(model.getProjectList().getProjectByID(state.getSelectedProject()).getRequirements());
     }
     viewHandler.openView("projectView");
   }

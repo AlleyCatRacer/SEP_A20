@@ -32,12 +32,12 @@
                         </Label>
                         <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button fx:id="SearchProjectButton" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER">
+                              <Button onAction="#searchProjectButtonClicked" fx:id="SearchProjectButton" mnemonicParsing="false" text="Search" HBox.hgrow="NEVER">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <TextField fx:id="SearchProjectTitle" maxWidth="225.0" promptText="Search by title" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="searchProjectTitle" maxWidth="225.0" promptText="Search by title" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -83,11 +83,11 @@
                               </HBox>
                            </children>
                         </HBox>
-                        <TableView fx:id="tableView" onMouseClicked="#tableHomeController" prefHeight="536.0" prefWidth="586.0">
+                        <TableView fx:id="tableViewActive" onMouseClicked="#tableActiveProjects" prefHeight="536.0" prefWidth="586.0">
                           <columns>
-                            <TableColumn fx:id="idColumn" prefWidth="186.0" text="ID" />
-                            <TableColumn fx:id="titleColumn" prefWidth="211.0" text="Title" />
-                              <TableColumn fx:id="deadlineColumn" prefWidth="188.0" text="Deadline" />
+                            <TableColumn fx:id="idColumnActive" prefWidth="186.0" text="ID" />
+                            <TableColumn fx:id="titleColumnActive" prefWidth="211.0" text="Title" />
+                              <TableColumn fx:id="deadlineColumnActive" prefWidth="188.0" text="Deadline" />
                           </columns>
                            <VBox.margin>
                               <Insets />
@@ -108,11 +108,11 @@
                               <Insets />
                            </VBox.margin>
                         </Label>
-                        <TableView prefHeight="412.0" prefWidth="586.0">
+                        <TableView fx:id="tableViewEnded" onMouseClicked="#tableEndedProjects" prefHeight="412.0" prefWidth="586.0">
                           <columns>
-                            <TableColumn prefWidth="186.0" text="ID" />
-                            <TableColumn minWidth="0.0" prefWidth="211.0" text="Title" />
-                              <TableColumn prefWidth="188.0" text="Deadline" />
+                            <TableColumn fx:id="idColumnEnded" prefWidth="186.0" text="ID" />
+                            <TableColumn fx:id="titleColumnEnded" minWidth="0.0" prefWidth="211.0" text="Title" />
+                              <TableColumn fx:id="deadlineColumnEnded" prefWidth="188.0" text="Deadline" />
                           </columns>
                         </TableView>
                      </children>
@@ -232,7 +232,7 @@
                                           </Label>
                                           <VBox VBox.vgrow="ALWAYS">
                                              <children>
-                                                <TableView fx:id="teamMemberProjects" maxHeight="100.0" onMouseClicked="#tableHomeController" VBox.vgrow="ALWAYS">
+                                                <TableView fx:id="teamMemberProjects" maxHeight="100.0" onMouseClicked="#tableActiveProjects" VBox.vgrow="ALWAYS">
                                                    <columns>
                                                       <TableColumn fx:id="tMPId" prefWidth="115.0" text="ID" />
                                                       <TableColumn fx:id="tMPTitle" prefWidth="300.0" text="Title" />

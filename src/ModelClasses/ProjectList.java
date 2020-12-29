@@ -35,16 +35,13 @@ public class ProjectList
         int index = 0;
         for (Project e : projects)
         {
-            if (e.getTitle().equals(title))
-            {
+            if (e.getTitle().equals(title)) {
                 index = projects.indexOf(e);
-            }
-            else
-            {
-                throw new IllegalArgumentException("No project found with the given title");
+                return projects.get(index);
             }
         }
-        return projects.get(index);
+
+        throw new IllegalArgumentException("No project was found with the given title");
     }
     public Project getProjectByID(String projectID) {
         for(int i = 0; i < projects.size(); i++) {
