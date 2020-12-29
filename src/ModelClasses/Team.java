@@ -11,12 +11,12 @@ public class Team
         roster = new ArrayList<>();
     }
 
-    public Team getTheRoster()
+    public ArrayList<TeamMember> getTheRoster()
     {
-        Team tmList=new Team();
+        ArrayList<TeamMember> tmList=new ArrayList<>();
         for (int i = 0; i < roster.size(); i++)
         {
-            tmList.addTeamMember(roster.get(i));
+            tmList.add(roster.get(i));
         }
         return tmList;
     }

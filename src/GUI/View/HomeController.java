@@ -11,12 +11,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
 
-<<<<<<< HEAD
-import java.awt.Button;
-=======
-import java.beans.EventHandler;
 import java.util.Optional;
->>>>>>> bc41bc951d99db28dcf9bf949a5a86ba37eeb24c
+
 
 public class HomeController
 {
@@ -65,16 +61,13 @@ public class HomeController
     titleColumnActive.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumnActive.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
-<<<<<<< HEAD
+
     tableViewEnded.setItems(getEndedProjects());
 
     idColumnEnded.setCellValueFactory(new PropertyValueFactory<>("projectId"));
     titleColumnEnded.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumnEnded.setCellValueFactory(new PropertyValueFactory<>("deadline"));
-=======
-    idColumn.setCellValueFactory(new PropertyValueFactory<>("projectId"));
-    titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
-    deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+
 
     ObservableList<Project> tmProjects=FXCollections.observableArrayList();
     this.teamMemberProjects=new TableView<>();
@@ -90,14 +83,10 @@ public class HomeController
       {
         tmProjects.add(model.getProjectList().getAllProjects().get(i));
       }
-      //TODO
     }
-<<<<<<< Updated upstream
 
->>>>>>> bc41bc951d99db28dcf9bf949a5a86ba37eeb24c
-=======
     teamMemberProjects.setItems(tmProjects);
->>>>>>> Stashed changes
+
   }
 
   private ObservableList<Project> getActiveProjects() {
@@ -120,8 +109,7 @@ public class HomeController
   private ObservableList<TeamMember> getTeam()
   {
     ObservableList<TeamMember> team=FXCollections.observableArrayList();
-//TODO
-    team.addAll(model.getTeam());
+    team.addAll(model.getTeam().getTheRoster());
     return team;
   }
 
