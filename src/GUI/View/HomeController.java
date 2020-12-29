@@ -3,6 +3,8 @@ package GUI.View;
 import ModelClasses.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -19,7 +21,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class HomeController implements Initializable
+public class HomeController
 {
 
   @FXML private TableView<Project> tableViewActive;
@@ -44,12 +46,7 @@ public class HomeController implements Initializable
   public Region getRoot() {
     return root;
   }
-  
-  @Override
-  public void initialize(URL url, ResourceBundle resourceBundle)
-  {
 
-  }
   public void init(ViewHandler viewHandler, ProjectModel model, Region root)
   {
     this.root = root;
@@ -69,14 +66,6 @@ public class HomeController implements Initializable
     idColumnEnded.setCellValueFactory(new PropertyValueFactory<>("projectId"));
     titleColumnEnded.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumnEnded.setCellValueFactory(new PropertyValueFactory<>("deadline"));
-
-    if (!(getTeam().isEmpty()))
-    {
-      for (TeamMember teamMember : getTeam())
-      {
-        addTeamMember(teamMember);
-      }
-    }
   }
 
   private ObservableList<Project> getActiveProjects() {
@@ -96,17 +85,31 @@ public class HomeController implements Initializable
     return endedProjects;
   }
 
-  private ArrayList<TeamMember> getTeam()
-  {
-    return new ArrayList<>(Team.getRoster());
-  }
-
   public void reset()
   {
     tableViewActive.setItems(getActiveProjects());
     tableViewActive.refresh();
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
+
+    for (int i = 0; i < model.getTeam().size(); i++)
+    {
+      addTeamMember(Team.getRoster().get(i));
+    }
+
+    //if (!(model.getTeam().isEmpty()))
+    //    {
+    //      for (TeamMember teamMember : model.getTeam())
+    //      {
+    //        for (int i = 0; i < model.getTeam().size(); i++)
+    //        {
+    //          if (teamMember.getTeamMemberId().equals(model.getTeam().get(i)))
+    //          {
+    //            addTeamMember(teamMember);
+    //          }
+    //        }
+    //      }
+    //    }
   }
 
   @FXML private void createButtonPressed() {
@@ -119,6 +122,17 @@ public class HomeController implements Initializable
     GridPane grid =new GridPane();
     Insets five= new Insets(5,5,5,5);
     grid.setPadding(five);
+    grid.setHgap(100);
+    Button removeButton=new Button();
+    removeButton.setText("Remove");
+    removeButton.setOnAction(new EventHandler<ActionEvent>()
+    {
+      @Override
+      public void handle(ActionEvent actionEvent)
+      {
+        removeTeamMemberPressed();
+      }
+    });
     Label Name = new Label("Name:");
     Name.setPadding(five);
     Label name = new Label(teamMember.getName());
@@ -127,6 +141,7 @@ public class HomeController implements Initializable
     grid.add(new Label(teamMember.getName()),1,0);
     grid.add(new Label("ID:"),0,1);
     grid.add(new Label(teamMember.getTeamMemberId()),1,1);
+    grid.add(removeButton,3,1);
     tp.setText(teamMember.getTeamMemberId());
     tp.setContent(grid);
 
@@ -150,8 +165,6 @@ public class HomeController implements Initializable
     }
 
     teamAccordion.getPanes().add(tp);
-    Team.hire(teamMember.getName(), teamMember.getTeamMemberId());
-    model.addTeamMember(teamMember);
   }
 
   @FXML private void addTeamMemberPressed()
@@ -163,7 +176,6 @@ public class HomeController implements Initializable
   {
     Alert removeTeamMember= new Alert(Alert.AlertType.CONFIRMATION);
     removeTeamMember.setContentText("Are you sure you want to remove this team member?");
-    removeTeamMember.showAndWait();
 
     Optional<ButtonType> result=removeTeamMember.showAndWait();
     ButtonType button =result.orElse(ButtonType.CANCEL);
@@ -171,7 +183,6 @@ public class HomeController implements Initializable
     {
       Team.fire(state.getSelectedTeamMember());
       model.removeTeamMember(state.getSelectedTeamMember());
-      reset();
     }
  }
 

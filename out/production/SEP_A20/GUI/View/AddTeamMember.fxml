@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="150.0" prefWidth="500.0" userData="Add Team Member" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.AddTeamMemberController">
+<AnchorPane prefHeight="250.0" prefWidth="500.0" userData="Add Team Member" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.View.AddTeamMemberController">
    <children>
-      <VBox layoutX="10.0" layoutY="10.0" prefHeight="150.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox spacing="2.0" VBox.vgrow="ALWAYS">
                <children>
@@ -72,7 +72,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="CancelButton" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
+                        <Button fx:id="CancelButton" onAction="#cancelButtonClicked" cancelButton="true" contentDisplay="CENTER" minWidth="70.0" mnemonicParsing="false" text="Cancel">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -81,7 +81,7 @@
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
                      <children>
-                        <Button fx:id="SaveButton" minWidth="70.0" mnemonicParsing="false" text="Save">
+                        <Button fx:id="SaveButton" onAction="#saveButtonClicked" minWidth="70.0" mnemonicParsing="false" text="Save">
                            <font>
                               <Font size="14.0" />
                            </font>

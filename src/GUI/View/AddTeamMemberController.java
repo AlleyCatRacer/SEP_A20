@@ -1,7 +1,6 @@
 package GUI.View;
 
 import ModelClasses.ProjectModel;
-import ModelClasses.Team;
 import ModelClasses.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -15,7 +14,6 @@ public class AddTeamMemberController
     private ViewHandler viewHandler;
     private Region root;
     private ProjectModel model;
-    private ViewState state;
 
     public Region getRoot()
     {
@@ -45,7 +43,6 @@ public class AddTeamMemberController
     @FXML
     private void saveButtonClicked()
     {
-        Team.hire(nameField.getText(), idField.getText());
         model.addTeamMember(new TeamMember(nameField.getText(), idField.getText()));
         viewHandler.openView("homeView");
     }

@@ -26,7 +26,7 @@ public class Team
         return roster;
     }
 
-    public void addTeamMember(TeamMember teamMember)
+    public static void addTeamMember(TeamMember teamMember)
     {
         roster.add(teamMember);
     }
@@ -55,18 +55,17 @@ public class Team
             throw new IllegalArgumentException("This ID is already taken");
     }
 
-    public void fire(String teamMemberId)
+    public static void fire(String teamMemberId)
     {
-        boolean doesExist = false;
+
         for (int i = 0; i < roster.size(); i++)
         {
             if (roster.get(i).getTeamMemberId().equals(teamMemberId))
             {
-                doesExist = true;
                 roster.remove(roster.get(i));
             }
         }
-        if (!doesExist) throw new IllegalArgumentException("Person with such id does not exist");
+
     }
 
     public static boolean isIdAvailable(String teamMemberId)

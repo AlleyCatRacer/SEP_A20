@@ -20,7 +20,7 @@ public interface ProjectModel
 
     void addTeamMember(TeamMember teamMember);
 
-    Team getTeam();
+    ArrayList<TeamMember> getTeam();
 
 //    void editProject(Project project);
 

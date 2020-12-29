@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class ProjectManager implements ProjectModel
 {
     private ProjectList projectList;
-    private Team team;
 
     /**
      * No-argument constructor calling to the ProjectList and Team class' constructors.
@@ -23,7 +22,6 @@ public class ProjectManager implements ProjectModel
     public ProjectManager()
     {
         this.projectList = new ProjectList();
-        this.team=new Team();
     }
 
     /**
@@ -136,7 +134,8 @@ public class ProjectManager implements ProjectModel
     @Override
     public void addTeamMember(TeamMember teamMember)
     {
-        team.addTeamMember(teamMember);
+        Team roster=new Team();
+        Team.addTeamMember(teamMember);
     }
 
     /**
@@ -229,7 +228,7 @@ public class ProjectManager implements ProjectModel
     @Override
     public void removeTeamMember(String teamMemberId)
     {
-        team.fire(teamMemberId);
+        Team.fire(teamMemberId);
     }
 
     @Override
@@ -245,8 +244,8 @@ public class ProjectManager implements ProjectModel
     }
 
     @Override
-    public Team getTeam()
+    public ArrayList<TeamMember> getTeam()
     {
-        return team;
+        return Team.getRoster();
     }
 }
