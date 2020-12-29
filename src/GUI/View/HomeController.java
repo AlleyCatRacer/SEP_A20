@@ -29,7 +29,6 @@ public class HomeController
 
   @FXML private TextField searchProjectTitle;
 
-  @FXML private Button addTeamMember;
   @FXML private Accordion teamAccordion;
   @FXML private TitledPane teamMember;
   @FXML private Label teamMemberId;
@@ -84,9 +83,10 @@ public class HomeController
         tmProjects.add(model.getProjectList().getAllProjects().get(i));
       }
     }
-
     teamMemberProjects.setItems(tmProjects);
-
+    tMPId.setCellValueFactory(new PropertyValueFactory<>("projectId"));
+    tMPTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+    tMPDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));
   }
 
   private ObservableList<Project> getActiveProjects() {
