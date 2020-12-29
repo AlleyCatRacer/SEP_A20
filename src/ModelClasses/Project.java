@@ -279,9 +279,9 @@ public class Project
      */
     public void addTeamMemberToTheProject(String memberID)
     {
-        for (int i = 0; i < Team.getTheRoster().size(); i++)
+        for (int i = 0; i < Team.getRoster().size(); i++)
         {
-            if (Team.getTheRoster().get(i).getTeamMemberId().equals(memberID))
+            if (Team.getRoster().get(i).getTeamMemberId().equals(memberID))
             {
                 if (!(isIDUniqueWithinTheProject(memberID)))
                 {
@@ -289,9 +289,8 @@ public class Project
                             "A team member with such ID already exists in the project");
                 }
                 else
-                    projectTeam.add(Team.getTheRoster().get(i));
+                    projectTeam.add(Team.getRoster().get(i));
             }
-
         }
     }
 

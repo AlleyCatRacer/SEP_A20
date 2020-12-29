@@ -21,12 +21,17 @@ public class Team
         return tmList;
     }
 
+    public static ArrayList<TeamMember> getRoster()
+    {
+        return roster;
+    }
+
     public void addTeamMember(TeamMember teamMember)
     {
         roster.add(teamMember);
     }
 
-    public static TeamMember getTeamMemberById(String teamMemberId)
+    public TeamMember getTeamMemberById(String teamMemberId)
     {
         for (int i = 0; i < roster.size(); i++)
         {
@@ -50,7 +55,7 @@ public class Team
             throw new IllegalArgumentException("This ID is already taken");
     }
 
-    public static void fire(String teamMemberId)
+    public void fire(String teamMemberId)
     {
         boolean doesExist = false;
         for (int i = 0; i < roster.size(); i++)

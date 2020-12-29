@@ -47,7 +47,6 @@ public class HomeController
   private ProjectModel model;
   private ViewHandler viewHandler;
   private ViewState state;
-  private Team roster;
 
   public Region getRoot() {
     return root;
@@ -59,7 +58,6 @@ public class HomeController
     this.viewHandler = viewHandler;
     this.model = model;
     this.state = new ViewState();
-    this.roster= new Team();
 
     tableViewActive.setItems(getActiveProjects());
 
@@ -78,20 +76,28 @@ public class HomeController
     titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumn.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
+    ObservableList<Project> tmProjects=FXCollections.observableArrayList();
+    this.teamMemberProjects=new TableView<>();
     for (int i = 0; i < getTeam().size(); i++)
     {
+      TeamMember human= new TeamMember(getTeam().get(i).getName(),getTeam().get(i).getTeamMemberId());
       this.teamMember=new TitledPane();
-      teamMember.setText(model.getTeam().get(i).getTeamMemberId());
-      teamMemberId.setText(model.getTeam().get(i).getTeamMemberId());
-      teamMemberName.setText(model.getTeam().get(i).getName());
-      Team projectTeam= new Team();
-      projectTeam.addTeamMembers(model.getProjectList().getAllProjects().get(i).getMembersOfTheProject());
-      if (projectTeam.get(i)) //TODO
-      this.teamMemberProjects=new TableView<Project>();
+      teamMember.setText(human.getTeamMemberId());
+      teamMemberId.setText(human.getTeamMemberId());
+      teamMemberName.setText(human.getName());
 
+      if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(human.getName()))
+      {
+        tmProjects.add(model.getProjectList().getAllProjects().get(i));
+      }
+      //TODO
     }
+<<<<<<< Updated upstream
 
 >>>>>>> bc41bc951d99db28dcf9bf949a5a86ba37eeb24c
+=======
+    teamMemberProjects.setItems(tmProjects);
+>>>>>>> Stashed changes
   }
 
   private ObservableList<Project> getActiveProjects() {
@@ -114,8 +120,8 @@ public class HomeController
   private ObservableList<TeamMember> getTeam()
   {
     ObservableList<TeamMember> team=FXCollections.observableArrayList();
-
-    team.addAll();
+//TODO
+    team.addAll(model.getTeam());
     return team;
   }
 
@@ -147,7 +153,7 @@ public class HomeController
     ButtonType button =result.orElse(ButtonType.CANCEL);
     if (button==ButtonType.OK)
     {
-
+      model.removeTeamMember(state.getSelectedTeamMember());
     }
     //Optional<ButtonType> result = alert.showAndWait();
     //ButtonType button = result.orElse(ButtonType.CANCEL);

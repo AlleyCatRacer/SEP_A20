@@ -2,6 +2,7 @@ package ModelClasses;
 
 import ModelClasses.Requirement.Priority;
 import ModelClasses.Requirement.Requirement;
+import ModelClasses.*;
 
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class ProjectManager implements ProjectModel
 {
     private ProjectList projectList;
-    private ArrayList<TeamMember> team;
+    private Team team;
 
     /**
      * No-argument constructor calling to the ProjectList and Team class' constructors.
@@ -22,7 +23,7 @@ public class ProjectManager implements ProjectModel
     public ProjectManager()
     {
         this.projectList = new ProjectList();
-        this.team=new ArrayList<TeamMember>();
+        this.team=new Team();
     }
 
     /**
@@ -135,7 +136,7 @@ public class ProjectManager implements ProjectModel
     @Override
     public void addTeamMember(TeamMember teamMember)
     {
-        team.add(teamMember);
+        team.addTeamMember(teamMember);
     }
 
     /**
@@ -226,9 +227,9 @@ public class ProjectManager implements ProjectModel
     }
 
     @Override
-    public void removeTeamMember(TeamMember teamMember)
+    public void removeTeamMember(String teamMemberId)
     {
-
+        team.fire(teamMemberId);
     }
 
     @Override
@@ -244,7 +245,7 @@ public class ProjectManager implements ProjectModel
     }
 
     @Override
-    public ArrayList<TeamMember> getTeam()
+    public Team getTeam()
     {
         return team;
     }

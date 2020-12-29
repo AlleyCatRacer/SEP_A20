@@ -20,7 +20,7 @@ public interface ProjectModel
 
     void addTeamMember(TeamMember teamMember);
 
-    ArrayList<TeamMember> getTeam();
+    Team getTeam();
 
 //    void editProject(Project project);
 
@@ -42,7 +42,7 @@ public interface ProjectModel
 
     void removeTask(Task task);
 
-    void removeTeamMember(TeamMember teamMember);
+    void removeTeamMember(String teamMemberId);
 
     void assignToRequirement(TeamMember teamMember);
 
