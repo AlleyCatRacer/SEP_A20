@@ -3,6 +3,8 @@ package ModelClasses;
 import ModelClasses.Requirement.Priority;
 import ModelClasses.Requirement.Requirement;
 
+import java.util.ArrayList;
+
 /**
  * A ProjectManager class that implements the ProjectModel interface.
  *
@@ -12,7 +14,7 @@ import ModelClasses.Requirement.Requirement;
 public class ProjectManager implements ProjectModel
 {
     private ProjectList projectList;
-    private Team team;
+    private ArrayList<TeamMember> team;
 
     /**
      * No-argument constructor calling to the ProjectList and Team class' constructors.
@@ -20,7 +22,7 @@ public class ProjectManager implements ProjectModel
     public ProjectManager()
     {
         this.projectList = new ProjectList();
-        this.team=new Team();
+        this.team=new ArrayList<TeamMember>();
     }
 
     /**
@@ -133,7 +135,7 @@ public class ProjectManager implements ProjectModel
     @Override
     public void addTeamMember(TeamMember teamMember)
     {
-        team.addTeamMember(teamMember);
+        team.add(teamMember);
     }
 
     /**
@@ -242,7 +244,7 @@ public class ProjectManager implements ProjectModel
     }
 
     @Override
-    public Team getTeam()
+    public ArrayList<TeamMember> getTeam()
     {
         return team;
     }

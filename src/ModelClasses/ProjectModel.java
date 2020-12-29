@@ -2,6 +2,8 @@ package ModelClasses;
 
 import ModelClasses.Requirement.*;
 
+import java.util.ArrayList;
+
 public interface ProjectModel
 {
     void addProject(String title, String projectId, String customerId, MyDate deadline, String comment);
@@ -17,6 +19,8 @@ public interface ProjectModel
     void addTask(String taskId, String description, double estimate);
 
     void addTeamMember(TeamMember teamMember);
+
+    ArrayList<TeamMember> getTeam();
 
 //    void editProject(Project project);
 
@@ -44,5 +48,4 @@ public interface ProjectModel
 
     void assignToTask(TeamMember teamMember);
 
-    Team getTeam();
 }
