@@ -19,6 +19,7 @@ public class ViewHandler
     private ProjectController projectController;
     private RequirementController requirementController;
     private TaskController taskController;
+    private AddTeamMemberController addTeamMemberController;
 
     private Scene currentScene;
     private Stage stage;
@@ -62,6 +63,8 @@ public class ViewHandler
             case"addRequirement":
                 root = loadAddRequirement("AddRequirement.fxml");
                 break;
+            case"addTeamMember":
+                root = loadAddTeamMember("AddTeamMember.fxml");
         }
 
 
@@ -95,14 +98,15 @@ public class ViewHandler
                 Region root = loader.load();
                 homeController = loader.getController();
                 homeController.init(this, model, root);
-
             } catch (Exception e)
             {
                 e.printStackTrace();
             }
         }
         else
+        {
             homeController.reset();
+        }
         return homeController.getRoot();
     }
 
@@ -244,7 +248,7 @@ public class ViewHandler
         return taskController.getRoot();
     }
 
-
+*/
     private Region loadAddTeamMember(String fxmlFile)
     {
         if (addTeamMemberController == null)
@@ -263,34 +267,11 @@ public class ViewHandler
         }
         else
         {
-            addTeamMember.reset();
+            addTeamMemberController.reset();
         }
         return addTeamMemberController.getRoot();
     }
-
-    private Region loadRemoveTeamMember(String fxmlFile)
-    {
-        if (removeTeamMember == null)
-        {
-            try
-            {
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource(fxmlFile));
-                Region root = loader.load();
-
-                removeTeamMemberController = loader.getController();
-                removeTeamMemberController.init(this, model, root);
-            } catch (Exception e)
-            {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            removeTeamMemberController.reset();
-        }
-        return removeTeamMemberController.getRoot();
-    }
+/*
 
     private Region loadEditRequirement(String fxmlFile)
     {

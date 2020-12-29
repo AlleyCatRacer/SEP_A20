@@ -44,4 +44,5 @@ public interface ProjectModel
 
     void assignToTask(TeamMember teamMember);
 
+    Team getTeam();
 }
