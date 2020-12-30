@@ -64,19 +64,15 @@ public class ProjectController
         projectDeadline.setText(temp.getDeadline().toString());
 
 
-        if(temp.getRequirements().size() != 0) {
-            for(int i = 0; i < temp.getRequirements().size(); i++) {
-                requirementId = new TitledPane();
-                requirementId.setText(temp.getRequirements().get(i).getRequirementId());
-                reqType.setText(temp.getRequirements().get(i).getType());
+        TitledPane test = new TitledPane();
+        test.setText("Aloha");
+        test.setContent(requirementId.getContent());
+        reqType.setText("Project Related");
+        projectReqAccordion.getPanes().add(test);
+
+        System.out.println(projectReqAccordion.getPanes().size());
 
 
-                projectReqAccordion.getPanes().add(requirementId);
-            }
-            System.out.println(projectReqAccordion.getPanes().size());
-            System.out.println(projectReqAccordion.getPanes());
-
-        }
 
 
     }
