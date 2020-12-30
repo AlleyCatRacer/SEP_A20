@@ -274,9 +274,9 @@
                                           <Font name="System Italic" size="18.0" />
                                        </font>
                                     </Label>
-                                    <Accordion fx:id="projectReqAccordion" VBox.vgrow="NEVER">
+                                    <Accordion fx:id="projectReqAccordion" VBox.vgrow="ALWAYS">
                                       <panes>
-                                          <TitledPane fx:id="requirementId" expanded="false" text="requirementId">
+                                          <TitledPane fx:id="requirementId" expanded="false" text="PlaceHolder">
                                              <content>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>

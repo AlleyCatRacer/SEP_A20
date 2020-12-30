@@ -14,17 +14,19 @@ public class AddTeamMemberController
     private ViewHandler viewHandler;
     private Region root;
     private ProjectModel model;
+    private HomeController homeController;
 
     public Region getRoot()
     {
         return root;
     }
 
-    public void init(ViewHandler viewHandler, ProjectModel model, Region root)
+    public void init(ViewHandler viewHandler, ProjectModel model, Region root, HomeController homeController)
     {
         this.viewHandler=viewHandler;
         this.root=root;
         this.model=model;
+        this.homeController=homeController;
     }
 
     public void reset()
@@ -44,6 +46,7 @@ public class AddTeamMemberController
     private void saveButtonClicked()
     {
         model.addTeamMember(new TeamMember(nameField.getText(), idField.getText()));
+        homeController.addTitlePane(new TeamMember(nameField.getText(), idField.getText()));
         viewHandler.openView("homeView");
     }
 }

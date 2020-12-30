@@ -276,7 +276,7 @@
                                     </Label>
                                     <Accordion fx:id="projectReqAccordion" VBox.vgrow="NEVER">
                                       <panes>
-                                          <TitledPane fx:id="requirementId" expanded="false" text="requirementId">
+                                          <TitledPane fx:id="requirementId" expanded="false" text="PlaceHolder">
                                              <content>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
