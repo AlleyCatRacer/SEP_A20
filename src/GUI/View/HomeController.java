@@ -164,7 +164,6 @@ public class HomeController
     teamMemberId.setText(teamMember.getTeamMemberId());
     teamMemberName.setText(teamMember.getName());
     teamAccordion.getPanes().add(tp);
-    viewHandler.setState(state);
   }
 
   @FXML private void addTeamMemberPressed()
