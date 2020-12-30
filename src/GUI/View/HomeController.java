@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 
 import java.util.Collection;
@@ -42,7 +43,9 @@ public class HomeController
   @FXML private TableColumn<Project,MyDate> tMPDeadline;
   @FXML private TitledPane titlePane;
   @FXML private Label teamMemberId;
+  @FXML private Label id;
   @FXML private Label teamMemberName;
+  @FXML private Label name;
   @FXML private ListView tMReqResponsible;
   @FXML private ListView tMTaskResponsible;
   @FXML private Button removeTeamMember;
@@ -77,15 +80,6 @@ public class HomeController
     deadlineColumnEnded.setCellValueFactory(new PropertyValueFactory<>("deadline"));
 
     teamAccordion.getPanes().get(0).setVisible(false);
-
-    for (int i = 0; i < teamAccordion.getPanes().size(); i++)
-    {
-      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
-      {
-        teamAccordion.getPanes().add(getTitlePanes().get(i));
-      }
-    }
-
 
     /*TableView projects = new TableView(tmProjects);
     TableColumn<Project,String> title=new TableColumn<>("Title");
@@ -133,33 +127,18 @@ public class HomeController
     tableViewActive.refresh();
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
-
     for (int i = 0; i < (model.getTeam().size()-teamAccordion.getPanes().size()); i++)
     {
-      addTitlePane(new TeamMember(model.getTeam().get(i).getName(),model.getTeam().get(i).getTeamMemberId()));
+      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
+      {
+        teamAccordion.getPanes().add(getTitlePanes().get(i));
+      }
     }
   }
 
   @FXML private void createButtonPressed() {
     viewHandler.openView("addProject");
   }
-  //TitledPane tp=new TitledPane();
-  //    GridPane grid =new GridPane();
-  //    Insets five= new Insets(5,5,5,5);
-  //    grid.setPadding(five);
-  //    grid.setHgap(100);
-
-  //Label Name = new Label("Name:");
-  //    Name.setPadding(five);
-  //    Label name = new Label(teamMember.getName());
-  //    name.setPadding(five);
-  //    grid.add(new Label("Name:"),0,0);
-  //    grid.add(new Label(teamMember.getName()),1,0);
-  //    grid.add(new Label("ID:"),0,1);
-  //    grid.add(new Label(teamMember.getTeamMemberId()),1,1);
-  //    grid.add(removeButton,3,1);
-  //    tp.setText(teamMember.getTeamMemberId());
-  //    tp.setContent(grid);
 
   //  if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
   //  {
@@ -181,31 +160,22 @@ public class HomeController
   //  }
   public void addTitlePane(TeamMember teamMember)
   {
-    TitledPane tp=new TitledPane();
-    tp.setContent(teamAccordion.getPanes().get(0).getContent());
-
-    removeTeamMember.setOnAction(new EventHandler<ActionEvent>()
-    {
-      @Override
-      public void handle(ActionEvent actionEvent)
-      {
-        removeTeamMemberPressed();
-      }
-    });
-    tp.setText(teamMember.getTeamMemberId());
+    TitledPane tp= new TitledPane(teamMember.getTeamMemberId(), teamAccordion.getPanes().get(0).getContent());
     teamMemberId.setText(teamMember.getTeamMemberId());
     teamMemberName.setText(teamMember.getName());
-
     teamAccordion.getPanes().add(tp);
+    viewHandler.setState(state);
   }
 
   @FXML private void addTeamMemberPressed()
   {
     viewHandler.openView("addTeamMember");
+    model.createRoster();
   }
 
   @FXML private void removeTeamMemberPressed()
   {
+    viewHandler.setState(state);
     Alert removeTeamMember= new Alert(Alert.AlertType.CONFIRMATION);
     removeTeamMember.setContentText("Are you sure you want to remove this team member?");
 
@@ -213,8 +183,15 @@ public class HomeController
     ButtonType button =result.orElse(ButtonType.CANCEL);
     if (button==ButtonType.OK)
     {
-      Team.fire(state.getSelectedTeamMember());
-      model.removeTeamMember(state.getSelectedTeamMember());
+      for (int i = 0; i < teamAccordion.getPanes().size(); i++)
+      {
+        if (teamAccordion.getPanes().get(i).isExpanded())
+        {
+          Team.fire(teamAccordion.getPanes().get(i).getText());
+          teamAccordion.getPanes().remove(i);
+          break;
+        }
+      }
     }
  }
 

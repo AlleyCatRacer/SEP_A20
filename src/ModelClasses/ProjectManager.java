@@ -132,10 +132,15 @@ public class ProjectManager implements ProjectModel
     }
 
     @Override
-    public void addTeamMember(TeamMember teamMember)
+    public void createRoster()
     {
         Team roster=new Team();
-        Team.addTeamMember(teamMember);
+    }
+
+    @Override
+    public void removeTeamMember(String teamMemberId)
+    {
+        Team.fire(teamMemberId);
     }
 
     /**
@@ -223,12 +228,6 @@ public class ProjectManager implements ProjectModel
     public void removeTask(Task task)
     {
 
-    }
-
-    @Override
-    public void removeTeamMember(String teamMemberId)
-    {
-        Team.fire(teamMemberId);
     }
 
     @Override

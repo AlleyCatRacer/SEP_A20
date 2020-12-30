@@ -18,7 +18,7 @@ public interface ProjectModel
 
     void addTask(String taskId, String description, double estimate);
 
-    void addTeamMember(TeamMember teamMember);
+    void createRoster();
 
     ArrayList<TeamMember> getTeam();
 

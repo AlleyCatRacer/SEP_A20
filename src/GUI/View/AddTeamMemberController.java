@@ -1,6 +1,7 @@
 package GUI.View;
 
 import ModelClasses.ProjectModel;
+import ModelClasses.Team;
 import ModelClasses.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -45,7 +46,7 @@ public class AddTeamMemberController
     @FXML
     private void saveButtonClicked()
     {
-        model.addTeamMember(new TeamMember(nameField.getText(), idField.getText()));
+        Team.hire(nameField.getText(), idField.getText());
         homeController.addTitlePane(new TeamMember(nameField.getText(), idField.getText()));
         viewHandler.openView("homeView");
     }
