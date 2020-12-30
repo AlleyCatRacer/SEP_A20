@@ -259,7 +259,7 @@ public class ViewHandler
                 loader.setLocation(getClass().getResource(fxmlFile));
                 Region root = loader.load();
                 addTeamMemberController = loader.getController();
-                addTeamMemberController.init(this, model, root);
+                addTeamMemberController.init(this, model, root, homeController);
             } catch (Exception e)
             {
                 e.printStackTrace();

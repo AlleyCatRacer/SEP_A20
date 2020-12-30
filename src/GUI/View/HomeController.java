@@ -15,10 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 
-import java.net.URL;
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Optional;
-import java.util.ResourceBundle;
+
 
 
 public class HomeController
@@ -37,6 +36,16 @@ public class HomeController
   @FXML private TextField searchProjectTitle;
 
   @FXML private Accordion teamAccordion;
+  @FXML private TableView<Project> teamMemberProjects;
+  @FXML private TableColumn<Project,String> tMPId;
+  @FXML private TableColumn<Project,String> tMPTitle;
+  @FXML private TableColumn<Project,MyDate> tMPDeadline;
+  @FXML private TitledPane titlePane;
+  @FXML private Label teamMemberId;
+  @FXML private Label teamMemberName;
+  @FXML private ListView tMReqResponsible;
+  @FXML private ListView tMTaskResponsible;
+  @FXML private Button removeTeamMember;
 
   private Region root;
   private ProjectModel model;
@@ -66,7 +75,32 @@ public class HomeController
     idColumnEnded.setCellValueFactory(new PropertyValueFactory<>("projectId"));
     titleColumnEnded.setCellValueFactory(new PropertyValueFactory<>("title"));
     deadlineColumnEnded.setCellValueFactory(new PropertyValueFactory<>("deadline"));
+
+    teamAccordion.getPanes().get(0).setVisible(false);
+
+    for (int i = 0; i < teamAccordion.getPanes().size(); i++)
+    {
+      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
+      {
+        teamAccordion.getPanes().add(getTitlePanes().get(i));
+      }
+    }
+
+
+    /*TableView projects = new TableView(tmProjects);
+    TableColumn<Project,String> title=new TableColumn<>("Title");
+    TableColumn<Project,String> id=new TableColumn<>("ID");
+    TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
+    title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
+    id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
+    deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
+    tp.setContent(projects);
+    tMPId.setCellValueFactory(new PropertyValueFactory<>("projectId"));
+    tMPTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+    tMPDeadline.setCellValueFactory(new PropertyValueFactory<>("deadline"));*/
   }
+
+
 
   private ObservableList<Project> getActiveProjects() {
     ObservableList<Project> activeProjects = FXCollections.observableArrayList();
@@ -76,6 +110,7 @@ public class HomeController
     }
     return activeProjects;
   }
+
   private ObservableList<Project> getEndedProjects() {
     ObservableList<Project> endedProjects = FXCollections.observableArrayList();
     for(int i = 0; i < model.getProjectList().getAllProjects().size(); i++) {
@@ -85,6 +120,13 @@ public class HomeController
     return endedProjects;
   }
 
+  private ObservableList<TitledPane> getTitlePanes()
+  {
+    ObservableList<TitledPane> titlePanes = FXCollections.observableArrayList();
+    titlePanes.addAll(teamAccordion.getPanes());
+    return titlePanes;
+  }
+
   public void reset()
   {
     tableViewActive.setItems(getActiveProjects());
@@ -92,40 +134,57 @@ public class HomeController
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
 
-    for (int i = 0; i < model.getTeam().size(); i++)
+    for (int i = 0; i < (model.getTeam().size()-teamAccordion.getPanes().size()); i++)
     {
-      addTeamMember(Team.getRoster().get(i));
+      addTitlePane(new TeamMember(model.getTeam().get(i).getName(),model.getTeam().get(i).getTeamMemberId()));
     }
-
-    //if (!(model.getTeam().isEmpty()))
-    //    {
-    //      for (TeamMember teamMember : model.getTeam())
-    //      {
-    //        for (int i = 0; i < model.getTeam().size(); i++)
-    //        {
-    //          if (teamMember.getTeamMemberId().equals(model.getTeam().get(i)))
-    //          {
-    //            addTeamMember(teamMember);
-    //          }
-    //        }
-    //      }
-    //    }
   }
 
   @FXML private void createButtonPressed() {
     viewHandler.openView("addProject");
   }
+  //TitledPane tp=new TitledPane();
+  //    GridPane grid =new GridPane();
+  //    Insets five= new Insets(5,5,5,5);
+  //    grid.setPadding(five);
+  //    grid.setHgap(100);
 
-  public void addTeamMember(TeamMember teamMember)
+  //Label Name = new Label("Name:");
+  //    Name.setPadding(five);
+  //    Label name = new Label(teamMember.getName());
+  //    name.setPadding(five);
+  //    grid.add(new Label("Name:"),0,0);
+  //    grid.add(new Label(teamMember.getName()),1,0);
+  //    grid.add(new Label("ID:"),0,1);
+  //    grid.add(new Label(teamMember.getTeamMemberId()),1,1);
+  //    grid.add(removeButton,3,1);
+  //    tp.setText(teamMember.getTeamMemberId());
+  //    tp.setContent(grid);
+
+  //  if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
+  //  {
+  //    for (int i = 0; i < model.getProjectList().getAllProjects().size(); i++)
+  //    {
+  //      if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(teamMember))
+  //      {
+  //        ObservableList<Project> tmProjects=FXCollections.observableArrayList();
+  //        TableView projects = new TableView(tmProjects);
+  //        TableColumn<Project,String> title=new TableColumn<>("Title");
+  //        TableColumn<Project,String> id=new TableColumn<>("ID");
+  //        TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
+  //        title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
+  //        id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
+  //        deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
+  //        tp.setContent(projects);
+  //      }
+  //    }
+  //  }
+  public void addTitlePane(TeamMember teamMember)
   {
     TitledPane tp=new TitledPane();
-    GridPane grid =new GridPane();
-    Insets five= new Insets(5,5,5,5);
-    grid.setPadding(five);
-    grid.setHgap(100);
-    Button removeButton=new Button();
-    removeButton.setText("Remove");
-    removeButton.setOnAction(new EventHandler<ActionEvent>()
+    tp.setContent(teamAccordion.getPanes().get(0).getContent());
+
+    removeTeamMember.setOnAction(new EventHandler<ActionEvent>()
     {
       @Override
       public void handle(ActionEvent actionEvent)
@@ -133,36 +192,9 @@ public class HomeController
         removeTeamMemberPressed();
       }
     });
-    Label Name = new Label("Name:");
-    Name.setPadding(five);
-    Label name = new Label(teamMember.getName());
-    name.setPadding(five);
-    grid.add(new Label("Name:"),0,0);
-    grid.add(new Label(teamMember.getName()),1,0);
-    grid.add(new Label("ID:"),0,1);
-    grid.add(new Label(teamMember.getTeamMemberId()),1,1);
-    grid.add(removeButton,3,1);
     tp.setText(teamMember.getTeamMemberId());
-    tp.setContent(grid);
-
-    if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
-    {
-      for (int i = 0; i < model.getProjectList().getAllProjects().size(); i++)
-      {
-        if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(teamMember))
-        {
-          ObservableList<Project> tmProjects=FXCollections.observableArrayList();
-          TableView projects = new TableView(tmProjects);
-          TableColumn<Project,String> title=new TableColumn<>("Title");
-          TableColumn<Project,String> id=new TableColumn<>("ID");
-          TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
-          title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
-          id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
-          deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
-          tp.setContent(projects);
-        }
-      }
-    }
+    teamMemberId.setText(teamMember.getTeamMemberId());
+    teamMemberName.setText(teamMember.getName());
 
     teamAccordion.getPanes().add(tp);
   }
