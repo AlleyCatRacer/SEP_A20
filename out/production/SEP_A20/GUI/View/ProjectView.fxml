@@ -276,7 +276,7 @@
                                     </Label>
                                     <Accordion fx:id="projectReqAccordion" VBox.vgrow="NEVER">
                                       <panes>
-                                          <TitledPane fx:id="requirementId1" expanded="false" text="requirementId">
+                                          <TitledPane fx:id="requirementId" expanded="false" text="requirementId">
                                              <content>
                                                 <HBox alignment="CENTER_LEFT">
                                                    <children>
@@ -292,7 +292,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="reqType1" alignment="CENTER" contentDisplay="CENTER" text="Functional">
+                                                                  <Label fx:id="reqType" alignment="CENTER" contentDisplay="CENTER" text="Functional">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -315,7 +315,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="reqStatus1" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
+                                                                  <Label fx:id="reqStatus" alignment="CENTER" contentDisplay="CENTER" text="Waiting">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -341,7 +341,7 @@
                                                                         <Font name="System Bold" size="14.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Label fx:id="reqPriority1" alignment="CENTER" contentDisplay="CENTER" text="Undefined">
+                                                                  <Label fx:id="reqPriority" alignment="CENTER" contentDisplay="CENTER" text="Undefined">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>
@@ -364,7 +364,7 @@
                                                                         <Insets />
                                                                      </HBox.margin>
                                                                   </Label>
-                                                                  <Label fx:id="reqDeadline1" alignment="CENTER" contentDisplay="CENTER" text="MyDate">
+                                                                  <Label fx:id="reqDeadline" alignment="CENTER" contentDisplay="CENTER" text="MyDate">
                                                                      <HBox.margin>
                                                                         <Insets />
                                                                      </HBox.margin>

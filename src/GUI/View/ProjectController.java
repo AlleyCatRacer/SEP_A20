@@ -29,11 +29,11 @@ public class ProjectController
     @FXML Label projectTimeSpent;
 
     @FXML Accordion projectReqAccordion;
-    @FXML TitledPane requirementId1;
-    @FXML Label reqType1;
-    @FXML Label reqStatus1;
-    @FXML Label reqPriority1;
-    @FXML Label reqDeadline1;
+    @FXML TitledPane requirementId;
+    @FXML Label reqType;
+    @FXML Label reqStatus;
+    @FXML Label reqPriority;
+    @FXML Label reqDeadline;
 
     private Region root;
     private ViewHandler viewHandler;
@@ -65,13 +65,17 @@ public class ProjectController
 
 
         if(temp.getRequirements().size() != 0) {
-            ArrayList<TitledPane> panes = new ArrayList<>();
             for(int i = 0; i < temp.getRequirements().size(); i++) {
-                TitledPane t1 = new TitledPane(temp.getRequirements().get(i).getRequirementId(), requirementId1.getContent());
-                panes.add(t1);
+                requirementId = new TitledPane();
+                requirementId.setText(temp.getRequirements().get(i).getRequirementId());
+                reqType.setText(temp.getRequirements().get(i).getType());
+
+
+                projectReqAccordion.getPanes().add(requirementId);
             }
-            ObservableList<TitledPane> obs = FXCollections.observableArrayList(panes);
-            projectReqAccordion.getPanes().addAll(obs);
+            System.out.println(projectReqAccordion.getPanes().size());
+            System.out.println(projectReqAccordion.getPanes());
+
         }
 
 
