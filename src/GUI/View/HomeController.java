@@ -127,13 +127,14 @@ public class HomeController
     tableViewActive.refresh();
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
-    for (int i = 0; i < (model.getTeam().size()-teamAccordion.getPanes().size()); i++)
-    {
-      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
-      {
-        teamAccordion.getPanes().add(getTitlePanes().get(i));
-      }
-    }
+    //This throws NullPointer. Not sure why :/
+//    for (int i = 0; i < (model.getTeam().size()-teamAccordion.getPanes().size()); i++)
+//    {
+//      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
+//      {
+//        teamAccordion.getPanes().add(getTitlePanes().get(i));
+//      }
+//    }
   }
 
   @FXML private void createButtonPressed() {

@@ -64,11 +64,11 @@ public class ProjectController
         projectDeadline.setText(temp.getDeadline().toString());
 
 
-        TitledPane test = new TitledPane();
-        test.setText("Aloha");
-        test.setContent(requirementId.getContent());
-        reqType.setText("Project Related");
-        projectReqAccordion.getPanes().add(test);
+//        TitledPane test = new TitledPane();
+//        test.setText("Aloha");
+//        test.setContent(requirementId.getContent());
+//        reqType.setText("Project Related");
+//        projectReqAccordion.getPanes().add(test);
 
         System.out.println(projectReqAccordion.getPanes().size());
 
@@ -76,13 +76,12 @@ public class ProjectController
         if(temp.getRequirements().size() != projectReqAccordion.getPanes().size()-1) {
             int i = temp.getRequirements().size()-1;
             TitledPane test = new TitledPane(temp.getRequirements().get(i).getRequirementId(), new Label("Type: " + temp.getRequirements().get(i).getType(), new Label("Status: " + temp.getRequirements().get(i).getStatus().toString(), new Button("Details"))));
-            //                test.getChildrenUnmodifiable().get(2);
+
             ObservableList<TitledPane> panes = FXCollections.observableArrayList();
             panes.add(test);
             for(int k = 0; k < panes.size(); k++) {
                 projectReqAccordion.getPanes().add(panes.get(k));
             }
-            //                projectReqAccordion.getPanes().add(test);
 
             System.out.println(temp.getRequirements().size());
             System.out.println(projectReqAccordion.getPanes().size());
