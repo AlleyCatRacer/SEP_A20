@@ -24,7 +24,8 @@ public class ProjectFile implements ProjectPersistence {
     @Override
     public ProjectList loadAllProjects() {
         ProjectList projectList = new ProjectList();
-        String path = ".\\Projects\\Started";
+        String path = "..\\Projects\\Started";
+
         File[] directories = new File(path).listFiles(File::isDirectory);
         for (int i = 0; i < directories.length; i++) {
             try {
