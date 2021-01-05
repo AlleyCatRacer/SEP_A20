@@ -650,7 +650,7 @@ public class Project
      */
     public boolean isValidTitle(String title)
     {
-        if (!title.matches("[a-zA-Z0-9]*"))
+        if (!title.matches("[a-zA-Z0-9_ ]*"))
         {
             throw new IllegalArgumentException("The title can contain only letters of English alphabet and numbers from 0 to 9. Please try again.");
         }
