@@ -7,7 +7,6 @@ public class ViewState {
   private String selectedProject;
   private String selectedRequirement;
   private String selectedTask;
-  private TitledPane selectedTeamMember;
 
   public ViewState()
   {

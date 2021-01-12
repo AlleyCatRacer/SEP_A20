@@ -127,7 +127,7 @@ public class HomeController
     tableViewActive.refresh();
     tableViewEnded.setItems(getEndedProjects());
     tableViewEnded.refresh();
-    //This throws NullPointer. Not sure why :/
+
 //    for (int i = 0; i < (model.getTeam().size()-teamAccordion.getPanes().size()); i++)
 //    {
 //      if (!(teamAccordion.getPanes().get(i).getText().equals(getTitlePanes().get(i).getText())))
@@ -137,28 +137,30 @@ public class HomeController
 //    }
   }
 
-  @FXML private void createButtonPressed() {
+  @FXML private void createButtonPressed()
+  {
     viewHandler.openView("addProject");
   }
 
-  //  if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
-  //  {
-  //    for (int i = 0; i < model.getProjectList().getAllProjects().size(); i++)
-  //    {
-  //      if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(teamMember))
-  //      {
-  //        ObservableList<Project> tmProjects=FXCollections.observableArrayList();
-  //        TableView projects = new TableView(tmProjects);
-  //        TableColumn<Project,String> title=new TableColumn<>("Title");
-  //        TableColumn<Project,String> id=new TableColumn<>("ID");
-  //        TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
-  //        title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
-  //        id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
-  //        deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
-  //        tp.setContent(projects);
-  //      }
-  //    }
-  //  }
+//    if (!(Team.isIdAvailable(teamMember.getTeamMemberId())))
+//    {
+//      for (int i = 0; i < model.getProjectList().getAllProjects().size(); i++)
+//      {
+//        if (model.getProjectList().getAllProjects().get(i).getMembersOfTheProject().equals(teamMember))
+//        {
+//          ObservableList<Project> tmProjects=FXCollections.observableArrayList();
+//          TableView projects = new TableView(tmProjects);
+//          TableColumn<Project,String> title=new TableColumn<>("Title");
+//          TableColumn<Project,String> id=new TableColumn<>("ID");
+//          TableColumn<Project,String> deadline=new TableColumn<>("Deadline");
+//          title.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getTitle()));
+//          id.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getProjectId()));
+//          deadline.setCellValueFactory(new PropertyValueFactory<>(model.getProjectList().getAllProjects().get(i).getDeadline().toString()));
+//          tp.setContent(projects);
+//        }
+//      }
+//    }
+
   public void addTitlePane(TeamMember teamMember)
   {
     TitledPane tp= new TitledPane(teamMember.getTeamMemberId(), teamAccordion.getPanes().get(0).getContent());
@@ -175,13 +177,12 @@ public class HomeController
 
   @FXML private void removeTeamMemberPressed()
   {
-    viewHandler.setState(state);
     Alert removeTeamMember= new Alert(Alert.AlertType.CONFIRMATION);
     removeTeamMember.setContentText("Are you sure you want to remove this team member?");
 
     Optional<ButtonType> result=removeTeamMember.showAndWait();
-    ButtonType button =result.orElse(ButtonType.CANCEL);
-    if (button==ButtonType.OK)
+    ButtonType button = result.orElse(ButtonType.CANCEL);
+    if (button == ButtonType.OK)
     {
       for (int i = 0; i < teamAccordion.getPanes().size(); i++)
       {
