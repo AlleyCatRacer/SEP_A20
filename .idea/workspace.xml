@@ -22,7 +22,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3b79009c-805e-4b11-b0a5-b9cf851d33ac" name="Default Changelist" comment="ProjectView" />
+    <list default="true" id="3b79009c-805e-4b11-b0a5-b9cf851d33ac" name="Default Changelist" comment="ProjectView">
+      <change afterPath="$PROJECT_DIR$/Delimited/Delimited.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/MyApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/AddProjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/AddRequirementController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/AddTaskController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/AddTeamMemberController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/EditProjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/EditRequirementView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/EditRequirementView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/EditTaskView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/EditTaskView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/ProjectController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/ProjectView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/ProjectView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/RequirementController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/TaskController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/ViewHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/GUI/View/ViewState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/MyDate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Project.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/ProjectList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/ProjectManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/ProjectModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Requirement/NonFunctional.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Requirement/Priority.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Requirement/ProjectRelated.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Requirement/Requirement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Requirement/UserStory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/Team.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/TeamMember.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ModelClasses/TestMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ProjectFile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP_A20/ProjectPersistence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,10 +96,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.15552098" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
@@ -107,6 +148,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -122,8 +176,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607508076183</updated>
+      <workItem from="1618389455790" duration="26000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -141,132 +199,5 @@
     <MESSAGE value="made for intelij" />
     <MESSAGE value="ProjectView" />
     <option name="LAST_COMMIT_MESSAGE" value="ProjectView" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="520" y="238" key="#Notifications" timestamp="1607971017909">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="520" y="238" key="#Notifications/0.0.1536.824@0.0.1536.824" timestamp="1607971017909" />
-    <state x="520" y="241" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1607510722200" />
-    <state x="249" y="0" key="#Project_Structure" timestamp="1607944494563">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1607944494563" />
-    <state x="311" y="0" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1607704667113" />
-    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607525296336">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="223" y="72" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1607525296336" />
-    <state x="514" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607678052468">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="514" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1607678052468" />
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1609338709435">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1609338709435" />
-    <state x="718" y="150" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1607794688952" />
-    <state x="670" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1607681717305">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="670" y="444" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607681717305" />
-    <state x="689" y="383" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607777064149">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="551" y="307" width="433" height="217" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1607688290627" />
-    <state x="689" y="383" width="433" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1607777064149" />
-    <state x="585" y="138" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608161896599">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="138" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608161896599" />
-    <state x="384" y="170" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1608246298997">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="384" y="170" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1608246298997" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1609203673137">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609203673137" />
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1607513540505" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1610024755319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1610024755319" />
-    <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609779306095" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1610024755319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1610024755319" />
-    <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609779306095" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1610024755319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1610024755319" />
-    <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609779306095" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1610024755319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1610024755319" />
-    <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609779306095" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1609345475361">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609345475361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607961587337" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1609345475361">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609345475361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607961587337" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1609345475361">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609345475361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607961587337" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1609345475361">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609345475361" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607961587337" />
-    <state x="349" y="155" key="IDE.errors.dialog" timestamp="1607520336588">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="349" y="155" key="IDE.errors.dialog/0.0.1536.824@0.0.1536.824" timestamp="1607520336588" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1609875711069">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609875711069" />
-    <state x="311" y="0" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607704716702" />
-    <state x="372" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607976403511">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="372" y="23" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.824@0.0.1536.824" timestamp="1607976403511" />
-    <state x="586" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609276054691">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="327" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1609276054691" />
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1607508357896" />
-    <state x="770" y="0" width="787" height="840" key="dock-window-1" timestamp="1607525855835">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="770" y="0" width="787" height="840" key="dock-window-1/0.0.1536.834@0.0.1536.834" timestamp="1607525855835" />
-    <state x="396" y="33" key="new project wizard" timestamp="1607521595259">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="396" y="33" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1607521595259" />
-    <state x="660" y="277" key="refactoring.ChangeSignatureDialog" timestamp="1607969089944">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="660" y="277" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607969089944" />
-    <state x="493" y="190" key="run.anything.popup" timestamp="1609338065513">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="493" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1609338065513" />
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607975013508" />
-    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1609248182710">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1609248182710" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607798773837" />
   </component>
 </project>
